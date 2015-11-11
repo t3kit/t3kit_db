@@ -53,5 +53,5 @@ do
 done
 echo "Output in ${OUT_FILE}"
 
-echo "Merge be_users with only admin user pwd admin1234"
-cat be_users_onlyadmin.sql >> "${OUT_FILE}"
+echo "Merge be_users.sql dump, must include admin user with password admin1234"
+cat be_users.sql >> "${OUT_FILE}"
