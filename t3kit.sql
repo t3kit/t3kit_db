@@ -84,7 +84,6 @@ CREATE TABLE `be_groups` (
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `groupMods` text COLLATE utf8_swedish_ci,
   `file_mountpoints` text COLLATE utf8_swedish_ci,
-  `file_permissions` text COLLATE utf8_swedish_ci,
   `hidden` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `description` varchar(2000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
   `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
@@ -93,10 +92,11 @@ CREATE TABLE `be_groups` (
   `subgroup` text COLLATE utf8_swedish_ci,
   `hide_in_lists` tinyint(4) NOT NULL DEFAULT '0',
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
+  `file_permissions` text COLLATE utf8_swedish_ci,
   `category_perms` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,6 +105,7 @@ CREATE TABLE `be_groups` (
 
 LOCK TABLES `be_groups` WRITE;
 /*!40000 ALTER TABLE `be_groups` DISABLE KEYS */;
+INSERT INTO `be_groups` VALUES (1,0,1409778565,'Editor','sys_file_metadata:caption,sys_file_metadata:keywords,sys_file_metadata:title,sys_file_reference:alternative,sys_file_reference:description,sys_file_reference:link,sys_file_reference:showinpreview,sys_file_reference:title,sys_file_collection:hidden,sys_file_collection:starttime,sys_file_collection:endtime,pages:backend_layout_next_level,pages:backend_layout,pages:module,pages:description,pages:media,pages:storage_pid,pages:nav_hide,pages:hidden,pages:extendToSubpages,pages:keywords,pages:nav_title,pages:tx_tqseo_pagetitle_prefix,pages:shortcut_mode,pages:content_from_pid,pages:starttime,pages:endtime,pages:subtitle,pages:tx_tqseo_pagetitle_suffix,pages:target,pages:tx_tqseo_pagetitle,pages:doktype,tt_content:spaceAfter,tt_content:imagecaption_position,tt_content:header_position,tt_content:altText,tt_content:table_bgColor,tt_content:spaceBefore,tt_content:table_border,tt_content:imageborder,tt_content:table_cellpadding,tt_content:table_cellspacing,tt_content:image_zoom,tt_content:colPos,tt_content:rte_enabled,tt_content:image_effects,tt_content:tx_fed_fcefile,tt_content:section_frame,tt_content:imageheight,tt_content:hidden,tt_content:image_frames,tt_content:layout,tt_content:image_link,tt_content:imageorient,tt_content:recursive,tt_content:starttime,tt_content:endtime,tt_content:subheader,tt_content:titleText,tt_content:linkToTop,tt_content:header_layout,tt_content:imagewidth,tt_content:pi_flexform;login;sDEF;pages','tt_content:CType:header:ALLOW,tt_content:CType:text:ALLOW,tt_content:CType:textpic:ALLOW,tt_content:CType:image:ALLOW,tt_content:CType:bullets:ALLOW,tt_content:CType:table:ALLOW,tt_content:CType:uploads:ALLOW,tt_content:CType:mailform:ALLOW,tt_content:CType:multimedia:ALLOW,tt_content:CType:media:ALLOW,tt_content:CType:menu:ALLOW,tt_content:CType:shortcut:ALLOW,tt_content:CType:list:ALLOW,tt_content:CType:div:ALLOW,tt_content:CType:html:ALLOW,tt_content:CType:fluidcontent_content:ALLOW,tt_content:list_type:cbgooglemaps_quickgooglemap:ALLOW,tt_content:list_type:pagebrowse_pi1:ALLOW','',NULL,'1','1,4,3,254','pages,sys_collection,sys_file,sys_file_collection,sys_file_metadata,sys_file_reference,sys_file_storage,backend_layout,tt_content','pages,sys_collection,sys_file,sys_file_collection,sys_file_metadata,sys_file_reference,sys_file_storage,tt_content',1360050264,2,'web,web_layout,web_ViewpageView,web_list,web_info,file,file_list,user,user_task,user_setup,user_PxaDashboardControlpanel','2',0,'','',0,'<INCLUDE_TYPOSCRIPT: source=\"FILE:EXT:pxa_foundation/Configuration/TypoScript/editorTsConfig.ts\">','4,3,7',0,0,'readFolder,writeFolder,addFolder,renameFolder,moveFolder,deleteFolder,readFile,writeFile,addFile,renameFile,moveFile,deleteFile',''),(3,0,1386850929,'Nyheter','tx_news_domain_model_news:author_email,tx_news_domain_model_news:author,tx_news_domain_model_news:categories,tx_news_domain_model_news:endtime,tx_news_domain_model_news:media,tx_news_domain_model_news:keywords,tx_news_domain_model_news:starttime,tx_news_domain_model_news:related_files,tx_news_domain_model_news:related_links,tx_news_domain_model_news:related,tx_news_domain_model_news:tags,tx_news_domain_model_news:teaser,tx_news_domain_model_news:istopnews,tx_news_domain_model_news:hidden,tx_news_domain_model_category:starttime,tx_news_domain_model_category:description,tx_news_domain_model_category:image,tx_news_domain_model_category:shortcut,tx_news_domain_model_category:single_pid,tx_news_domain_model_category:endtime,tx_news_domain_model_category:hidden,tx_news_domain_model_file:description,tx_news_domain_model_file:hidden,tx_news_domain_model_link:description,tx_news_domain_model_link:hidden,tx_news_domain_model_media:alt,tx_news_domain_model_media:caption,tx_news_domain_model_media:copyright,tx_news_domain_model_media:height,tx_news_domain_model_media:type,tx_news_domain_model_media:showinpreview,tx_news_domain_model_media:title,tx_news_domain_model_media:hidden,tx_news_domain_model_media:width','tt_content:list_type:news_pi1:ALLOW','',NULL,'','','tx_news_domain_model_news,tx_news_domain_model_category,tx_news_domain_model_media,tx_news_domain_model_file,tx_news_domain_model_link,tx_news_domain_model_tag','tx_news_domain_model_news,tx_news_domain_model_category,tx_news_domain_model_media,tx_news_domain_model_file,tx_news_domain_model_link,tx_news_domain_model_tag',1360585800,4,'web_NewsTxNewsM2','',0,'','',0,'','',0,0,NULL,''),(4,0,1360586901,'Bildspel','tx_flexslider_domain_model_flexslider:hidden,tx_flexslider_domain_model_flexslider:starttime,tx_flexslider_domain_model_flexslider:endtime','tt_content:list_type:flexslider_pi1:ALLOW','',NULL,'','','tx_flexslider_domain_model_flexslider','tx_flexslider_domain_model_flexslider',1360586813,4,NULL,'',0,'','',0,'','',0,0,NULL,''),(5,0,1360587327,'Intranät/Extranät','tx_news_domain_model_category:fe_group,tx_news_domain_model_file:fe_group,tx_news_domain_model_news:fe_group,tt_content:fe_group,pages:fe_group,fe_users:felogin_forgotHash,fe_users:address,fe_users:city,fe_users:company,fe_users:country,fe_users:disable,fe_users:email,fe_users:fax,fe_users:first_name,fe_users:image,fe_users:lastlogin,fe_users:last_name,fe_users:lockToDomain,fe_users:middle_name,fe_users:name,fe_users:telephone,fe_users:tx_extbase_type,fe_users:felogin_redirectPid,fe_users:starttime,fe_users:endtime,fe_users:title,fe_users:www,fe_users:zip,fe_groups:hidden,fe_groups:lockToDomain,fe_groups:tx_extbase_type,fe_groups:felogin_redirectPid,fe_groups:subgroup','tt_content:CType:login:ALLOW','',NULL,'','','fe_users,fe_groups','fe_users,fe_groups',1360587020,4,NULL,'',0,'','',0,'','',0,0,NULL,''),(6,0,1360587612,'Språkstöd','pages_language_overlay:abstract,pages_language_overlay:description,pages_language_overlay:media,pages_language_overlay:hidden,pages_language_overlay:keywords,pages_language_overlay:nav_title,pages_language_overlay:shortcut_mode,pages_language_overlay:tx_realurl_pathsegment,pages_language_overlay:starttime,pages_language_overlay:endtime,pages_language_overlay:subtitle,pages_language_overlay:doktype,pages_language_overlay:urltype,pages_language_overlay:url,sys_category:sys_language_uid,sys_category:l10n_parent,sys_file_collection:sys_language_uid,sys_file_collection:l10n_parent,tx_flexslider_domain_model_flexslider:sys_language_uid,tx_flexslider_domain_model_flexslider:l10n_parent,tx_news_domain_model_category:sys_language_uid,tx_news_domain_model_category:l10n_parent,tx_news_domain_model_file:sys_language_uid,tx_news_domain_model_file:l10n_parent,tx_news_domain_model_link:sys_language_uid,tx_news_domain_model_link:l10n_parent,tx_news_domain_model_media:sys_language_uid,tx_news_domain_model_media:l10n_parent,tx_news_domain_model_news:sys_language_uid,tx_news_domain_model_news:l10n_parent,tt_content:sys_language_uid,tt_content:l18n_parent,pages:l18n_cfg',NULL,'',NULL,'','','pages_language_overlay','pages_language_overlay',1360587359,4,NULL,'',0,'','',0,'','',0,0,NULL,''),(7,0,1389951068,'SEO','pages_language_overlay:tx_tqseo_pagetitle_rel,pages_language_overlay:tx_tqseo_canonicalurl,pages_language_overlay:keywords,pages_language_overlay:tx_tqseo_pagetitle_prefix,pages_language_overlay:tx_tqseo_pagetitle_suffix,pages_language_overlay:tx_tqseo_pagetitle,pages:abstract,pages:alias,pages:author,pages:tx_tqseo_pagetitle_rel,pages:tx_tqseo_canonicalurl,pages:author_email,pages:tx_realurl_exclude,pages:tx_tqseo_is_exclude,pages:tx_tqseo_inheritance,pages:keywords,pages:lastUpdated,pages:tx_realurl_pathoverride,pages:tx_tqseo_change_frequency,pages:tx_tqseo_pagetitle_prefix,pages:tx_tqseo_priority,pages:tx_realurl_pathsegment,pages:tx_tqseo_pagetitle_suffix,pages:tx_tqseo_pagetitle',NULL,'',NULL,'','','pages','pages',1380630957,2,'web_TqSeoPageseo','',0,'','',0,'','',0,0,NULL,''),(8,0,1386850911,'Blogginlägg','tx_news_domain_model_news:author_email,tx_news_domain_model_news:author,tx_news_domain_model_news:categories,tx_news_domain_model_news:endtime,tx_news_domain_model_news:media,tx_news_domain_model_news:keywords,tx_news_domain_model_news:starttime,tx_news_domain_model_news:related_files,tx_news_domain_model_news:related_links,tx_news_domain_model_news:related,tx_news_domain_model_news:tags,tx_news_domain_model_news:teaser,tx_news_domain_model_news:istopnews,tx_news_domain_model_news:hidden,tx_news_domain_model_category:starttime,tx_news_domain_model_category:description,tx_news_domain_model_category:image,tx_news_domain_model_category:shortcut,tx_news_domain_model_category:single_pid,tx_news_domain_model_category:endtime,tx_news_domain_model_category:hidden,tx_news_domain_model_file:description,tx_news_domain_model_file:hidden,tx_news_domain_model_link:description,tx_news_domain_model_link:hidden,tx_news_domain_model_media:alt,tx_news_domain_model_media:caption,tx_news_domain_model_media:copyright,tx_news_domain_model_media:height,tx_news_domain_model_media:type,tx_news_domain_model_media:showinpreview,tx_news_domain_model_media:title,tx_news_domain_model_media:hidden,tx_news_domain_model_media:width','tt_content:list_type:news_pi1:ALLOW','','','','','tx_news_domain_model_news,tx_news_domain_model_category,tx_news_domain_model_media,tx_news_domain_model_file,tx_news_domain_model_link,tx_news_domain_model_tag','tx_news_domain_model_news,tx_news_domain_model_category,tx_news_domain_model_media,tx_news_domain_model_file,tx_news_domain_model_link,tx_news_domain_model_tag',1386842510,2,'web_NewsTxNewsM2','',0,'','',0,'','',0,0,NULL,''),(9,0,1386850143,'Kommentarer','tx_pwcomments_domain_model_comment:parent_comment,tx_pwcomments_domain_model_comment:hidden',NULL,'',NULL,'','','tx_pwcomments_domain_model_comment','tx_pwcomments_domain_model_comment',1386850067,2,NULL,'',0,'','',0,'','',0,0,NULL,''),(11,0,1389956922,'Workspace',NULL,NULL,'',NULL,'','',NULL,NULL,1389954717,9,'web_WorkspacesWorkspaces','',0,'','',0,'','',0,0,NULL,'');
 /*!40000 ALTER TABLE `be_groups` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -261,7 +262,7 @@ CREATE TABLE `cf_cache_hash` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -287,7 +288,7 @@ CREATE TABLE `cf_cache_hash_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -521,7 +522,7 @@ CREATE TABLE `cf_cache_rootline` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -547,7 +548,7 @@ CREATE TABLE `cf_cache_rootline_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -573,7 +574,7 @@ CREATE TABLE `cf_extbase_datamapfactory_datamap` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -625,7 +626,7 @@ CREATE TABLE `cf_extbase_object` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=247 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -677,7 +678,7 @@ CREATE TABLE `cf_extbase_reflection` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -729,7 +730,7 @@ CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -738,6 +739,7 @@ CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
 
 LOCK TABLES `cf_extbase_typo3dbbackend_queries` WRITE;
 /*!40000 ALTER TABLE `cf_extbase_typo3dbbackend_queries` DISABLE KEYS */;
+INSERT INTO `cf_extbase_typo3dbbackend_queries` VALUES (1,'41f717bf97ec0d29aa3bdf408a042d62',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:9:\"be_groups\";s:9:\"be_groups\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:9:\"be_groups\";s:11:\"be_groups.*\";}s:5:\"where\";a:0:{}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:19:\"be_groups.title ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:9:\"be_groups\";s:9:\"be_groups\";}}'),(2,'7d686524d5d2a1c98e67759ee37a108b',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:8:\"be_users\";s:8:\"be_users\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:8:\"be_users\";s:10:\"be_users.*\";}s:5:\"where\";a:1:{i:0;s:27:\"be_users.deleted = :deleted\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:21:\"be_users.username ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:8:\"be_users\";s:8:\"be_users\";}}'),(3,'f68994d58751b94846bde2fa48c6bb6a',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:9:\"be_groups\";s:9:\"be_groups\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:9:\"be_groups\";s:11:\"be_groups.*\";}s:5:\"where\";a:1:{i:0;s:23:\"be_groups.uid IN (:uid)\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:0:{}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:9:\"be_groups\";s:9:\"be_groups\";}}');
 /*!40000 ALTER TABLE `cf_extbase_typo3dbbackend_queries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2136,7 +2138,7 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2145,6 +2147,7 @@ CREATE TABLE `sys_lockedrecords` (
 
 LOCK TABLES `sys_lockedrecords` WRITE;
 /*!40000 ALTER TABLE `sys_lockedrecords` DISABLE KEYS */;
+INSERT INTO `sys_lockedrecords` VALUES (25,1,1458135766,'be_groups',6,0,'admin',0);
 /*!40000 ALTER TABLE `sys_lockedrecords` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2185,7 +2188,7 @@ CREATE TABLE `sys_log` (
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2324,7 +2327,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(16,'core','formProtectionSessionToken:1','s:64:\"10ecc4363067b889a6122f5b6a30518452af8f73543168efb19804159c72dd17\";'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;');
+INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(16,'core','formProtectionSessionToken:1','s:64:\"87a14d3ab351e5f77f7e5b6050b26bb2ce3d6127a0eae2a379904f2802030faa\";'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3477,7 +3480,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_swedish_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3833,7 +3836,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-14 17:53:31
+-- Dump completed on 2016-03-16 13:51:21
 -- MySQL dump 10.13  Distrib 5.5.44, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
