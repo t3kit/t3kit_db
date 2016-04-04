@@ -263,7 +263,7 @@ CREATE TABLE `cf_cache_hash` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `cf_cache_hash_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=346 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +315,7 @@ CREATE TABLE `cf_cache_imagesizes` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +324,6 @@ CREATE TABLE `cf_cache_imagesizes` (
 
 LOCK TABLES `cf_cache_imagesizes` WRITE;
 /*!40000 ALTER TABLE `cf_cache_imagesizes` DISABLE KEYS */;
-INSERT INTO `cf_cache_imagesizes` VALUES (1,'ac53ec6bc3749a87fba5066c5c243c3e5f4d4e98',2145909600,'a:3:{s:4:\"hash\";s:40:\"a337cef0038262dce507cfaefd98e8fd8c110ef9\";s:10:\"imagewidth\";i:2083;s:11:\"imageheight\";i:927;}'),(2,'2e8b5620abdf27199af900da674f1cb7604eb9de',2145909600,'a:3:{s:4:\"hash\";s:40:\"0e43919776fe6550966d825c7c4ddadcd19efa40\";s:10:\"imagewidth\";i:300;s:11:\"imageheight\";i:200;}'),(3,'b4e9e0eb78f7c024719eb2a9bc6ed232d0e28188',2145909600,'a:3:{s:4:\"hash\";s:40:\"a8ca0cd191d975e7bb9e661405939edb9d67db6c\";s:10:\"imagewidth\";i:128;s:11:\"imageheight\";i:128;}'),(4,'54696b104b8c023bcae9c8d9a2cfb4f26fd06750',2145909600,'a:3:{s:4:\"hash\";s:40:\"2fa320f95131f579858845c430a55c919b1d2dab\";s:10:\"imagewidth\";i:100;s:11:\"imageheight\";i:100;}'),(5,'106eec9973a16addfb93689e73ae245bd3769b11',2145909600,'a:3:{s:4:\"hash\";s:40:\"1d9b302d816b6ae4c9136dffa49e1bd180bcbc68\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:400;}'),(6,'7feac95685911b0223f467e4984dd8a02ca0f8d7',2145909600,'a:3:{s:4:\"hash\";s:40:\"b1b13a89bcc779399a0f6897b1dd387de931a339\";s:10:\"imagewidth\";i:320;s:11:\"imageheight\";i:400;}'),(7,'5e0699347b0bf5383c590882ff2ab527bf4c1ec7',2145909600,'a:3:{s:4:\"hash\";s:40:\"b09770f1064faa6972a2d2c970e850841e8d6ed6\";s:10:\"imagewidth\";i:640;s:11:\"imageheight\";i:400;}'),(8,'f33c63025febe9d010f5691d85a9d1fb3193f004',2145909600,'a:3:{s:4:\"hash\";s:40:\"858c82f92608f326f3712988a28dceabe40ff5f3\";s:10:\"imagewidth\";i:768;s:11:\"imageheight\";i:400;}'),(9,'1e650797489e82c76fb30205cefe834166ca7208',2145909600,'a:3:{s:4:\"hash\";s:40:\"ab4c88fc2a77bbd6897fd245fca693dbaa8b0323\";s:10:\"imagewidth\";i:1080;s:11:\"imageheight\";i:400;}'),(10,'dd038a23af851f4569a9d3e3edcf9b214dd7569f',2145909600,'a:3:{s:4:\"hash\";s:40:\"23a4f36c4484239d4b18ce45b007b7b590d7bb01\";s:10:\"imagewidth\";i:1280;s:11:\"imageheight\";i:400;}'),(11,'8f621e5ecdc67f120c7854f71361737aed0b63a5',2145909600,'a:3:{s:4:\"hash\";s:40:\"7b6ee53522c33c00202d11dab0d5134bbe4fd9b9\";s:10:\"imagewidth\";i:1440;s:11:\"imageheight\";i:400;}'),(12,'0e81ca234ab1ca865d596f8d85c96ffb4614a84a',2145909600,'a:3:{s:4:\"hash\";s:40:\"41a49637cf46ba842be74833288ac13d2dcc1b34\";s:10:\"imagewidth\";i:870;s:11:\"imageheight\";i:580;}'),(13,'423561041fff555d2edf7da0af9580c77b7d7faf',2145909600,'a:3:{s:4:\"hash\";s:40:\"0b41474519e04f823d085011e5ec6e0ac89e2715\";s:10:\"imagewidth\";i:295;s:11:\"imageheight\";i:196;}'),(14,'ce4b3b2c37ff7734b66cf2a3a566e6c29dcbeb6d',2145909600,'a:3:{s:4:\"hash\";s:40:\"af641bd836662f6d9a96b08c541bf0252c24dcf0\";s:10:\"imagewidth\";i:145;s:11:\"imageheight\";i:96;}'),(15,'92e8f432ace4a05e14e81c81b1e816f0fcf9eff6',2145909600,'a:3:{s:4:\"hash\";s:40:\"d76bd766e558d946946527ad6afc411af66b18c3\";s:10:\"imagewidth\";i:1200;s:11:\"imageheight\";i:380;}'),(16,'0e82899e3fb4a41846a234316d2b7f8df82bc17a',2145909600,'a:3:{s:4:\"hash\";s:40:\"0ad774426a0d87325bdd2a7b4cfcbacd2acbca53\";s:10:\"imagewidth\";i:233;s:11:\"imageheight\";i:74;}'),(17,'341ac9bb3985040d574027abb6199e0c6bf170a6',2145909600,'a:3:{s:4:\"hash\";s:40:\"094920c047476c7b1921fcb291c66687de3c6609\";s:10:\"imagewidth\";i:111;s:11:\"imageheight\";i:74;}'),(18,'c9e9fec0940fb18bb172e482a745f96293804d7e',2145909600,'a:3:{s:4:\"hash\";s:40:\"4605008c1a4f32c6cf14eafe13e843c74164cb97\";s:10:\"imagewidth\";i:1200;s:11:\"imageheight\";i:381;}'),(19,'ea17d5fd3ac95bab238cf9d579f589069f9a676a',2145909600,'a:3:{s:4:\"hash\";s:40:\"96005d825739f1b3a0f096e13dd2e4f66a85b96b\";s:10:\"imagewidth\";i:233;s:11:\"imageheight\";i:74;}'),(20,'7f9071f466c7817ef9c9fcf70902940fda2a9fe8',2145909600,'a:3:{s:4:\"hash\";s:40:\"745eb0e4032d13872dc41ecd671ae6173822c40f\";s:10:\"imagewidth\";i:1200;s:11:\"imageheight\";i:380;}'),(21,'784fda33cdc4422309970122accc2362cbe7f7fa',2145909600,'a:3:{s:4:\"hash\";s:40:\"f082dbd7955e911a8570439e39c499a6a6a0f391\";s:10:\"imagewidth\";i:233;s:11:\"imageheight\";i:74;}'),(22,'fa3ec8595f71cedbd57e25a67ffac0cc073c3260',2145909600,'a:3:{s:4:\"hash\";s:40:\"940aa946931ea1db50b8431e6eeac8ebe75d113c\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(23,'05d03ce98fa3b3756b84430a5164897cafdec79f',2145909600,'a:3:{s:4:\"hash\";s:40:\"19003dc414a0d90e04e7996279f76b5a8be31675\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(24,'ebb0a839cf186b80f9b921b0a065b87b202effd3',2145909600,'a:3:{s:4:\"hash\";s:40:\"10eadf509bce64ec787311e2d7160ee5c4e32200\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(25,'609df8a210f3dc710250936f14234930e16989fd',2145909600,'a:3:{s:4:\"hash\";s:40:\"6e2a6ff55c2fb3b449efeaceb154315688a59a15\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(26,'1f0321f39198316cafbac79ab37bb2ebcaa708bf',2145909600,'a:3:{s:4:\"hash\";s:40:\"3798264307afdc32874313d94439f4ba513d5c90\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(27,'bc75a77b519fba11f77e756b73d311d8c4f57b23',2145909600,'a:3:{s:4:\"hash\";s:40:\"b443566df87bea2af727718b01218e87dac3a7f6\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(28,'8ee462652a43e6fc47058c7493d90bf3c52d464b',2145909600,'a:3:{s:4:\"hash\";s:40:\"77abd590425907c174bb00a5c41fb6549090c564\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(29,'7b3638edb363072e47eb196e7c195666014b33f2',2145909600,'a:3:{s:4:\"hash\";s:40:\"ff5b22c822c4b9da5f8eafaadc60f5bcaaa0a113\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(30,'2792a7788ef50546334be10ac9698f3cfc24dead',2145909600,'a:3:{s:4:\"hash\";s:40:\"5e21b24e0ce69d4ff5463442389bfd511b3e3130\";s:10:\"imagewidth\";i:45;s:11:\"imageheight\";i:30;}'),(31,'d2896ae0f7a722ef2afc604672f4679cbe6afb4c',2145909600,'a:3:{s:4:\"hash\";s:40:\"70b3b4f95c40e80089d3002398e5e59b9bc5b725\";s:10:\"imagewidth\";i:45;s:11:\"imageheight\";i:14;}'),(32,'7941511614ceb480b651d3cab3ea83f0ccb5908a',2145909600,'a:3:{s:4:\"hash\";s:40:\"e7ebe46b8c298dc7eee1e9cb83040a383c0b842d\";s:10:\"imagewidth\";i:45;s:11:\"imageheight\";i:14;}'),(33,'bbb4cf259973dbe0c031f171b8a5563760aa5f86',2145909600,'a:3:{s:4:\"hash\";s:40:\"374d86ae0ff9daee5a907f4ef0f9e69ec46a0b13\";s:10:\"imagewidth\";i:45;s:11:\"imageheight\";i:14;}'),(34,'d75ca5fc98e465e5830244a64697e189356fc709',2145909600,'a:3:{s:4:\"hash\";s:40:\"54f480186e2ce2df5b09de2114fa51d8f1b901c2\";s:10:\"imagewidth\";i:600;s:11:\"imageheight\";i:400;}'),(35,'f338e5a7441a3a65f2ae5bb73422ff6a3e55942d',2145909600,'a:3:{s:4:\"hash\";s:40:\"e098ae6ec376f40931fe043194e9c7e0fe8a9a87\";s:10:\"imagewidth\";i:192;s:11:\"imageheight\";i:128;}'),(36,'13be8773098d95c7a74f8b8b600230108f8c2c4e',2145909600,'a:3:{s:4:\"hash\";s:40:\"82b900266f0c7ed60134efb703e205f881faf96f\";s:10:\"imagewidth\";i:150;s:11:\"imageheight\";i:100;}'),(37,'3f9c2ef317383d738370254db1ae7bafde6d3c15',2145909600,'a:3:{s:4:\"hash\";s:40:\"6acc38e3c25d0c3f980d80bd124f4394f68de05a\";s:10:\"imagewidth\";i:118;s:11:\"imageheight\";i:34;}'),(38,'8c667a051cbbd51b68b5129447f7f2f7fbfaf406',2145909600,'a:3:{s:4:\"hash\";s:40:\"a6911bd7c07a5f29f7dfd16771d78b6f7191d24a\";s:10:\"imagewidth\";i:150;s:11:\"imageheight\";i:44;}'),(39,'9b3d946d153e491be3c05ebc3fe670bfaeaafac7',2145909600,'a:3:{s:4:\"hash\";s:40:\"de3fc0d8586a4ebe02482167a8073bd4e3f35f86\";s:10:\"imagewidth\";i:1280;s:11:\"imageheight\";i:405;}'),(40,'e73d056850df277f5c58930993afa976bf66f497',2145909600,'a:3:{s:4:\"hash\";s:40:\"4d9aba87779b0a9abdcd3eb5b11912d6d31a63f5\";s:10:\"imagewidth\";i:150;s:11:\"imageheight\";i:48;}'),(41,'bbd35d46e20fb1d8eb7baaaa185d8c7cf8c352cb',2145909600,'a:3:{s:4:\"hash\";s:40:\"42e066fda223a95c11ba661500c30ea122adfaad\";s:10:\"imagewidth\";i:218;s:11:\"imageheight\";i:59;}'),(42,'13b4e140d5a19dc5ac32d28721aefb85de4d2448',2145909600,'a:3:{s:4:\"hash\";s:40:\"be807ce292da802de6fb3005139991b99e7c178f\";s:10:\"imagewidth\";i:320;s:11:\"imageheight\";i:142;}'),(43,'1a371e5f23baed00d734fefb8696fef88c390c59',2145909600,'a:3:{s:4:\"hash\";s:40:\"0694b4c61af8a64c9832a3f2e7b80a91b4fe48be\";s:10:\"imagewidth\";i:240;s:11:\"imageheight\";i:144;}'),(44,'07b99860ce8519e3906bac9ee3fc8cf614be62a5',2145909600,'a:3:{s:4:\"hash\";s:40:\"64237d4cfdcf7dc95fa6ffef36cc96d9f6541bf9\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:608;}'),(45,'6a3dff7748633be92b40f8644c384cc136713ce5',2145909600,'a:3:{s:4:\"hash\";s:40:\"f053151e0119e2779fc28aba65aabba12f338496\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:609;}'),(46,'e90832903030d0c29c5a3e84326a0a317538e68c',2145909600,'a:3:{s:4:\"hash\";s:40:\"c4743069588f2dc0b3b78417838e874b6eb1d8bd\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:608;}');
 /*!40000 ALTER TABLE `cf_cache_imagesizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -368,7 +367,7 @@ CREATE TABLE `cf_cache_news_category` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -377,7 +376,6 @@ CREATE TABLE `cf_cache_news_category` (
 
 LOCK TABLES `cf_cache_news_category` WRITE;
 /*!40000 ALTER TABLE `cf_cache_news_category` DISABLE KEYS */;
-INSERT INTO `cf_cache_news_category` VALUES (1,'2af28be6e637e6afd07a2a146b0545f53cb9f549',1458915470,'7,6');
 /*!40000 ALTER TABLE `cf_cache_news_category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,7 +419,7 @@ CREATE TABLE `cf_cache_pages` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -447,7 +445,7 @@ CREATE TABLE `cf_cache_pages_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -473,7 +471,7 @@ CREATE TABLE `cf_cache_pagesection` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -499,7 +497,7 @@ CREATE TABLE `cf_cache_pagesection_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -525,7 +523,7 @@ CREATE TABLE `cf_cache_rootline` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -551,7 +549,7 @@ CREATE TABLE `cf_cache_rootline_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=684 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -577,7 +575,7 @@ CREATE TABLE `cf_extbase_datamapfactory_datamap` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -629,7 +627,7 @@ CREATE TABLE `cf_extbase_object` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=205 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -681,7 +679,7 @@ CREATE TABLE `cf_extbase_reflection` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -733,7 +731,7 @@ CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -742,7 +740,6 @@ CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
 
 LOCK TABLES `cf_extbase_typo3dbbackend_queries` WRITE;
 /*!40000 ALTER TABLE `cf_extbase_typo3dbbackend_queries` DISABLE KEYS */;
-INSERT INTO `cf_extbase_typo3dbbackend_queries` VALUES (1,'1f47822b75d22c14fd874b116e35f391',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:25:\"tx_news_domain_model_news\";s:25:\"tx_news_domain_model_news\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:25:\"tx_news_domain_model_news\";s:27:\"tx_news_domain_model_news.*\";}s:5:\"where\";a:1:{i:0;s:39:\"tx_news_domain_model_news.pid IN (:pid)\";}s:21:\"additionalWhereClause\";a:2:{i:0;s:112:\"(tx_news_domain_model_news.type=\'0\' OR tx_news_domain_model_news.type=\'1\' OR tx_news_domain_model_news.type=\'2\')\";i:1;s:54:\"(tx_news_domain_model_news.sys_language_uid IN (0,-1))\";}s:9:\"orderings\";a:1:{i:0;s:39:\"tx_news_domain_model_news.datetime DESC\";}s:5:\"limit\";i:4;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:25:\"tx_news_domain_model_news\";s:25:\"tx_news_domain_model_news\";}}'),(2,'5553a449c10ec23ed98e9c6cb29b41d5',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:22:\"sys_category_record_mm\";s:22:\"sys_category_record_mm\";}s:6:\"unions\";a:1:{s:12:\"sys_category\";s:77:\"LEFT JOIN sys_category ON sys_category_record_mm.uid_local = sys_category.uid\";}s:6:\"fields\";a:1:{s:22:\"sys_category_record_mm\";s:14:\"sys_category.*\";}s:5:\"where\";a:9:{i:0;s:1:\"(\";i:1;s:1:\"(\";i:2;s:56:\"sys_category_record_mm.uid_foreign = :AND0AND0uidforeign\";i:3;s:5:\" AND \";i:4;s:53:\"sys_category_record_mm.fieldname = :AND0AND1fieldname\";i:5;s:1:\")\";i:6;s:5:\" AND \";i:7;s:51:\"sys_category_record_mm.tablenames = :AND1tablenames\";i:8;s:1:\")\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:42:\"sys_category_record_mm.sorting_foreign ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:2:{s:22:\"sys_category_record_mm\";s:22:\"sys_category_record_mm\";s:12:\"sys_category\";s:12:\"sys_category\";}}'),(3,'c1456af90b7486699fd97a202d51c4d6',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:18:\"sys_file_reference\";s:18:\"sys_file_reference\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:18:\"sys_file_reference\";s:20:\"sys_file_reference.*\";}s:5:\"where\";a:17:{i:0;s:1:\"(\";i:1;s:1:\"(\";i:2;s:1:\"(\";i:3;s:1:\"(\";i:4;s:60:\"sys_file_reference.uid_foreign = :AND0AND0AND0AND0uidforeign\";i:5;s:5:\" AND \";i:6;s:59:\"sys_file_reference.tablenames = :AND0AND0AND0AND1tablenames\";i:7;s:1:\")\";i:8;s:5:\" AND \";i:9;s:53:\"sys_file_reference.fieldname = :AND0AND0AND1fieldname\";i:10;s:1:\")\";i:11;s:5:\" AND \";i:12;s:51:\"sys_file_reference.tablenames = :AND0AND1tablenames\";i:13;s:1:\")\";i:14;s:5:\" AND \";i:15;s:48:\"sys_file_reference.table_local = :AND1tablelocal\";i:16;s:1:\")\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:38:\"sys_file_reference.sorting_foreign ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:18:\"sys_file_reference\";s:18:\"sys_file_reference\";}}'),(4,'45f18d33779a2a741e059d76aec9f355',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:32:\"tx_news_domain_model_news_tag_mm\";s:32:\"tx_news_domain_model_news_tag_mm\";}s:6:\"unions\";a:1:{s:24:\"tx_news_domain_model_tag\";s:113:\"LEFT JOIN tx_news_domain_model_tag ON tx_news_domain_model_news_tag_mm.uid_foreign = tx_news_domain_model_tag.uid\";}s:6:\"fields\";a:1:{s:32:\"tx_news_domain_model_news_tag_mm\";s:26:\"tx_news_domain_model_tag.*\";}s:5:\"where\";a:1:{i:0;s:54:\"tx_news_domain_model_news_tag_mm.uid_local = :uidlocal\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:44:\"tx_news_domain_model_news_tag_mm.sorting ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:2:{s:32:\"tx_news_domain_model_news_tag_mm\";s:32:\"tx_news_domain_model_news_tag_mm\";s:24:\"tx_news_domain_model_tag\";s:24:\"tx_news_domain_model_tag\";}}'),(5,'eb124f30e8af060f168850e97e80dcf3',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:25:\"tx_news_domain_model_news\";s:25:\"tx_news_domain_model_news\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:25:\"tx_news_domain_model_news\";s:27:\"tx_news_domain_model_news.*\";}s:5:\"where\";a:0:{}s:21:\"additionalWhereClause\";a:2:{i:0;s:112:\"(tx_news_domain_model_news.type=\'0\' OR tx_news_domain_model_news.type=\'1\' OR tx_news_domain_model_news.type=\'2\')\";i:1;s:54:\"(tx_news_domain_model_news.sys_language_uid IN (0,-1))\";}s:9:\"orderings\";a:1:{i:0;s:39:\"tx_news_domain_model_news.datetime DESC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:25:\"tx_news_domain_model_news\";s:25:\"tx_news_domain_model_news\";}}'),(6,'8150a3f9e75063b44b63c5422555b145',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:24:\"tx_news_domain_model_tag\";s:24:\"tx_news_domain_model_tag\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:24:\"tx_news_domain_model_tag\";s:26:\"tx_news_domain_model_tag.*\";}s:5:\"where\";a:1:{i:0;s:38:\"tx_news_domain_model_tag.pid IN (:pid)\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:0:{}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:24:\"tx_news_domain_model_tag\";s:24:\"tx_news_domain_model_tag\";}}'),(7,'568f4d19f240854936628714c47bedc5',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:12:\"sys_category\";s:12:\"sys_category\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:12:\"sys_category\";s:14:\"sys_category.*\";}s:5:\"where\";a:1:{i:0;s:26:\"sys_category.uid IN (:uid)\";}s:21:\"additionalWhereClause\";a:1:{i:0;s:41:\"(sys_category.sys_language_uid IN (0,-1))\";}s:9:\"orderings\";a:1:{i:0;s:24:\"sys_category.sorting ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:12:\"sys_category\";s:12:\"sys_category\";}}'),(8,'25bc64589cfaea6430e001977baa3af8',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:29:\"tx_gomapsext_domain_model_map\";s:29:\"tx_gomapsext_domain_model_map\";}s:6:\"unions\";a:0:{}s:6:\"fields\";a:1:{s:29:\"tx_gomapsext_domain_model_map\";s:31:\"tx_gomapsext_domain_model_map.*\";}s:5:\"where\";a:1:{i:0;s:40:\"tx_gomapsext_domain_model_map.uid = :uid\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:0:{}s:5:\"limit\";i:1;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:1:{s:29:\"tx_gomapsext_domain_model_map\";s:29:\"tx_gomapsext_domain_model_map\";}}'),(9,'2fdfff3580942c947f33eb0fd57e279b',2145909600,'a:10:{s:8:\"keywords\";a:0:{}s:6:\"tables\";a:1:{s:27:\"tx_gomapsext_map_address_mm\";s:27:\"tx_gomapsext_map_address_mm\";}s:6:\"unions\";a:1:{s:33:\"tx_gomapsext_domain_model_address\";s:126:\"LEFT JOIN tx_gomapsext_domain_model_address ON tx_gomapsext_map_address_mm.uid_foreign = tx_gomapsext_domain_model_address.uid\";}s:6:\"fields\";a:1:{s:27:\"tx_gomapsext_map_address_mm\";s:35:\"tx_gomapsext_domain_model_address.*\";}s:5:\"where\";a:1:{i:0;s:49:\"tx_gomapsext_map_address_mm.uid_local = :uidlocal\";}s:21:\"additionalWhereClause\";a:0:{}s:9:\"orderings\";a:1:{i:0;s:39:\"tx_gomapsext_map_address_mm.sorting ASC\";}s:5:\"limit\";N;s:6:\"offset\";N;s:13:\"tableAliasMap\";a:2:{s:27:\"tx_gomapsext_map_address_mm\";s:27:\"tx_gomapsext_map_address_mm\";s:33:\"tx_gomapsext_domain_model_address\";s:33:\"tx_gomapsext_domain_model_address\";}}');
 /*!40000 ALTER TABLE `cf_extbase_typo3dbbackend_queries` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -838,7 +835,7 @@ CREATE TABLE `cf_realurl_404_multilingual` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -847,7 +844,6 @@ CREATE TABLE `cf_realurl_404_multilingual` (
 
 LOCK TABLES `cf_realurl_404_multilingual` WRITE;
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` DISABLE KEYS */;
-INSERT INTO `cf_realurl_404_multilingual` VALUES (1,'dcfca53c30b5cd350cf4661412bc725b51435ffd',1458915434,'b:0;');
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -892,7 +888,7 @@ CREATE TABLE `cf_themes_cache` (
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -901,7 +897,6 @@ CREATE TABLE `cf_themes_cache` (
 
 LOCK TABLES `cf_themes_cache` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache` DISABLE KEYS */;
-INSERT INTO `cf_themes_cache` VALUES (78,'87bc68c937aceb96df09391854ce3e6f7489f336',0,'xú•[ms€8˛+ôÃÌ∑‘ÔrÔﬁŒÊ•ªÌL⁄À4πˆvnn<¥D€ºH§V§Ïx⁄˛˜(Rñ,R≤sùX≤%<\0Ä\0H©d6ºúŒæ…Ÿx<;ójSŸS4Ic¢*ﬂ>°àZüˇ,gÉŸ9û∆#}J2≈HÏ\":»c≤πjg\nÆ(WΩà.I´˜îD4{⁄•ÈÄÈH”\ZÙr-2Ê™ß»Æ#UÃŒïöä¯J¢(£R‚WN∑p~—Áy$¬¯<çıÑè&\r!$é≈ˆâ¨Ù˝ÒÂ’Ïú\\úë≈\"Écò	æK‡ãëqÜ∂	c\n_$ã‡¥ÄøH¿Å≠‡ã˘Ø\\(ºê§ä	_@≈oÖ\"“«XVô»”ã≥(ÇÖK—\0~a8®ã3\n\n,AY<\nÕg≠\rÁ!|F√gü\0>S¯¿=	(≈8®˝º\0ˆ1Y†Äò·á?_ú%T¡P99®hëf†Ÿ_gí$KFKFc@J\Zë	XN)¡*cœTü_·yáñë˘Ä◊^É™ßÖàvp¬A¿	Ø¨·™*¶4\\Œ·lH¶Ωu’ñ¢/*°#ΩÑº|’.õùO˝-Ë ˇ¿ü‡∑ç\rË≤˛…˛òíêÒï÷hv>ÏñïâÌ…¸ˆëd+∆Îòif!2àÉ[m.`øàI¯|$Ó+ãä	[Œ¿6Sòò	fXÄ*4ls⁄◊å§Ω≠r0HÙ◊Êåw ◊î≠÷ @ß:>\n≥˛+„ëÿVıù•oåB‚Â« é™Ç£‘∂n•ºçâ‘ŸÏk/kFÕd‘¬Ë3çØLπEÆtﬁ\r˜‹˛˝Mœ‘YŒ¢ˇ—7ﬂ6X#CH‹bTU”ts4%hÚTC4Õ!∂∏é≠Q3é»3•©qTjä¡®S±Ä _ä,È•,™j‚–π$µÁwÎ—¿˜›øûfK™i˙ü©yRŸ»ÿ˚O∂Dıœ4ªË){kïƒvÜ§qéó†dh!F∑Œzâ™ii@’* NscGaEZ¯>√v‚f€,¿®@◊{\r0LGU¶X%{ô˚Ø	Á4ÓÈÃ¨cÇÌ.Oí›ŸìΩÑŸ¢\ZQfL¿É¢Ña§≈ÔµRÈ¨ﬂß/Pãb\n!ë4ç€d@¯*\'+j“!ÂoVã¶≥∞P§ªÃ¶ô!Ë˙ÙÁ√?∆güL◊–!4´ÆD∂´é≥]ﬁäröU§Ì·ƒ CßŸN•ÓnÕA§îØ %¨{\Zâ9\'	mÈçÁÈ†à(Õ	ù´Ò3Sé@y˜≥FÇe-—\ZÊ{yé0Æ^#Æ%˙˜“¸—è4]—ﬂåFIïÇÆí“Ê\Zc‡‡mï:}!àÅûf–Ûî—ﬁmuÄŒ˜ÿy‹ô\\ÇÈ	J¥∏‚4jÆÇTh˙«fÓ”4®∫-∏<NÅ~3	A“ûÑ…y·°VqF5cJgΩ‚b†öJÜy».\\ƒk!u⁄\0√BˇOb˚€Gü¬ö¶lÑ.≠§∆dò!˙x•äåŒ)w‰ÓEIÆMë0y∞l|R\nzX€¿≤L⁄Ûˆy∂ÏCG„\Zòä¢6`áb˙ÈÔﬂø;l\nÑœt∑ÖÊQ:hØi+U£I^Ø85ÆS»ç—#§≈≤>¡∞á3äÍûÓñp¡8÷~UzÄNT≤¨&≤G6Ñ≈àB\n»£ãÒ≈bb˚∞=Æ:M«∑Ñ%”¬vÂ≠Y˜Ù˙Ã«W1ìk´ø√§∏5¢tπõˇqc˚ï.Ã„⁄‚Å∂Çt°ﬁõÓ	{˜o;J∆Îj/ı2&v•TîkÏ\Z‘aûeÿÊ¨÷é;mjiKõ‚÷HãæöÓá◊‹ñ]≈‹Xf∫\r√Îçñ•7N5¨”iÃ≠”p©÷Õ©˝>≥¨≠œ–^-<ëÏáó°ÇÓ~…V94@ò•UìJnoEÊ$EŒkÀìq,œb´ái∑€≠Ielπ√∆±∆t.˚™vÜÿ\\ô	•[ïÉÄ¨£DR£A•≈uí\"ﬂ;Ω)UrDˆ–*H%i∂°êŸ™œ[ueÚén`Âì&¥∞VôÏ|ÊZ“¢Ç~4·úa°%è¬ÿ =y€⁄∆ÂãòÖ}Xêi–º¥]‡ÖLIÚê	ECıÃ_ªlòn’#Úb>Äù~˚wúä\r¶øüGLBC¥õA˙¶?üˇö—DlËµf≤˜K	µçŒâRaôÆÓD]tÔ¢Ω°˛_(#E}√®L3„\0Îºâœ5«Â\'äÂ˜WYï¥·8Öx«µ§DÂ ¡T÷Gh-j8ü¨áÕ»\rÃ§[ho>ôeMu˙¡Aw2Oµ∆2¬[≠@–©8vêwE ∫£\n¢¬4ä¿b2≤Èﬁm/¡	°yJ◊v˝¡õ@ˇ;L15$‚ñ«oxÄQµ™o∑Iä}·Îå{ÈüÖ˙√ÈÂA\r:0Å∆¨ÄaÓ\\«Òôæ œ¿@òû¢VO–ò&–eÉ=%Ó€oÕ&øH´ë‡M^Ù≠±–ˇ«ÂÍ“GZ$’íÀËT.è:∆™ΩG‡≥™õ«G»˝®ÜÉ—…f˝D6lEÏˆJ9’|Yœ£ã¢z∑¯IÉ{±5&\'öE3y·†ñ5≥¯&N+£™u€≠R<HÈ)ëˆ†íÊ≈|d÷?eè9’|±bƒ`ÄVˆﬁ“ÏL\'\'◊ >K∞uÍ]AZÏ≤è}™cıÓmH¶≈ñè\0L‚Õ‘5‘çàv7´*ÃÁ¸\Zü°4˙öûy¨‚$â˜å?7êæé¨Å|5∫)ÿY%|mg⁄˚ÚÑ≈˙&k{≥jˆ%Ø&¯ÍÕ{–Í4h(Ôù‡-LnØ≈â7[µÛ–é®v æ4Q≤¡yeJå}4H_Ï>@7Óû.Ì>Àƒ;\'ÀÁb\"C+≥;‹§âu\nkz=Ëú∏;`;®⁄º≥ùCØ¬a€È´„úÊ›ÜÁd”‘Ÿóu´(gnËT÷\0_iiÉæ€–Ü´;\'X\rÓT¡€õ8pW|çÄGØ±¡uñâÌ´l∞ó˚*îy°ÅÓL/E”ÍwÁL+¿ßÑÁä7oÉÓ¿∫˝›32_Ï;>˜¿;ÁXùáû®U:\rP√—€‰“π5.NkvOÉÖ€®ùÂ“Õß^Í∫Û˛!OZ8Õº{Fuu∫˚,XFañ\'ÈìÓX≠pp∫ßsv0x≠=ÿú÷∆Èv^w‰Ù%åÛà¬ä¯û…⁄÷¢o¬Ï±Q&“HlπÈ#!Ukßë@‰ÍÕm%îq\r˝$‘^Y≥ZùW¢¡Ÿh%Ω	\0x±`GÆÔ4áΩ…€’E·!Øºi‚ê.ÓnˆÅP ¥’k—\nóYº€a©ﬁÕÜïf¶Ïæpπ™ÙÓkÍVÆxç\'óÙw“Öœ5¨/n´ÿ•ﬁõ∑\"InqK≥«mÔÎ-nµK≈∏uIu†÷”ñ·”ìG§\núU\n_≤Jô[˙i&dH£¸d3≈h5\nÃT‹gºx íî]°ﬁ\"5#ªã‚ÌT˝¬Z€v™U‡Q•ŸﬁÓï‘7¥v√q0\ZóÉ´÷Tq†ÕB¨b˙ÁıÕd_≠¢W%¥4^EØÆkª$ÁL1*˚√¡d2ÇÒÙjåá”—‡≤xüÚ(óÅ÷ﬂâ•≤ˆ¯‚®!ßYÍ<¨;º$–Za0q∑4¢¸Ó]?.?›é∫ôˆO—ˆá∞ Hr≤∂Ã\"≠∂ìä∂ÂM≠)}I°∫—>\\íEÄˆOô–ä\\Âã”S‘Æ¿ïY&®[”‹÷\ZÇî¨¢Ÿ»˚åR•k¥ ÃnÜô7< áL®2J@é`’˜l°ôC4€©É≠ﬁb+πéè‰ZlÃi^Uò∆{ÀMÀÛr”‡}&±ØiïóˆO∆*Øÿ˜ÖŸ≈á®Í√ä¯VA±√ˇRÓ”Wˆø`,GAÂ}b8ö>d\" √ ŒrÒò\\9‰|çb\'9¨hºÔ`ô∑åÄlét]Ôa]zy;^aö:ô◊_ªÚrwΩ•ÖÛ≥É}˝ï,4µ}”Ú?~¸ cÄÛ',2145909600);
 /*!40000 ALTER TABLE `cf_themes_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -919,7 +914,7 @@ CREATE TABLE `cf_themes_cache_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -928,7 +923,6 @@ CREATE TABLE `cf_themes_cache_tags` (
 
 LOCK TABLES `cf_themes_cache_tags` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache_tags` DISABLE KEYS */;
-INSERT INTO `cf_themes_cache_tags` VALUES (78,'87bc68c937aceb96df09391854ce3e6f7489f336','page-47');
 /*!40000 ALTER TABLE `cf_themes_cache_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1912,7 +1906,7 @@ CREATE TABLE `sys_file_processedfile` (
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`,`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(199))
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2081,7 +2075,7 @@ CREATE TABLE `sys_history` (
   KEY `recordident_1` (`tablename`,`recuid`),
   KEY `recordident_2` (`tablename`,`tstamp`),
   KEY `sys_log_uid` (`sys_log_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2142,7 +2136,7 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2191,7 +2185,7 @@ CREATE TABLE `sys_log` (
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=237 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2321,7 +2315,7 @@ CREATE TABLE `sys_registry` (
   `entry_value` blob,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `entry_identifier` (`entry_namespace`,`entry_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2330,7 +2324,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Rom√¢nƒÉ) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: –£–∫—Ä–∞—ó–Ω—Å—å–∫–∞) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:1;'),(29,'core','formProtectionSessionToken:1','s:64:\"52a4e5d4537764c0af6449c61c61932efd06cef196b64eda5fb1f477c44cb71c\";');
+INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Rom√¢nƒÉ) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: –£–∫—Ä–∞—ó–Ω—Å—å–∫–∞) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"be7e31ee40672d7753914e4877b2f7d0ee638a3be3de388f2303e94e9448343b\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3336,7 +3330,7 @@ CREATE TABLE `tx_realurl_pathcache` (
   KEY `pathq1` (`rootpage_id`,`pagepath`(32),`expire`),
   KEY `pathq2` (`page_id`,`language_id`,`rootpage_id`,`expire`),
   KEY `expire` (`expire`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3483,7 +3477,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_swedish_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3839,7 +3833,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-25 13:19:21
+-- Dump completed on 2016-04-04 13:35:07
 -- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
