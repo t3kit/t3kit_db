@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
 -- ------------------------------------------------------
--- Server version	5.5.46-0ubuntu0.14.04.2
+-- Server version	5.5.49-0ubuntu0.14.04.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -263,7 +263,7 @@ CREATE TABLE `cf_cache_hash` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -289,7 +289,7 @@ CREATE TABLE `cf_cache_hash_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -315,7 +315,7 @@ CREATE TABLE `cf_cache_imagesizes` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,6 +324,7 @@ CREATE TABLE `cf_cache_imagesizes` (
 
 LOCK TABLES `cf_cache_imagesizes` WRITE;
 /*!40000 ALTER TABLE `cf_cache_imagesizes` DISABLE KEYS */;
+INSERT INTO `cf_cache_imagesizes` VALUES (1,'2ff3392479568b95bce27696dfd72f06bdf7ead4',2145909600,'a:3:{s:4:\"hash\";s:40:\"d46077eb30121160c5f58e3026ab79b2e2410d6f\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(2,'8feec6e0f8d0873cec0026425daa45b31bcac8c7',2145909600,'a:3:{s:4:\"hash\";s:40:\"7842535a625f25f2481dbd92306df9a07c49b830\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(3,'b4353706ad35e32464c79e6de3c310e30660b7af',2145909600,'a:3:{s:4:\"hash\";s:40:\"d919320fdbabd0ff6b59db4651e630eb7171bc22\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(4,'629ed9e26d34239123ff47ad7a75ea4e72351873',2145909600,'a:3:{s:4:\"hash\";s:40:\"5ea41499edfc0df0d271f5a4df959f182066f796\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(5,'12cd06425196e52a92e317bc8b68a088fded8d97',2145909600,'a:3:{s:4:\"hash\";s:40:\"2af58685e8e145c1b637fc331f1280c5c0b299ae\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(6,'99aaefc3baf61d1d6d0547b7c483b65dc6747384',2145909600,'a:3:{s:4:\"hash\";s:40:\"1df8c45d25cb4c36e1ed18df8c1d22dfa00ee4af\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(7,'706245cebea15fceb21e1f2275ee146ceb2a9222',2145909600,'a:3:{s:4:\"hash\";s:40:\"c1bcc5b322ac7f0eca7c2b15d3e05a9f897c440e\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(8,'611e83b62c4c22f4b614a8dbf5350ad6a920b52c',2145909600,'a:3:{s:4:\"hash\";s:40:\"1cb2b8998675ec53ce76d4ba5b5fbf49c67aec4d\";s:10:\"imagewidth\";i:64;s:11:\"imageheight\";i:64;}'),(9,'ac53ec6bc3749a87fba5066c5c243c3e5f4d4e98',2145909600,'a:3:{s:4:\"hash\";s:40:\"9b08fef9e9a66b33ec8ce1b030685758bc7d85e5\";s:10:\"imagewidth\";i:2083;s:11:\"imageheight\";i:927;}'),(10,'bd77d2435cebc4294649b3dc6c53c2a35b527263',2145909600,'a:3:{s:4:\"hash\";s:40:\"814914fe58ee902c3ed1f6d956dcf16906a27460\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:608;}'),(11,'835dfba88a3a107a1159f1210b4b3db15e4f95b6',2145909600,'a:3:{s:4:\"hash\";s:40:\"5211bcc4430364a637e407d4f5623bb73eb9df2b\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:609;}'),(12,'642886495e49a5eaad820e296f0ea3ce710b642c',2145909600,'a:3:{s:4:\"hash\";s:40:\"99284c04c39f3e2eda184cb2d18bb1b428caaa90\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:608;}'),(13,'0e81ca234ab1ca865d596f8d85c96ffb4614a84a',2145909600,'a:3:{s:4:\"hash\";s:40:\"41a49637cf46ba842be74833288ac13d2dcc1b34\";s:10:\"imagewidth\";i:870;s:11:\"imageheight\";i:580;}'),(14,'1b91a180d8c355d430176f0c7f680be8f8e9b4fd',2145909600,'a:3:{s:4:\"hash\";s:40:\"ef26c2106dda6935c42ae0a0d0a25e9d24cd7559\";s:10:\"imagewidth\";i:1920;s:11:\"imageheight\";i:1230;}'),(15,'3f9c2ef317383d738370254db1ae7bafde6d3c15',2145909600,'a:3:{s:4:\"hash\";s:40:\"6acc38e3c25d0c3f980d80bd124f4394f68de05a\";s:10:\"imagewidth\";i:118;s:11:\"imageheight\";i:34;}'),(16,'bbd35d46e20fb1d8eb7baaaa185d8c7cf8c352cb',2145909600,'a:3:{s:4:\"hash\";s:40:\"42e066fda223a95c11ba661500c30ea122adfaad\";s:10:\"imagewidth\";i:218;s:11:\"imageheight\";i:59;}'),(17,'ed0d370b3833bebba8727c262474e37c5447e123',2145909600,'a:3:{s:4:\"hash\";s:40:\"b736d9bb946d3ec4f2ac30b0210c0116d643fc70\";s:10:\"imagewidth\";i:320;s:11:\"imageheight\";i:142;}'),(18,'1a371e5f23baed00d734fefb8696fef88c390c59',2145909600,'a:3:{s:4:\"hash\";s:40:\"0694b4c61af8a64c9832a3f2e7b80a91b4fe48be\";s:10:\"imagewidth\";i:240;s:11:\"imageheight\";i:144;}');
 /*!40000 ALTER TABLE `cf_cache_imagesizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,7 +420,7 @@ CREATE TABLE `cf_cache_pages` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +446,7 @@ CREATE TABLE `cf_cache_pages_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -471,7 +472,7 @@ CREATE TABLE `cf_cache_pagesection` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -497,7 +498,7 @@ CREATE TABLE `cf_cache_pagesection_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -523,7 +524,7 @@ CREATE TABLE `cf_cache_rootline` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -549,7 +550,7 @@ CREATE TABLE `cf_cache_rootline_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -627,7 +628,7 @@ CREATE TABLE `cf_extbase_object` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=99 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -679,7 +680,7 @@ CREATE TABLE `cf_extbase_reflection` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -835,7 +836,7 @@ CREATE TABLE `cf_realurl_404_multilingual` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -844,6 +845,7 @@ CREATE TABLE `cf_realurl_404_multilingual` (
 
 LOCK TABLES `cf_realurl_404_multilingual` WRITE;
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` DISABLE KEYS */;
+INSERT INTO `cf_realurl_404_multilingual` VALUES (1,'dcfca53c30b5cd350cf4661412bc725b51435ffd',1464009551,'b:0;');
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -888,7 +890,7 @@ CREATE TABLE `cf_themes_cache` (
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -897,6 +899,7 @@ CREATE TABLE `cf_themes_cache` (
 
 LOCK TABLES `cf_themes_cache` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache` DISABLE KEYS */;
+INSERT INTO `cf_themes_cache` VALUES (35,'87bc68c937aceb96df09391854ce3e6f7489f336',0,'xú•[{o„8ˇ*Eq˚_\'oßmvo±}ÌNÅŒ\\0ÌÕ‹‚p[Itµ-Ø%ÁÅô~˜#e…±c…NzãIú⁄¸ëIëî‰%ì˛’Â‰ªòáìs!w!I£$$≤ÙÎÁrJ‰Í¸g1ÈMŒÒ2XËíJFByﬂBíœd3sü«í∆≤–…B˘ëíÄ¶/ªÑ\"0(˙^ç^¨x*˝Lv$ô√}§Úº…πî3Mq?I§T¸”\r\\∑Í:xDX<ãx@Cu·ÉQM	Cæy!Kı|xu=9\'gd>O·€Oyºã‡áñqÜ∂ÒC\n?‡2áá/∂ÑØê˚Øe\\‚Ä˚$ëå«‰Pº¡ëœı™Øe ≥‰‚,‡C·V∞\0@Ä?ÿ\Zæ‰≈†,~s≈g•◊>|¬g>c¯¿3ˇ\"Pä≈†ˆÎÿádéBÜü¯ı‚,¢Ü\ZêÉ ÄI\nö˝uq&Hâ`¡hHA˝| \"k¡%!¯áLŸ+UW/Ò∫CÀàlé_ÄW^É™ó9vp¡A¿Ô¨‡™J&‹Œ‡XìTyÎ∫Ê-I∑2¢#ùàlø)óMŒ«Ωû˙Âµê?∆/∑\r5Ë™˛…¢¯9!>ãóJ£…yø]V 7\'c◊\'í.Y\\≈å0sûB‹Òê+s˚yH¸◊#qﬂXêOÿb6ô\"«La&Ëa*◊∞…IhﬂRít6FL¿´^/R?Î3ﬁÇ\\Q∂\\I\rË(Ã˙o,¯¶¨ÔË(}C:Á€áÉ8(3éR€0∏‚.$Be∞Øπ≠’ìQ£/4ºë0ÂÊôTys–ﬂs˚˜w5S\'ﬁ˛£^÷X#CH‹bTñ”t}49%hÚRC4Õ ∂b[ÉzÁêWJÌ®DÉA=¶BAæ‡i‘IXP÷ƒ¢sAj\nŒÔ,T£˜ÄÔ√ø^&™h∫_®‡YÍS—ù¶l\rÑ›S¢∫øßä]ÑîùïåB3Cí0√[P2îê5£kΩD’î4†je¶πç±•∞¢\r|ß9B≥ŸŸ÷0*–¿ıI4”Aô)V…N*¿˛+«4Ï®Ã¨bÇÌ>ã¢›ŸãπÖŸ¢\ZP·ßL¿É¢Ña§ƒÔïî…§€•[®E!ÖêàÍ∆≠3 Ò2#K™”!ç?,Áug◊`>Ov©I3}–ıÂœÈ?Ügüu◊–\"‘´.y∫+è≥Yﬁí∆4%2O€˝ëëáN3ùJ’›äOhºÑî∞Íh$f1âh≥Hg<è{yÑ@iéËL_ô¥ √fç\0ä.Z¢1Ã˜Ú,aÓ]øG\\CÙÔ•π£i⁄¢øçÇJ	\\%Ñ…5⁄¿ﬁeô:ŸÑ@OSËyäho∑:@g{Ï¨nM.ﬁ¯%\Z\\qöWxﬁ	*‘˝c2˜i\Zî›Ê]ß@3AÂ”éÄ…yaZ©8Éä1”N˛Âc†ÍJÜy»,lƒ+.T⁄\0√BˇOBÛ∑ã>Å5M—]ı\ZIµ…0CtÒN◊Á)ù—ÿíªs%©ø“E~™Û`—¯X§‰Ù∞∂Åeô0◊)ˆy9∂ËC√\nòÚº6`á¢˚È?~Xl\nÑØt∑ÅÊQXhØiKU£N^≠8n»ç¡3§≈¢>¡∞˚3ä™ûÓéƒ<f‡0X˚ïÈq\0*Qâ¢öàY\"\n) .Ü˝ãëÈ√jÙ∏Í‘ﬂñLs”ï˜,¥zU‹QÎ3Õˇ!^ÜL¨å˛N¸NãRÂnˆ«≠ÈW⁄0œ+àö\n“Ü˙®ª\'Ï›øˇÌ(o∆’NÍEHÃJ)/◊ÿ5÷®˝,M±)ÃX•∑⁄‘–6≈≠ë}›õ”‹Ü]…‹Xf⁄\rÊÙ∆À¬ß\Z÷Í¥Ê∆i∏TkÁç‘nü÷∆ghØûHˆf∆•©†ª_∞e\rfiô¬‰Äí€YíÒ}û≈ïÂ…∞\rñ•°—C∑åõÕFß2∂ÿa„ÿıC:}U3ClÆÙÑR≠ A@VQs\"®÷†‘‚ZIëÔΩ⁄î*8\"{hÑ4]SH¯lK¡Ü≤gç∫2qO◊∞ÚI\"ö[´Hv.s-h^A?ÈŒ∞–GaLÂ]6∂qŸ<d~d\n4+lÁπF!MS.©/¿,·MæÀÜÈV>C!œÁÿÈ∑_p«)ﬂ`˙˚y¿4Dª	§o˙Û˘Ø)ç¯ö~ê+&:øtëW”Ëú(ñÈÚûWEwﬁ!⁄ÍˇÖ2í◊7å $’0ŒπQ¡≈∏‹àâ§G˘›«UáEV)mÿ\0V!Œq-(ëH–ïıZã\nŒ%´¿a3r3È⁄õœzYSû~GpPùÃK•ÒÅåp©Z«Ú>OY˜TBTËFXå&›€Ì≈cI|hûíÖY?zû˜¡Sˇ¶â\nqÀ„7¸ÇQ5™o∂IÚ}·õîsÎüπ˙˝Ò’A\r:0Å¬¨ÄaÓ‹Ñ·ô∫!Œ¿@òûÇFO–êF–eÉ=Ó€oÙ&?O ë‡LNÙù∂–ˇ«Â	Í“\'ö\'’bop*ógc.´⁄y|Ç‹èjXùl÷œdÕñƒlØSÕïı\n± ®vÀû+ë41x‚K^ar¢YìgÓ?µ®ò≈5q\Zï≠€lï¸ •#y“ÅJöÂÛë≈∞˛)zÃ±b‡äÕ t∞≤wzœ`<:πVvYÑ≠S7Ô\ní|ó}ËR´wgMR%∂8–=à3SWP∑<ÿ›.À0óÛ+0<C©	t5=Ú‡¨‚$âO,~≠!]Y\r˘jt]∞+≤\n¯ Ã¥è≈Ñ¡∫&k{ª¨	v%Ø:¯ÍÃ{–Ú4®)Ôú‡\rLne\\âg∂jÊ°QÓî]i¢`ÉÛJóêûÿ%[≥–é{¢≥œ22¿÷…Ñ¿‚\\B§?––ˆp‹g$T)¨ÓuØu~î‡ˆÄmU†lÛzÃ∂Ω∑Ñm´Ør¸≠uö∑>&Î∫ŒÌSúœ!ﬂB)|·À%®-„bm£ùÔJ‹e¡÷Ù“:^\r|ß≥4˙∆ólMk—“:G+p´\nŒˆ∆:Ä[X˚‚õq‹§)ﬂºÀ{πÔr@ëZjË÷ï˜Ωˆq∑N÷|zM…q∂xsˆ¯¨›ﬂ≠1#≤˘æi¥ºuöVy®π^÷°’\0|Ωu.≠ë[·bµfk‘Xÿç⁄ZqÌ|™’≤Ωt2q§Ö”ÃªgTUßΩUÉÖd‡ßY4÷0iè’´{ZgÁÉ˜⁄„ÄÕiù†Z®¶ûn˝0(,™üò®ÏN∫&Ã§<	¯∆&<Ájlà‹Bùπ≠Ä≤XA?s˘◊ñΩ.Áhp6ZIÌ#\0^ïÿ£ñàä√ﬁ‰Õj∏¢êâ”Œ4q»◊á∑˚@(e‹håèhâáÕ,ŒµDmà√b5ïfkπXò:∑FU7òø	î	˙;ÒÈúÛ◊\n÷∑eÏBüÙãxXÇª‰BoìõÁjó\\Ó>l\\ï®ı≤axËzÚàdé3J·˚DF)˝Ë@ü#ÕÑiül¶PçFﬁÅôÚÁ,Œxîêxó´˜Å≈»lƒ8{áUø≤àVˆLúùj∏FTa∂ÀΩíÍÅ“Æ?ÙÔ™w›ò*¥˘ÉshüßaV›èvU—2zY@„ïÙJ‡æ&1∂ã≤òIFE∑ﬂç˙Ωû7_ºa<Ë]ÂØdÂ2–z µZ**\' G\r91»BÁ~’·Å“˙+Éâ˚º°çÔ∫p˘Èn¯”Ì∏{ä∂è1§ÄeJ¢ìµei¥ï¥-*MÈ6ÅÍFªpK‰⁄=eBˇ…3ôÕOOQªWdØjM˝XiR“ífÁ1\r§J€Q¿`î©ŸO”/âÁT®2J@é`ŸuÏ¬ÈwK€±Ö≠⁄•+∏è‰öÔÌ)^óòÜ{√M…srS‡}&1oz∑ˆák•∑Ã+Gx¸Òî}X“_L»	∂≈VÈ,±˚c)?SxUîÛ–q0:$ú¶<»¸“Êt~RÆÇræâ±1¨húØqÈïÄlÜtmØr]9y[ﬁÇ\ZıZôWﬂ>ªvr∑ΩËÖÛ≥Ö}ı≠.4µ9Ãi¯ü$ﬁ˛⁄1ò‰',2145909600);
 /*!40000 ALTER TABLE `cf_themes_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -914,7 +917,7 @@ CREATE TABLE `cf_themes_cache_tags` (
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -923,6 +926,7 @@ CREATE TABLE `cf_themes_cache_tags` (
 
 LOCK TABLES `cf_themes_cache_tags` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache_tags` DISABLE KEYS */;
+INSERT INTO `cf_themes_cache_tags` VALUES (35,'87bc68c937aceb96df09391854ce3e6f7489f336','page-1');
 /*!40000 ALTER TABLE `cf_themes_cache_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1704,7 +1708,7 @@ CREATE TABLE `sys_domain` (
 
 LOCK TABLES `sys_domain` WRITE;
 /*!40000 ALTER TABLE `sys_domain` DISABLE KEYS */;
-INSERT INTO `sys_domain` VALUES (1,1,1463994293,1453275176,1,0,'localhost','',301,256,0,0),(2,82,1463994326,1463475522,1,0,'localhost0','',301,256,0,0);
+INSERT INTO `sys_domain` VALUES (1,1,1463994293,1453275176,1,0,'localhost','',301,256,0,0),(2,82,1464005945,1463475522,1,1,'localhost0','',301,256,0,0);
 /*!40000 ALTER TABLE `sys_domain` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1906,7 +1910,7 @@ CREATE TABLE `sys_file_processedfile` (
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`,`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(199))
-) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2075,7 +2079,7 @@ CREATE TABLE `sys_history` (
   KEY `recordident_1` (`tablename`,`recuid`),
   KEY `recordident_2` (`tablename`,`tstamp`),
   KEY `sys_log_uid` (`sys_log_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=246 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2136,7 +2140,7 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2185,7 +2189,7 @@ CREATE TABLE `sys_log` (
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1350 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1356 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2324,7 +2328,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Rom√¢nƒÉ) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: –£–∫—Ä–∞—ó–Ω—Å—å–∫–∞) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"e73c5c51b79b51e18eccccb2347e955b725faf970338643e9a00b16f0a306386\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
+INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:5:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Rom√¢nƒÉ) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: –£–∫—Ä–∞—ó–Ω—Å—å–∫–∞) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1453278398;s:3:\"end\";i:1453278400;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"18b475e176ac7055bfe7dbbaf17b780c4efa65059912fbbdcaf65849a6646d9f\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3478,7 +3482,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_swedish_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3835,7 +3839,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-23  9:06:36
+-- Dump completed on 2016-05-23 12:19:16
 -- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
