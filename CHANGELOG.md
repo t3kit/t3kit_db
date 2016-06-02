@@ -1,3 +1,7 @@
+#### v0.1.0 `June 2, 2016`
+- **[REFACTOR]** upgrade user groups, adjust editor access for t3kit ([bfcbe8c](https://github.com/t3kit/t3kit_db/commit/bfcbe8c))
+- **[FEATURE]** add new icons set (change icons in content elements) ([62c7129](https://github.com/t3kit/t3kit_db/commit/62c7129))
+
 #### v0.0.3 `May 26, 2016`
 - **[FIX]** add video elements to filelist + search/content fixes ([0777511](https://github.com/t3kit/t3kit_db/commit/0777511))
 - **[FIX]** disable domain record for blue_mountain site ([55a60f6](https://github.com/t3kit/t3kit_db/commit/55a60f6))
