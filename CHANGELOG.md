@@ -1,3 +1,10 @@
+
+#### v0.2.0 `June 22, 2016`
+- **[FEATURE]** add up to 5th level of subpages in the example structure ([876fb8a](https://github.com/t3kit/t3kit_db/commit/876fb8a))
+- **[FIX]** extend page access rights for editor in Blue Mountain ([b4f9321](https://github.com/t3kit/t3kit_db/commit/b4f9321))
+- **[FIX]** change startpage links to uppercase ([078883e](https://github.com/t3kit/t3kit_db/commit/078883e))
+
+***
 #### v0.1.0 `June 2, 2016`
 - **[REFACTOR]** upgrade user groups, adjust editor access for t3kit ([bfcbe8c](https://github.com/t3kit/t3kit_db/commit/bfcbe8c))
 - **[FEATURE]** add new icons set (change icons in content elements) ([62c7129](https://github.com/t3kit/t3kit_db/commit/62c7129))
