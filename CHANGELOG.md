@@ -1,4 +1,11 @@
 
+#### v0.3.0 `July 8, 2016`
+- **[FEATURE]** extend TYPO3 standard form with new validator and recaptcha ([a2db483](https://github.com/t3kit/t3kit_db/commit/a2db483))
+- **[FEATURE]** add new list templates for News (cards, timeline) ([5664e9d](https://github.com/t3kit/t3kit_db/commit/5664e9d))
+- **[FEATURE]** update news list page, add news carousel element ([875f984](https://github.com/t3kit/t3kit_db/commit/875f984))
+
+***
+
 #### v0.2.0 `June 22, 2016`
 - **[FEATURE]** add up to 5th level of subpages in the example structure ([876fb8a](https://github.com/t3kit/t3kit_db/commit/876fb8a))
 - **[FIX]** extend page access rights for editor in Blue Mountain ([b4f9321](https://github.com/t3kit/t3kit_db/commit/b4f9321))
