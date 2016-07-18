@@ -4,6 +4,10 @@
 
 Just to make the t3kit TYPO3 database available for other projects.
 
+### [CHANGELOG](https://github.com/t3kit/t3kit_db/blob/master/CHANGELOG.md)
+### [CONTRIBUTING](https://github.com/t3kit/t3kit/blob/master/CONTRIBUTING.md)
+
+
 ### To update database dump
 Run
 ```shell
@@ -25,29 +29,3 @@ Run
 restoredb.sh
 ```
 from inside the vagrant vm to restore database
-
-
-# Contributing
-
-## Style Guide
-This project uses special style guides. Those rules you can find on appropriate file: `.editorconfig`
-
-* [editorconfig](http://editorconfig.org)
-
-
-## Git commit conventions and output formatting
-Please use semantic labels for your messages, but if commit message is not very important, you can skip labels. All commits with labels will be added in CHANGELOG file, that's why it is **important to use predefined labels** on your commits.
-
-####Git labels:
-* **[FEATURE]** A new feature
-* **[FIX]** A bug fix
-* **[REFACTOR]** A code change that neither fixes a bug or adds a feature
-* **[PERF]** A code change that improves performance.
-* **[CHORE]** Changes to the build process (grunt) or auxiliary tools and libraries such as documentation generation and linters (jshint, jscs, etc.)
-* **[DOC]** Documentation only changes
-* **[STYLE]** Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
-* **[TEST]** Adding missing tests
-* **[UPDATE]** Updating git submodules, npm/bower dependencies
-
-
-Please ensure any pull requests of fixes **follow this closely**. If you notice existing code which doesn't follow these practices, feel free to shout and we will address this.
