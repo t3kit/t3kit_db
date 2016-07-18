@@ -1,4 +1,10 @@
 
+#### v0.3.1 `July 18, 2016`
+- **[DOC]** add Contributing link to README, remove old info ([789ca16](https://github.com/t3kit/t3kit_db/commit/789ca16))
+- **[DOC]** add CONTRIBUTING.md file ([8d6667f](https://github.com/t3kit/t3kit_db/commit/8d6667f))
+
+***
+
 #### v0.3.0 `July 8, 2016`
 - **[FEATURE]** extend TYPO3 standard form with new validator and recaptcha ([a2db483](https://github.com/t3kit/t3kit_db/commit/a2db483))
 - **[FEATURE]** add new list templates for News (cards, timeline) ([5664e9d](https://github.com/t3kit/t3kit_db/commit/5664e9d))
