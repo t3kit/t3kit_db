@@ -186,7 +186,7 @@ CREATE TABLE `be_users` (
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -835,7 +835,7 @@ CREATE TABLE `cf_realurl_404_multilingual` (
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -844,6 +844,7 @@ CREATE TABLE `cf_realurl_404_multilingual` (
 
 LOCK TABLES `cf_realurl_404_multilingual` WRITE;
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` DISABLE KEYS */;
+INSERT INTO `cf_realurl_404_multilingual` VALUES (1,'dcfca53c30b5cd350cf4661412bc725b51435ffd',1470834404,'b:0;');
 /*!40000 ALTER TABLE `cf_realurl_404_multilingual` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1693,8 +1694,7 @@ CREATE TABLE `sys_domain` (
   `forced` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
-  KEY `getSysDomain` (`redirectTo`,`hidden`),
-  KEY `tx_realurl` (`domainName`,`hidden`)
+  KEY `getSysDomain` (`redirectTo`,`hidden`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1906,7 +1906,7 @@ CREATE TABLE `sys_file_processedfile` (
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`,`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(199))
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2075,7 +2075,7 @@ CREATE TABLE `sys_history` (
   KEY `recordident_1` (`tablename`,`recuid`),
   KEY `recordident_2` (`tablename`,`tstamp`),
   KEY `sys_log_uid` (`sys_log_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=155 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2136,7 +2136,7 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB AUTO_INCREMENT=348 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2185,7 +2185,7 @@ CREATE TABLE `sys_log` (
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=594 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2324,7 +2324,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:10:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}s:4:\"82|0\";a:9:{s:13:\"connectionKey\";s:4:\"82|0\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:4:\"82|1\";a:9:{s:13:\"connectionKey\";s:4:\"82|1\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:4:\"82|2\";a:9:{s:13:\"connectionKey\";s:4:\"82|2\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:4:\"82|3\";a:9:{s:13:\"connectionKey\";s:4:\"82|3\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:83:\"Home Blue Mountain (pid: 82, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:4:\"82|4\";a:9:{s:13:\"connectionKey\";s:4:\"82|4\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:95:\"Home Blue Mountain (pid: 82, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1464256524;s:3:\"end\";i:1464256527;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"c7dc9dbe4ae71eb6b10ebe40f8470f4832335a4ef86e7c434866cd4a386e3f9d\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
+INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:10:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}s:4:\"82|0\";a:9:{s:13:\"connectionKey\";s:4:\"82|0\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:4:\"82|1\";a:9:{s:13:\"connectionKey\";s:4:\"82|1\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:4:\"82|2\";a:9:{s:13:\"connectionKey\";s:4:\"82|2\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:4:\"82|3\";a:9:{s:13:\"connectionKey\";s:4:\"82|3\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:83:\"Home Blue Mountain (pid: 82, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:4:\"82|4\";a:9:{s:13:\"connectionKey\";s:4:\"82|4\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:95:\"Home Blue Mountain (pid: 82, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1464256524;s:3:\"end\";i:1464256527;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"76ac0cd10b103d9423413b92c8c529ccc9f4f183a4891c0d0921017061644606\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2373,8 +2373,7 @@ CREATE TABLE `sys_template` (
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
-  KEY `roottemplate` (`deleted`,`hidden`,`root`),
-  KEY `tx_realurl` (`root`,`hidden`)
+  KEY `roottemplate` (`deleted`,`hidden`,`root`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3293,61 +3292,6 @@ LOCK TABLES `tx_pxaformenhancement_domain_model_form` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tx_realurl_chashcache`
---
-
-DROP TABLE IF EXISTS `tx_realurl_chashcache`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_realurl_chashcache` (
-  `spurl_hash` char(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `chash_string` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `spurl_string` text COLLATE utf8_swedish_ci,
-  PRIMARY KEY (`spurl_hash`),
-  KEY `chash_string` (`chash_string`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tx_realurl_chashcache`
---
-
-LOCK TABLES `tx_realurl_chashcache` WRITE;
-/*!40000 ALTER TABLE `tx_realurl_chashcache` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_realurl_chashcache` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tx_realurl_errorlog`
---
-
-DROP TABLE IF EXISTS `tx_realurl_errorlog`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_realurl_errorlog` (
-  `url_hash` int(11) NOT NULL DEFAULT '0',
-  `url` text COLLATE utf8_swedish_ci NOT NULL,
-  `error` text COLLATE utf8_swedish_ci NOT NULL,
-  `last_referer` text COLLATE utf8_swedish_ci NOT NULL,
-  `counter` int(11) NOT NULL DEFAULT '0',
-  `cr_date` int(11) NOT NULL DEFAULT '0',
-  `tstamp` int(11) NOT NULL DEFAULT '0',
-  `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`url_hash`,`rootpage_id`),
-  KEY `counter` (`counter`,`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tx_realurl_errorlog`
---
-
-LOCK TABLES `tx_realurl_errorlog` WRITE;
-/*!40000 ALTER TABLE `tx_realurl_errorlog` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_realurl_errorlog` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tx_realurl_pathcache`
 --
 
@@ -3355,18 +3299,20 @@ DROP TABLE IF EXISTS `tx_realurl_pathcache`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_pathcache` (
-  `cache_id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
   `page_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL DEFAULT '0',
   `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `mpvar` tinytext COLLATE utf8_swedish_ci NOT NULL,
-  `pagepath` text COLLATE utf8_swedish_ci NOT NULL,
+  `mpvar` tinytext COLLATE utf8_swedish_ci,
+  `pagepath` text COLLATE utf8_swedish_ci,
   `expire` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`cache_id`),
+  PRIMARY KEY (`uid`),
+  KEY `parent` (`pid`),
   KEY `pathq1` (`rootpage_id`,`pagepath`(32),`expire`),
   KEY `pathq2` (`page_id`,`language_id`,`rootpage_id`,`expire`),
   KEY `expire` (`expire`)
-) ENGINE=InnoDB AUTO_INCREMENT=147 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3379,37 +3325,6 @@ LOCK TABLES `tx_realurl_pathcache` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tx_realurl_redirects`
---
-
-DROP TABLE IF EXISTS `tx_realurl_redirects`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_realurl_redirects` (
-  `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `url_hash` int(11) NOT NULL DEFAULT '0',
-  `url` text COLLATE utf8_swedish_ci NOT NULL,
-  `destination` text COLLATE utf8_swedish_ci NOT NULL,
-  `last_referer` text COLLATE utf8_swedish_ci NOT NULL,
-  `counter` int(11) NOT NULL DEFAULT '0',
-  `tstamp` int(11) NOT NULL DEFAULT '0',
-  `has_moved` int(11) NOT NULL DEFAULT '0',
-  `domain_limit` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`uid`),
-  UNIQUE KEY `sel01` (`url_hash`,`domain_limit`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tx_realurl_redirects`
---
-
-LOCK TABLES `tx_realurl_redirects` WRITE;
-/*!40000 ALTER TABLE `tx_realurl_redirects` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_realurl_redirects` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `tx_realurl_uniqalias`
 --
 
@@ -3418,7 +3333,6 @@ DROP TABLE IF EXISTS `tx_realurl_uniqalias`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_uniqalias` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `tstamp` int(11) NOT NULL DEFAULT '0',
   `tablename` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
   `field_alias` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
   `field_id` varchar(60) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
@@ -3426,10 +3340,12 @@ CREATE TABLE `tx_realurl_uniqalias` (
   `value_id` int(11) NOT NULL DEFAULT '0',
   `lang` int(11) NOT NULL DEFAULT '0',
   `expire` int(11) NOT NULL DEFAULT '0',
+  `pid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `tablename` (`tablename`),
   KEY `bk_realurl01` (`field_alias`(20),`field_id`,`value_id`,`lang`,`expire`),
-  KEY `bk_realurl02` (`tablename`(32),`field_alias`(20),`field_id`,`value_alias`(20),`expire`)
+  KEY `bk_realurl02` (`tablename`(32),`field_alias`(20),`field_id`,`value_alias`(20),`expire`),
+  KEY `parent` (`pid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -3439,64 +3355,63 @@ CREATE TABLE `tx_realurl_uniqalias` (
 
 LOCK TABLES `tx_realurl_uniqalias` WRITE;
 /*!40000 ALTER TABLE `tx_realurl_uniqalias` DISABLE KEYS */;
-INSERT INTO `tx_realurl_uniqalias` VALUES (4,1447835758,'tx_news_domain_model_news','title','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-a-a-o-a-a-o',1,0,0),(5,1447835788,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,0,0),(6,1447836654,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,2,0),(7,1447836654,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,3,0),(8,1447836654,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,1,0),(9,1447836654,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,4,0),(10,1447836978,'tx_news_domain_model_tag','title','uid','tag-ipsum',1,0,0),(11,1447836978,'tx_news_domain_model_tag','title','uid','tag-lorem',2,0,0),(12,1447836978,'sys_category','title','uid','technology',7,0,0),(13,1447836978,'sys_category','title','uid','research',6,0,0),(14,1447846293,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,0,1463466380),(15,1447846293,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,0,1483447153),(16,1447856179,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,1,1468315275),(17,1447856179,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,1,0),(18,1447856488,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,2,1468827230),(19,1447856488,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,2,0),(20,1447856498,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,3,1468827231),(21,1447856498,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,3,0),(22,1447856504,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,4,1468827232),(23,1447856504,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,4,0),(24,1447914380,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,0,0),(25,1452763275,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,1,0),(26,1453275230,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,2,0),(27,1453275231,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,3,0),(28,1453275232,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,4,0),(29,1467387416,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-1',3,0,0),(30,1467387416,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-2',4,0,0),(31,1467387416,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada-1',5,0,0),(32,1467387416,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada-2',6,0,0),(33,1467895153,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','ut-ullamcorper-tincidunt-ligula-eu-mollis',2,0,0),(34,1467895153,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','cras-faucibus-erat-dictum-metus-aliquet-maximus',9,0,0),(35,1467895153,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','proin-tristique-scelerisque-lobortis',8,0,0),(36,1467895153,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','ut-ullamcorper-tincidunt-ligula-eu-mollis-1',7,0,0);
+INSERT INTO `tx_realurl_uniqalias` VALUES (4,'tx_news_domain_model_news','title','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-a-a-o-a-a-o',1,0,0,0),(5,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,0,0,0),(6,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,2,0,0),(7,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,3,0,0),(8,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,1,0,0),(9,'tx_news_domain_model_news','title','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,4,0,0),(10,'tx_news_domain_model_tag','title','uid','tag-ipsum',1,0,0,0),(11,'tx_news_domain_model_tag','title','uid','tag-lorem',2,0,0,0),(12,'sys_category','title','uid','technology',7,0,0,0),(13,'sys_category','title','uid','research',6,0,0,0),(14,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,0,1463466380,0),(15,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,0,1483447153,0),(16,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,1,1468315275,0),(17,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,1,0,0),(18,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,2,1468827230,0),(19,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,2,0,0),(20,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,3,1468827231,0),(21,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,3,0,0),(22,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-nyheten',1,4,1468827232,0),(23,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada',2,4,0,0),(24,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,0,0,0),(25,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,1,0,0),(26,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,2,0,0),(27,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,3,0,0),(28,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit',1,4,0,0),(29,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-1',3,0,0,0),(30,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-2',4,0,0,0),(31,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada-1',5,0,0,0),(32,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','nullam-sagittis-condimentum-est-quis-malesuada-2',6,0,0,0),(33,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','ut-ullamcorper-tincidunt-ligula-eu-mollis',2,0,0,0),(34,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','cras-faucibus-erat-dictum-metus-aliquet-maximus',9,0,0,0),(35,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','proin-tristique-scelerisque-lobortis',8,0,0,0),(36,'tx_news_domain_model_news','IF(path_segment!=\"\",path_segment,title)','uid','ut-ullamcorper-tincidunt-ligula-eu-mollis-1',7,0,0,0);
 /*!40000 ALTER TABLE `tx_realurl_uniqalias` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tx_realurl_urldecodecache`
+-- Table structure for table `tx_realurl_uniqalias_cache_map`
 --
 
-DROP TABLE IF EXISTS `tx_realurl_urldecodecache`;
+DROP TABLE IF EXISTS `tx_realurl_uniqalias_cache_map`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_realurl_urldecodecache` (
-  `url_hash` char(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `spurl` tinytext COLLATE utf8_swedish_ci NOT NULL,
-  `content` blob NOT NULL,
-  `page_id` int(11) NOT NULL DEFAULT '0',
-  `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `tstamp` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`url_hash`),
-  KEY `page_id` (`page_id`)
+CREATE TABLE `tx_realurl_uniqalias_cache_map` (
+  `alias_uid` int(11) NOT NULL DEFAULT '0',
+  `url_cache_id` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  KEY `check_existence` (`alias_uid`,`url_cache_id`(6))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tx_realurl_urldecodecache`
+-- Dumping data for table `tx_realurl_uniqalias_cache_map`
 --
 
-LOCK TABLES `tx_realurl_urldecodecache` WRITE;
-/*!40000 ALTER TABLE `tx_realurl_urldecodecache` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_realurl_urldecodecache` ENABLE KEYS */;
+LOCK TABLES `tx_realurl_uniqalias_cache_map` WRITE;
+/*!40000 ALTER TABLE `tx_realurl_uniqalias_cache_map` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tx_realurl_uniqalias_cache_map` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `tx_realurl_urlencodecache`
+-- Table structure for table `tx_realurl_urlcache`
 --
 
-DROP TABLE IF EXISTS `tx_realurl_urlencodecache`;
+DROP TABLE IF EXISTS `tx_realurl_urlcache`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_realurl_urlencodecache` (
-  `url_hash` char(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `origparams` tinytext COLLATE utf8_swedish_ci NOT NULL,
-  `internalExtras` tinytext COLLATE utf8_swedish_ci NOT NULL,
-  `content` text COLLATE utf8_swedish_ci NOT NULL,
+CREATE TABLE `tx_realurl_urlcache` (
+  `uid` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL DEFAULT '0',
+  `crdate` int(11) NOT NULL DEFAULT '0',
   `page_id` int(11) NOT NULL DEFAULT '0',
-  `tstamp` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`url_hash`),
-  KEY `page_id` (`page_id`)
+  `rootpage_id` int(11) NOT NULL DEFAULT '0',
+  `original_url` text COLLATE utf8_swedish_ci,
+  `speaking_url` text COLLATE utf8_swedish_ci,
+  `request_variables` text COLLATE utf8_swedish_ci,
+  PRIMARY KEY (`uid`),
+  KEY `parent` (`pid`),
+  KEY `pathq1` (`rootpage_id`,`original_url`(32)),
+  KEY `pathq2` (`rootpage_id`,`speaking_url`(32))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tx_realurl_urlencodecache`
+-- Dumping data for table `tx_realurl_urlcache`
 --
 
-LOCK TABLES `tx_realurl_urlencodecache` WRITE;
-/*!40000 ALTER TABLE `tx_realurl_urlencodecache` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_realurl_urlencodecache` ENABLE KEYS */;
+LOCK TABLES `tx_realurl_urlcache` WRITE;
+/*!40000 ALTER TABLE `tx_realurl_urlcache` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tx_realurl_urlcache` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -3513,7 +3428,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_swedish_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3871,7 +3786,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-08 12:46:49
+-- Dump completed on 2016-08-10 12:56:40
 -- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
