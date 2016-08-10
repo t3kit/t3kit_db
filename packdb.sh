@@ -4,10 +4,6 @@ DB_USER="t3kit"
 DB_PW="t3kit1234"
 OUT_FILE=${1:-"t3kit.sql"}
 
-echo "Dumping db..."
-mysqldump -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
-
-echo "Clearing tables...";
 CLEAR_TABLES=(
 	"cf_cache_hash" 
 	"cf_cache_hash_tags" 
@@ -47,10 +43,17 @@ CLEAR_TABLES=(
 	"tx_extensionmanager_domain_model_extension"
 	"sys_file_processedfile"
 )
+
+
+echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
 do
-	sed -i "/^INSERT INTO \`${TABLE}\`/d" "$OUT_FILE"
+	mysql -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB" 
 done
+
+echo "Dumping db..."
+mysqldump -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
+
 echo "Output in ${OUT_FILE}"
 
 echo "Merge be_users.sql dump, must include admin user with password admin1234"
