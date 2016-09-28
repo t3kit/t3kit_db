@@ -1,7 +1,7 @@
 #!/bin/bash
-DB_DB="t3kit"
-DB_USER="t3kit"
-DB_PW="t3kit1234"
+DB_DB="dockertypo3"
+DB_USER="root"
+DB_PW="root"
 OUT_FILE=${1:-"t3kit.sql"}
 
 CLEAR_TABLES=(
@@ -48,11 +48,11 @@ CLEAR_TABLES=(
 echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
 do
-	mysql -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB" 
+	mysql -hdb -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
 done
 
 echo "Dumping db..."
-mysqldump -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
+mysqldump -hdb -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
 
 echo "Output in ${OUT_FILE}"
 
