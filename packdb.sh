@@ -1,7 +1,7 @@
 #!/bin/bash
-DB_DB="dockertypo3"
-DB_USER="root"
-DB_PW="root"
+DB_DB="t3kit"
+DB_USER="t3kit"
+DB_PW="t3kit1234"
 OUT_FILE=${1:-"t3kit.sql"}
 
 CLEAR_TABLES=(
@@ -48,13 +48,25 @@ CLEAR_TABLES=(
 echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
 do
+	if [ -f "/.dockerenv" ]; then
 	mysql -hdb -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
+	else
+	mysql -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
+	fi
 done
 
 echo "Dumping db..."
-mysqldump -hdb -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
+	if [ -f "/.dockerenv" ]; then
+	mysqldump -hdb -u "$DB_USER" -p"$DB_PW" "$DB_DB" > /var/www/shared/db/"$OUT_FILE"
+	else
+	mysqldump -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
+	fi
 
 echo "Output in ${OUT_FILE}"
 
 echo "Merge be_users.sql dump, must include admin user with password admin1234"
-cat be_users.sql >> "${OUT_FILE}"
+	if [ -f "/.dockerenv" ]; then
+	cat /var/www/shared/db/be_users.sql >> "/var/www/shared/db/${OUT_FILE}"
+	else
+	cat be_users.sql >> "${OUT_FILE}"
+	fi
