@@ -1,4 +1,14 @@
 
+#### v0.4.0 `October 19, 2016`
+- **[FIX]** restore service restart commands ([6b89507](https://github.com/t3kit/t3kit_db/commit/6b89507))
+- **[DOC]** Update README ([2526179](https://github.com/t3kit/t3kit_db/commit/2526179))
+- **[UPDATE]** update table structure for realurl_404_multilingual and TYPO3 ([4bb8cc3](https://github.com/t3kit/t3kit_db/commit/4bb8cc3))
+- **[DOC]** add changes to readme ([43bb649](https://github.com/t3kit/t3kit_db/commit/43bb649))
+- **[FEATURE]** Docker DB version ([f4847a6](https://github.com/t3kit/t3kit_db/commit/f4847a6))
+- **[FIX]** packdb now truncates tables since otherwise it dumps autoincrement number ([4776346](https://github.com/t3kit/t3kit_db/commit/4776346))
+
+***
+
 #### v0.3.1 `July 18, 2016`
 - **[DOC]** add Contributing link to README, remove old info ([789ca16](https://github.com/t3kit/t3kit_db/commit/789ca16))
 - **[DOC]** add CONTRIBUTING.md file ([8d6667f](https://github.com/t3kit/t3kit_db/commit/8d6667f))
