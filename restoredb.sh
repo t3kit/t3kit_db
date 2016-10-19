@@ -1,19 +1,28 @@
 #!/bin/bash
 
-PASSWORD="t3kit1234"
+PASSWORD="1234"
 DATABASE="t3kit"
-USERNAME="t3kit"
+USERNAME="root"
+T3KIT_USER="t3kit"
+T3KIT_PASSWORD="t3kit1234"
 
-mysql -uroot -p1234 -e "SHOW DATABASES;"
+if [ -n "${DOCKER}" ]; then
+  DBHOST="db"
+else
+  DBHOST="localhost"
+fi
+mysql -h${DBHOST} -u"$USERNAME" -p""$PASSWORD"" -e "SHOW DATABASES;"
 echo -e "Dropping a database $DATABASE... \r10% "
-mysql -uroot -p1234 -e "DROP DATABASE $DATABASE;"
+mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" -e "DROP DATABASE $DATABASE;"
 
 echo -e "Installing DB $DATABASE... \r40% "
-mysql -uroot -p1234 -e "CREATE DATABASE IF NOT EXISTS $DATABASE CHARACTER SET utf8 COLLATE utf8_swedish_ci;"
-mysql -uroot -p1234 -e "GRANT ALL PRIVILEGES ON $DATABASE.* TO '$USERNAME'@localhost IDENTIFIED BY '$PASSWORD';"
-mysql -uroot -p1234 $DATABASE < /var/www/shared/db/$DATABASE.sql
+mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" -e "CREATE DATABASE IF NOT EXISTS $DATABASE CHARACTER SET utf8 COLLATE utf8_swedish_ci;"
+mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" -e "GRANT ALL PRIVILEGES ON $DATABASE.* TO '$T3KIT_USER'@localhost IDENTIFIED BY '$T3KIT_PASSWORD';"
+mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" $DATABASE < /var/www/shared/db/t3kit.sql
 
-echo -e "Restarting MySQL... \r60% "
-service mysql restart > /dev/null 2>&1
-echo -e "Restarting Apache... \r85% "
-service apache2 restart > /dev/null 2>&1
+if [ ! -n "${DOCKER}" ]; then
+	-echo -e "Restarting MySQL... \r60% "
+	-service mysql restart > /dev/null 2>&1
+	-echo -e "Restarting Apache... \r85% "
+	-service apache2 restart > /dev/null 2>&1
+fi
