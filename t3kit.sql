@@ -28,7 +28,7 @@ CREATE TABLE `backend_layout` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -41,14 +41,14 @@ CREATE TABLE `backend_layout` (
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_swedish_ci,
-  `config` text COLLATE utf8_swedish_ci NOT NULL,
-  `icon` text COLLATE utf8_swedish_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_general_ci,
+  `config` text COLLATE utf8_general_ci NOT NULL,
+  `icon` text COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,32 +71,32 @@ CREATE TABLE `be_groups` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `non_exclude_fields` text COLLATE utf8_swedish_ci,
-  `explicit_allowdeny` text COLLATE utf8_swedish_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `custom_options` text COLLATE utf8_swedish_ci,
-  `db_mountpoints` text COLLATE utf8_swedish_ci,
-  `pagetypes_select` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tables_select` text COLLATE utf8_swedish_ci,
-  `tables_modify` text COLLATE utf8_swedish_ci,
+  `title` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `non_exclude_fields` text COLLATE utf8_general_ci,
+  `explicit_allowdeny` text COLLATE utf8_general_ci,
+  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `custom_options` text COLLATE utf8_general_ci,
+  `db_mountpoints` text COLLATE utf8_general_ci,
+  `pagetypes_select` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tables_select` text COLLATE utf8_general_ci,
+  `tables_modify` text COLLATE utf8_general_ci,
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `groupMods` text COLLATE utf8_swedish_ci,
-  `file_mountpoints` text COLLATE utf8_swedish_ci,
-  `file_permissions` text COLLATE utf8_swedish_ci,
+  `groupMods` text COLLATE utf8_general_ci,
+  `file_mountpoints` text COLLATE utf8_general_ci,
+  `file_permissions` text COLLATE utf8_general_ci,
   `hidden` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `description` varchar(2000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_swedish_ci,
-  `subgroup` text COLLATE utf8_swedish_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
+  `subgroup` text COLLATE utf8_general_ci,
   `hide_in_lists` tinyint(4) NOT NULL DEFAULT '0',
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,17 +117,17 @@ DROP TABLE IF EXISTS `be_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `be_sessions` (
-  `ses_id` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ses_iplock` varchar(39) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `ses_id` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_name` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_iplock` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `ses_hashlock` int(11) NOT NULL DEFAULT '0',
   `ses_userid` int(11) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `ses_data` longtext COLLATE utf8_swedish_ci,
+  `ses_data` longtext COLLATE utf8_general_ci,
   `ses_backuserid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ses_id`,`ses_name`),
   KEY `ses_tstamp` (`ses_tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,43 +150,43 @@ CREATE TABLE `be_users` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `avatar` int(11) unsigned NOT NULL DEFAULT '0',
-  `password` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `admin` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `usergroup` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `usergroup` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `disable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `lang` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `email` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `db_mountpoints` text COLLATE utf8_swedish_ci,
+  `lang` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `db_mountpoints` text COLLATE utf8_general_ci,
   `options` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `realName` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `userMods` text COLLATE utf8_swedish_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `uc` mediumtext COLLATE utf8_swedish_ci,
-  `file_mountpoints` text COLLATE utf8_swedish_ci,
-  `file_permissions` text COLLATE utf8_swedish_ci,
+  `realName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `userMods` text COLLATE utf8_general_ci,
+  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `uc` mediumtext COLLATE utf8_general_ci,
+  `file_mountpoints` text COLLATE utf8_general_ci,
+  `file_permissions` text COLLATE utf8_general_ci,
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `disableIPlock` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_swedish_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `createdByAction` int(11) NOT NULL DEFAULT '0',
-  `usergroup_cached_list` text COLLATE utf8_swedish_ci,
+  `usergroup_cached_list` text COLLATE utf8_general_ci,
   `workspace_id` int(11) NOT NULL DEFAULT '0',
   `workspace_preview` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_news_categorymounts` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_news_categorymounts` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,12 +206,12 @@ DROP TABLE IF EXISTS `cache_md5params`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cache_md5params` (
-  `md5hash` varchar(20) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `md5hash` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tstamp` int(11) NOT NULL DEFAULT '0',
   `type` tinyint(3) NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8_swedish_ci,
+  `params` text COLLATE utf8_general_ci,
   PRIMARY KEY (`md5hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,13 +231,13 @@ DROP TABLE IF EXISTS `cache_treelist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cache_treelist` (
-  `md5hash` char(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `md5hash` char(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `pid` int(11) NOT NULL DEFAULT '0',
-  `treelist` mediumtext COLLATE utf8_swedish_ci,
+  `treelist` mediumtext COLLATE utf8_general_ci,
   `tstamp` int(11) NOT NULL DEFAULT '0',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`md5hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,12 +258,12 @@ DROP TABLE IF EXISTS `cf_cache_hash`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_hash` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,12 +284,12 @@ DROP TABLE IF EXISTS `cf_cache_hash_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_hash_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,12 +310,12 @@ DROP TABLE IF EXISTS `cf_cache_imagesizes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_imagesizes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,12 +337,12 @@ DROP TABLE IF EXISTS `cf_cache_imagesizes_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_imagesizes_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,12 +363,12 @@ DROP TABLE IF EXISTS `cf_cache_news_category`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_news_category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,12 +389,12 @@ DROP TABLE IF EXISTS `cf_cache_news_category_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_news_category_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,12 +415,12 @@ DROP TABLE IF EXISTS `cf_cache_pages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pages` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -441,12 +441,12 @@ DROP TABLE IF EXISTS `cf_cache_pages_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pages_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,12 +467,12 @@ DROP TABLE IF EXISTS `cf_cache_pagesection`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pagesection` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -493,12 +493,12 @@ DROP TABLE IF EXISTS `cf_cache_pagesection_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pagesection_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -519,12 +519,12 @@ DROP TABLE IF EXISTS `cf_cache_rootline`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_rootline` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -545,12 +545,12 @@ DROP TABLE IF EXISTS `cf_cache_rootline_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_rootline_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -571,12 +571,12 @@ DROP TABLE IF EXISTS `cf_extbase_datamapfactory_datamap`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_datamapfactory_datamap` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -597,12 +597,12 @@ DROP TABLE IF EXISTS `cf_extbase_datamapfactory_datamap_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_datamapfactory_datamap_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -623,12 +623,12 @@ DROP TABLE IF EXISTS `cf_extbase_object`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_object` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -649,12 +649,12 @@ DROP TABLE IF EXISTS `cf_extbase_object_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_object_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -675,12 +675,12 @@ DROP TABLE IF EXISTS `cf_extbase_reflection`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_reflection` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -701,12 +701,12 @@ DROP TABLE IF EXISTS `cf_extbase_reflection_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_reflection_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -727,12 +727,12 @@ DROP TABLE IF EXISTS `cf_extbase_typo3dbbackend_queries`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -753,12 +753,12 @@ DROP TABLE IF EXISTS `cf_extbase_typo3dbbackend_queries_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_typo3dbbackend_queries_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,13 +779,13 @@ DROP TABLE IF EXISTS `cf_themes_cache`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_themes_cache` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -794,7 +794,7 @@ CREATE TABLE `cf_themes_cache` (
 
 LOCK TABLES `cf_themes_cache` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache` DISABLE KEYS */;
-INSERT INTO `cf_themes_cache` VALUES (40,'87bc68c937aceb96df09391854ce3e6f7489f336',0,'xú•[{s€8ˇ*ôÃÌ©ﬂrÔﬁŒÊ—›f&Ìeö\\{;77Z¢e^$Q+R~LõÔ~\0E íEJvnß∂	?\0@\0|,ô\r/Øfﬂ≈l<ûùπã®ËI\Zßëï__8óèDÆŒ≥¡Ï/„ëÖ>%ôd$≤ë-‰ŸÒ\\∂3˜y\"i\"{]í<í)	hˆºK)“”ë¢4Ë≈äg“œeOí‹G*œõùK9◊ìAFÖ¿ü	›¿u´ÆÛÄ«Ñ%Ûò4Rw>ö4Ñê(‚õg™Ác0‰9π8#ãEﬂ~∆ì]?¥å3¥çQ¯!X\0ó¸8|±æ\"Óø¸ïsâ\0ÓìT2û¿êCÒ√G>‘w§æ¬åÁÈ≈Y¿á¬≠`	Ä\0∞5|…ã3\n\n,AY¸ÊäœJÆC¯å‡3Üœ>|¶Åg˛≈†K@Ìó∞è»D?…À≈YL%ºjB@*Z§hˆ◊≈ô 1¸%Ç%£ ıã1X.)¡?d∆^®∫Ú$ƒÎ-#Ú~^y\r.®.\\<ÿ¡_.xgPU2©Ë‡vˇ@¿öd [W\roI∫ï1\rÈ≈d˚Mπlv>‘/ØÉ¸>yÜø5h¨Aó- O\'O)ÒY*çfÁ√nYﬂúå¡_üH≤§éô∂`<É8∏ÂWÊˆãà¯/G‚æ±†∞Âl3EÅyÑë†_PÖÜmN¬@˚ñë¥∑1¬`\0^±˙ŸÒ‰ä≤p%5tj†„c†0Íø±$‡õ™æì£ÙçPËÇo?$ƒAïÅwî⁄Ü¡≠∑*ªÄ}Õm≈®ôåZ}°—µÑ!∑»• õ£·û€øø´ë:ÀY˙ı}É52Ñƒ\r!Fe5M7ﬂ¶†MûKbà¶9ƒV¢bk‘å„ÚBi™ïÍb0j∆Tƒ!»ó<ã{)™öXt.IM¡˘ùEÍÌ=‡˚·_œ≥%U4˝/T<Û©Ë?fl\rÑ˝gS¢˙øgä]ÄîΩïå#3B“(«[P2îê5£kΩD’î4†jeÜπç±•∞¢-|Ñf;±≥m`T†ÖÎÉh¶£*S¨íΩLÄ˝W$Ih‘SôY≈>€]«ª≥gs≥E4†¬œò*Ä-D√Hâﬁ+)”YøO∑Pã\"\n!7ç€d@í0\'!’Èê&Ô¬E”Ÿ\ròœ”]f“Ãt}˛ÛÒ„≥œ∫kËÍÉUCûÌ™ÔŸ./§	Õà,“ˆpb‰°”LßRw∑‚¿SöÑêV=çƒ<!1mÈåÁÈ†à(Õ1ùÀÒìñ@˘∞ÖQ#¿Å¢èñh\rÛΩ<Kò{Wo◊˝{iÓËGöÆËoF£†RBÅW	arç6∞˜æJùn	\"†ßÙ<e¥w[†Û=v^w&ozÇ-Æ8Máö+<Ôö˛1ô˚4\r™nÛ.èS ÖøôÄ†ÚiO¿`ÉºX´8£ö1è≤^ÒÂc†ÍJÜy»Llƒ+.T⁄\0√BˇO\"Û∑ã>Ö9MŸ]ZIµ…0CÙÒNﬂÁù”ƒíª%ôø“E˛QÁ¡≤Ò±H)Ëan”2aÆèÿÁÿ≤çk` ã⁄ÄäÓß¸¯a±)æ–›öGa°Ω:§≠Tç&yΩ‚‘t∏N!7OêÀ˙Ø=¥ò	PTıt∑$·	á¡‹ØJè/†ï(´âËë5a¢êÚ¿Ëb|1ºòò>¨Aè≥N›Ò-a ¥0]˘¿B´g≈=5?”¸?$aƒƒ ËÔƒ0¡oµ(UÓÊ‹ò~•Û¥“Å8B†© ]®è∫{¬ﬁ˝˚ﬂéíÒj\\Ì§^FƒÃîärç]cÉ⁄œ≥õ¬ú’⁄q´M\rmiS\\\Zi—W—Ω:ÕmÿUÃçe¶€\0ØNo∞,Ωq™a≠N;`núÜSµnﬁHÌˆôam|Üˆj·âdØÊΩ4t˜KÊ–\0aññ(πΩêÃâÔÛ<©MO∆]∞<ãå∫e‹l6:ï±Â«æ1–πÏ´⁄bs•îjU≤éZAµï◊Jä|Ô‘¢T…ŸC´ §†ŸöB¬g[\n6îΩ$o’ïâ;∫ÜôO\Z”¬Ze≤sôkIã\n˙Iá/pÜâñ8\nc*˜‰}kó/\"Ê˜aB¶@Û“vûÎ-DJ‚«åKÍÀ`ñË∫Xe√t+ü†ê„ÏÙ€/∏‚T,0˝˝<`\Z¢›“7˝˘¸◊å∆|Mﬂ…Ω_˙H¯´itNî\n”ty«Î¢{oÌıˇB)ÍFeöiÁM\\é®·ún$D“£¸Ó„¨√\"´í6l\0´Á{-)ë9H–ïı	Zã\ZŒ%´ƒa3r#È⁄õœzZS~GpPùÃs≠ÒÅå^)‡u*é‰]ë≤Ó®Ñ®–ç\"∞òåL∫∑€ã\'í¯–<•+\n3Ù<Ôùß˛;L1$‚í«o¯o’™æY&)÷ÖØ3JÃ≠ÍCTßó5Ë¿\n{0Ü±sEgÍÜ8az\nZ=A#\ZCó\rˆ∏nø—ã¸<≠FÇ38—∑⁄Bˇó®KühëTÀeº—©\\ûTå’x∏¨jÁÒ	r?™aat≤Y?ì5âY^)áö+Î9bAPÔñ=W\"ic¿C^cr¢Yì\'Óﬂµ®ô≈5pZU≠€nïb#•\'y⁄ÉJö„ë%0ˇ){Ã©b‡äÕ Ù∞≤˜ñzÕ`:9πVˆYå≠SøË\n“bïΩKrq1kJÚÏº∞ÜÈ¯¨p,˛Ω5…î÷ÂÇnaúâæÜ∫·¡Ó&¨¬\\±SÉ·LC†´g*ë[\'I|`…KÈjË\Z»èP‚õÇ]ÅY¬Wf†~,˜/÷5÷õÿõ∞!ÿï˚ö‡C®3m@´£®°º3?¥0πëI-Nú…ÆùárDµ—veôí\rK]Å&∏·ónÕ2B7ÓÅ.Õ2Õƒ\0;Àm5ë·HCª√MpüëHe¿¶◊ΩŒÒQÅ€∂SÅ™Õõ1€˘ÍU∏%l;}U‡o¨√º€	Y7uÓ‚|È\Z*È3CP[&Â‘H;ﬂï}´Ç≠È•Û}5çŒ“Ëk_≤5mDKÁ≠¡≠*8ª#Î‹¿‘2$¡[lpùe|Û&ÏÂæ…eji†;3T—6€ﬂªs∞‡”kJÅ≥≈õsä`¡⁄˝›3\"_Ï{N˚ãw”:5÷´:t\Z†Ü/¢∑…•3rk\\¨÷ÏûªQ;+ÆùOΩZvóéC&é¥pöy˜åÍÍt∑j0\r¸,è¬\Z&›±Z·`uOÁË<`V{∞9≠T\n5\'†[? \nsÚ&jãõÆ≥«Oæ1Ö	∑…ZTy´Œ0’¶UŒ&R°AÑ[Âv¡eâÇ~ÊÚ>iÃπ]Æ/—*hcµàxU†èöü*{áµ´·ä·C&N38ìÃ!úúﬁÏ√®˙*”VcTx¨X@+<lfq.Á•j5f ô4Î⁄Â¨ÿπ.´z…‚R.ËÔƒßŒ_jXW‘W±K\r|–ß:pßóËÖ^£7œ’Ω‹•|‹:ß;PÎy√p«˜‰7íŒ(ÖáôåR˙—Å>Gö	“‡>9ŸLë\Zçº3œYRÏd8%…ÆPÔäëYrv™~e1≠-ÿ8˚‹*pç®“lÔ˜J™Jª·ÿçºÀ¡Uk™8–ÊŒ°˘~åÚ˙b∏´W—a	-çW—+Ö˚öƒÿ.Œ&˝·`2ﬁxz5Ú∆√ÈhpYú= e†ı#√3ΩT‘∂_ézÂ‘ KùáuáóJÎØÓ”Ü4π˚–èÅÀO∑„ün¶˝S¥ΩO ÑâO÷ñ§—vR—∂|®4•€j#Ì√-Qhˇî˝\'œeæ8=EÌ\n\\ôeº∫5ıc•!H…*öçú{Dê*m˚£}Pff1OüP)7…PeîÄ¡$≤ÔX‘[€©Ö≠Z\",πéè‰Z,,*^UòF; √M…srS‡}&1«Ã [˚ùΩ —sﬁ	˜^ÓÉ™+z‡©àbáb[Ó3T62˚_1ñä\rÕëWG9w<GìC¬«åπ_Y/é	ÄÎÄ á\\Ä«@v\"Å˘êÛô>%ds§Î:GvÈ‰m9Ç5t2Ø}ªrr∑ù2√ÒŸ¡æ~§MmvíZ˛ç◊ˇ<÷≈\"',2145909600);
+INSERT INTO `cf_themes_cache` VALUES (40,'87bc68c937aceb96df09391854ce3e6f7489f336',0,'xÔøΩÔøΩ[{sÔøΩ8ÔøΩ*ÔøΩÔøΩÔøΩÔøΩÔøΩrÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩf&ÔøΩeÔøΩ\\{;77ZÔøΩe^$Q+R~LÔøΩÔøΩ~\0E íEJvnÔøΩÔøΩ	?\0@\0|,ÔøΩ\r/ÔøΩfÔøΩÔøΩl<ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩI\ZÔøΩÔøΩÔøΩ__8ÔøΩÔøΩDÔøΩÔøΩÔøΩÔøΩÔøΩ/„ëÖ>%ÔøΩd$ÔøΩÔøΩ-ÔøΩÔøΩÔøΩ\\ÔøΩ3ÔøΩy\"i\"{]ÔøΩ<ÔøΩ)	hÔøΩÔøΩK)ÔøΩ”ëÔøΩ4ÔøΩ≈ägÔøΩÔøΩeOÔøΩÔøΩG*œõÔøΩK9ÔøΩÔøΩAFÔøΩÔøΩÔøΩ	ÔøΩÔøΩuÔøΩÔøΩÔøΩ«Ñ%ÔøΩ4Rw>ÔøΩ4ÔøΩÔøΩ(ÔøΩgÔøΩÔøΩc0ÔøΩ9ÔøΩ8#ÔøΩEÔøΩ~∆ì]?ÔøΩÔøΩ3ÔøΩÔøΩQÔøΩ!X\0ÔøΩÔøΩ8|ÔøΩÔøΩ\"ÔøΩÔøΩÔøΩsÔøΩ\0ÔøΩT2ÔøΩÔøΩÔøΩCÔøΩÔøΩG>ÔøΩwÔøΩÔøΩ¬åÔøΩÔøΩÔøΩYÔøΩÔøΩ¬≠`	ÔøΩ\0ÔøΩ5|…ã3\n\n,AYÔøΩÔøΩÔøΩJÔøΩCÔøΩÔøΩÔøΩ3ÔøΩÔøΩ>|ÔøΩÔøΩÔøΩgÔøΩ≈†K@ÔøΩÔøΩÔøΩÔøΩD?ÔøΩÔøΩÔøΩYL%ÔøΩjB@*ZÔøΩhÔøΩÔøΩ≈ô 1ÔøΩ%ÔøΩ%ÔøΩ ÔøΩÔøΩ1X.)ÔøΩ?dÔøΩ^ÔøΩÔøΩÔøΩ$ÔøΩÔøΩ-#ÔøΩ~^y\r.ÔøΩ.\\<ÔøΩÔøΩ_.xgPU2ÔøΩÔøΩÔøΩvÔøΩ@ÔøΩÔøΩdÔøΩ[W\roIÔøΩÔøΩ1\rÔøΩÔøΩdÔøΩMÔøΩlv>ÔøΩ/ÔøΩÔøΩÔøΩ>yÔøΩÔøΩ5hÔøΩAÔøΩ- ÔøΩO\'O)ÔøΩY*ÔøΩfÔøΩÔøΩnYﬂúÔøΩÔøΩ_ÔøΩHÔøΩÔøΩÔøΩÔøΩÔøΩ`<ÔøΩ8ÔøΩÔøΩWÔøΩÔøΩÔøΩÔøΩÔøΩ/G‚æ±ÔøΩÔøΩÔøΩl3EÔøΩyÔøΩÔøΩÔøΩ_PÔøΩÔøΩmNÔøΩ@ÔøΩÔøΩÔøΩÔøΩÔøΩ1ÔøΩ`\0^ÔøΩÔøΩÔøΩÔøΩ‰ä≤p%5tjÔøΩÔøΩcÔøΩ0Íø±$ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩPÔøΩo?$ÔøΩAÔøΩÔøΩwÔøΩ⁄ÜÔøΩÔøΩÔøΩ*ÔøΩÔøΩ}ÔøΩm≈®ÔøΩÔøΩZ}ÔøΩ—µÔøΩ!ÔøΩ»• õÔøΩÔøΩ€øÔøΩÔøΩÔøΩ:ÔøΩYÔøΩÔøΩÔøΩÔøΩ}ÔøΩ52ÔøΩÔøΩ\r!Fe5M7ﬂ¶ÔøΩMÔøΩKbÔøΩÔøΩ9ÔøΩVÔøΩbk‘åÔøΩÔøΩBiÔøΩÔøΩÔøΩb0jÔøΩTÔøΩ!»ó<ÔøΩ{)ÔøΩÔøΩXt.IMÔøΩÔøΩÔøΩEÔøΩÔøΩ=ÔøΩÔøΩÔøΩ_œ≥%U4ÔøΩ/TÔøΩ<ÔøΩÔøΩ?fl\rÔøΩÔøΩgSÔøΩÔøΩÔøΩgÔøΩ]ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ#3BÔøΩ(ÔøΩ[P2ÔøΩÔøΩ5ÔøΩkÔøΩD’î4ÔøΩjeÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ-|ÔøΩf;ÔøΩÔøΩm`TÔøΩÔøΩÔøΩhÔøΩÔøΩ*SÔøΩÔøΩÔøΩLÔøΩÔøΩW$IhÔøΩSÔøΩYÔøΩ>ÔøΩ]«ªÔøΩgsÔøΩE4ÔøΩÔøΩœò*ÔøΩ-DÔøΩHÔøΩÔøΩ+)ÔøΩYÔøΩOÔøΩPÔøΩ\"\n!7ÔøΩÔøΩd@ÔøΩ0\'!ÔøΩÔøΩ&ÔøΩÔøΩEÔøΩÔøΩ\rÔøΩÔøΩÔøΩ]fÔøΩÔøΩt}ÔøΩÔøΩÔøΩÔøΩœ∫kÔøΩÔøΩUCÔøΩÔøΩÔøΩÔøΩ./ÔøΩ	Õà,ÔøΩÔøΩpbÔøΩÔøΩLÔøΩRwÔøΩÔøΩÔøΩSÔøΩÔøΩÔøΩV=ÔøΩÔøΩ<!1mÔøΩÔøΩÈ†à(ÔøΩ1ÔøΩÔøΩÔøΩÔøΩÔøΩ@ÔøΩÔøΩÔøΩQ#ÔøΩÔøΩÔøΩÔøΩÔøΩh\rÔøΩ<KÔøΩ{WoÔøΩÔøΩ{iÔøΩÔøΩGÔøΩÔøΩÔøΩoFÔøΩÔøΩRBÔøΩW	arÔøΩ6ÔøΩÔøΩÔøΩJÔøΩn	\"ÔøΩÔøΩÔøΩ<eÔøΩw[ÔøΩÔøΩ=v^w&ozÔøΩ-ÔøΩ8MÔøΩÔøΩ+<ÔøΩÔøΩÔøΩ1ÔøΩÔøΩ4\rÔøΩnÔøΩ.ÔøΩS ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩiOÔøΩ`ÔøΩÔøΩÔøΩXÔøΩ8ÔøΩÔøΩ1ÔøΩÔøΩ^ÔøΩÔøΩcÔøΩÔøΩJÔøΩyÔøΩLlÔøΩ+.TÔøΩ\0ÔøΩBÔøΩO\"ÔøΩ>ÔøΩ9MÔøΩ]ZIÔøΩÔøΩ0CÔøΩÔøΩNÔøΩÔøΩÔøΩÔøΩƒíÔøΩ%ÔøΩÔøΩÔøΩEÔøΩQÔøΩÔøΩÔøΩÔøΩH)ÔøΩanÔøΩ2aÔøΩÔøΩÔøΩÔøΩÿ≤ÔøΩk` ã⁄ÄÔøΩÔøΩÔøΩÔøΩaÔøΩ)ÔøΩÔøΩÔøΩÔøΩGaÔøΩÔøΩ:ÔøΩÔøΩTÔøΩ&yÔøΩÔøΩÔøΩtÔøΩN!7OÔøΩÔøΩÔøΩÔøΩ=ÔøΩÔøΩ	PTÔøΩtÔøΩ$ÔøΩ	ÔøΩÔøΩ‹ØJÔøΩ/ÔøΩÔøΩ(ÔøΩÔøΩÔøΩ5aÔøΩÔøΩÔøΩÔøΩÔøΩb|1ÔøΩÔøΩÔøΩ>ÔøΩAÔøΩÔøΩNÔøΩÔøΩ-a ¥0]ÔøΩÔøΩBÔøΩgÔøΩ=5?ÔøΩÔøΩ?$aÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ0ÔøΩoÔøΩ(UÔøΩÔøΩ‹ò~ÔøΩÔøΩ“Å8BÔøΩÔøΩ ]ÔøΩÔøΩÔøΩ{ÔøΩÔøΩÔøΩÔøΩﬂéÔøΩÔøΩj\\ÔøΩ^FÔøΩÃîÔøΩrÔøΩ]cÔøΩÔøΩœ≥ÔøΩ¬úÔøΩÔøΩqÔøΩM\rmiS\\\ZiÔøΩW—Ω:ÔøΩmÔøΩUÃçeÔøΩÔøΩ\0ÔøΩNoÔøΩ,ÔøΩqÔøΩaÔøΩN;`nÔøΩÔøΩSÔøΩnÔøΩHÔøΩÔøΩÔøΩam|ÔøΩÔøΩjÔøΩdÔøΩÔøΩ4tÔøΩKÔøΩÔøΩ\0aÔøΩÔøΩ(ÔøΩÔøΩÔøΩÃâÔøΩÔøΩ<ÔøΩMOÔøΩ]ÔøΩ<ÔøΩÔøΩÔøΩeÔøΩl6:ÔøΩÔøΩÔøΩ«æ1–πÔøΩÔøΩbsÔøΩÔøΩjUÔøΩÔøΩZAÔøΩÔøΩÔøΩJÔøΩ|ÔøΩ‘¢TÔøΩÔøΩCÔøΩ ÔøΩÔøΩŸöBÔøΩg[\n6ÔøΩÔøΩ$o’ïÔøΩ;ÔøΩÔøΩÔøΩO\ZÔøΩÔøΩZeÔøΩsÔøΩkIÔøΩ\nÔøΩIÔøΩ/pÔøΩÔøΩÔøΩ8\nc*ÔøΩÔøΩ}kÔøΩ/\"ÔøΩÔøΩaBÔøΩ@ÔøΩÔøΩvÔøΩÔøΩ-DJÔøΩ«åKÔøΩÔøΩ`ÔøΩÔøΩXeÔøΩt+ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ/ÔøΩÔøΩT,0ÔøΩÔøΩ<`\ZÔøΩÔøΩÔøΩ7ÔøΩÔøΩÔøΩ◊åÔøΩ|MÔøΩÔøΩÔøΩ_ÔøΩHÔøΩÔøΩitNÔøΩ\nÔøΩtyÔøΩÔøΩ{oÔøΩÔøΩÔøΩB)ÔøΩFeÔøΩiÔøΩM\\ÔøΩÔøΩÔøΩÔøΩn$D“£ÔøΩÔøΩÔøΩÔøΩ\"ÔøΩÔøΩ6l\0ÔøΩÔøΩ{-)ÔøΩ9H–ïÔøΩ	ZÔøΩ\ZÔøΩ%ÔøΩÔøΩa3r#ÔøΩ⁄õÔøΩzZS~GpPÔøΩÔøΩsÔøΩÔøΩÔøΩ^)ÔøΩu*ÔøΩÔøΩ]ÔøΩÔøΩÓ®ÑÔøΩ–ç\"ÔøΩÔøΩÔøΩLÔøΩÔøΩ€ã\'ÔøΩÔøΩÔøΩ<ÔøΩ+\n3ÔøΩ<ÔùßÔøΩ;L1$ÔøΩÔøΩoÔøΩo’™ÔøΩY&)÷ÖÔøΩ3JÃ≠ÔøΩCTÔøΩÔøΩ5ÔøΩÔøΩ\n{0ÔøΩÔøΩsEgÔøΩ8az\nZ=A#\ZCÔøΩ\rÔøΩÔøΩnÔøΩ—ãÔøΩ<ÔøΩFÔøΩ38—∑ÔøΩBÔøΩÔøΩÔøΩKÔøΩhÔøΩTÔøΩeÔøΩ—©\\ÔøΩTÔøΩÔøΩxÔøΩÔøΩjÔøΩÔøΩ	r?ÔøΩaatÔøΩY?ÔøΩ5ÔøΩY^)ÔøΩÔøΩ+ÔøΩ9bAPÔøΩ=W\"icÔøΩÔøΩC^crÔøΩYÔøΩ\'ÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ5pZUÔøΩÔøΩnÔøΩb#ÔøΩ\'y⁄ÉJÔøΩÔøΩ%0ÔøΩ){Ã©bÔøΩÔøΩÔøΩ ÔøΩÔøΩÔøΩÔøΩÔøΩzÔøΩ`:9ÔøΩVÔøΩYÔøΩÔøΩSÔøΩÔøΩ\nÔøΩbÔøΩÔøΩKrq1kJÔøΩÏº∞ÔøΩÔøΩÔøΩÔøΩp,ÔøΩÔøΩ5…îÔøΩÔøΩÔøΩnaÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩ&ÔøΩÔøΩ\\ÔøΩSÔøΩÔøΩLCÔøΩÔøΩg*ÔøΩ[\'I|`ÔøΩKÔøΩjÔøΩ\Z»èP‚õÇ]ÔøΩYÔøΩWfÔøΩ~,ÔøΩ/ÔøΩ5÷õÿõÔøΩ!ÿïÔøΩÔøΩÔøΩCÔøΩ3m@ÔøΩÔøΩÔøΩÔøΩÔøΩ3?ÔøΩ0ÔøΩÔøΩI-NÔøΩ…ÆÔøΩÔøΩrDÔøΩÔøΩveÔøΩÔøΩ\rK]ÔøΩ&ÔøΩÔøΩnÔøΩ2B7ÔøΩ.ÔøΩ2ÔøΩÔøΩ\0;ÔøΩm5ÔøΩÔøΩHCÔøΩÔøΩMpÔøΩÔøΩHeÔøΩÔøΩ◊ΩÔøΩÔøΩQÔøΩÔøΩÔøΩSÔøΩÔøΩÕõ1ÔøΩÔøΩÔøΩUÔøΩ%l;}UÔøΩoÔøΩ√ºÔøΩÔøΩ	Y7uÔøΩÔøΩ|ÔøΩ\Z*ÔøΩ3CP[&ÔøΩÔøΩH;ﬂï}ÔøΩÔøΩÔøΩÔøΩÔøΩ}5ÔøΩÔøΩÔøΩÔøΩÔøΩk_ÔøΩ5mDKÔøΩÔøΩÔøΩÔøΩ*8ÔøΩ#ÔøΩÔøΩÔøΩÔøΩ2$ÔøΩ[lpÔøΩe|ÔøΩ&ÔøΩÔøΩÔøΩejiÔøΩ;3TÔøΩ6ÔøΩﬂªsÔøΩÔøΩÔøΩkJÔøΩÔøΩ≈õsÔøΩ`ÔøΩÔøΩÔøΩÔøΩ3\"_ÔøΩ{NÔøΩÔøΩwÔøΩ:5÷´:t\ZÔøΩÔøΩ/ÔøΩÔøΩ…•3rk\\ÔøΩÔøΩÔøΩÔøΩÔøΩQ;+ÔøΩÔøΩOÔøΩZvÔøΩÔøΩC&ÔøΩÔøΩpÔøΩyÔøΩÔøΩÔøΩÔøΩtÔøΩj0\rÔøΩ,ÔøΩÔøΩ\Z&›±ZÔøΩ`uOÔøΩÔøΩ<`ÔøΩV{ÔøΩ9ÔøΩT\n5\'ÔøΩ[?ÔøΩ\nsÔøΩ&jÔøΩÔøΩÔøΩÔøΩÔøΩOÔøΩ1ÔøΩ	ÔøΩÔøΩZTyÔøΩÔøΩ0’¶UÔøΩ&RÔøΩAÔøΩ[ÔøΩvÔøΩeÔøΩÔøΩ~ÔøΩÔøΩ>iÃπ]ÔøΩ/ÔøΩ*hcÔøΩÔøΩxUÔøΩÔøΩÔøΩÔøΩ*{ÔøΩÔøΩÔøΩÔøΩÔøΩC&N38ÔøΩÔøΩ!ÔøΩÔøΩÔøΩÔøΩ√®ÔøΩ*ÔøΩVcTxÔøΩX@+<lfq.ÔøΩj5f ô4ÔøΩÔøΩÔøΩÿπ.ÔøΩzÔøΩÔøΩR.ÔøΩÔøΩƒßÔøΩ_jXWÔøΩWÔøΩK\r|–ß:pÔøΩÔøΩÔøΩ^ÔøΩ7ÔøΩÔøΩÔøΩ‹•|ÔøΩ:ÔøΩ;PÔøΩyÔøΩpÔøΩÔøΩÔøΩ7ÔøΩÔøΩ(ÔøΩÔøΩÔøΩÔøΩRÔøΩ—Å>GÔøΩ	ÔøΩÔøΩ>9ÔøΩLÔøΩ\ZÔøΩÔøΩ3ÔøΩYRÔøΩdÔøΩ8%…ÆPÔøΩÔøΩÔøΩYrvÔøΩ~e1ÔøΩ-ÔøΩ8ÔøΩÔøΩ*pÔøΩÔøΩÔøΩlÔøΩÔøΩJÔøΩJÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩÔøΩUkÔøΩ8ÔøΩÔøΩŒ°ÔøΩ~ÔøΩÔøΩÔøΩbÔøΩÔøΩWÔøΩa	-ÔøΩWÔøΩ+ÔøΩÔøΩÔøΩÔøΩÔøΩ.ÔøΩ&ÔøΩÔøΩ`2ÔøΩxz5ÔøΩÔøΩÔøΩÔøΩhpYÔøΩ=ÔøΩeÔøΩÔøΩ#ÔøΩ3ÔøΩT‘∂_ÔøΩzÔøΩÔøΩ KÔøΩÔøΩuÔøΩÔøΩJÔøΩÔøΩ”Ü4ÔøΩÔøΩ–èÔøΩÔøΩOÔøΩÔøΩnÔøΩÔøΩSÔøΩÔøΩO ÔøΩÔøΩO÷ñÔøΩÔøΩvR—∂|ÔøΩ4ÔøΩÔøΩj#ÔøΩÔøΩ-QhÔøΩÔøΩÔøΩ\'ÔøΩeÔøΩ8=EÔøΩ\n\\ÔøΩeÔøΩÔøΩ5ÔøΩcÔøΩ!HÔøΩ*ÔøΩÔøΩÔøΩ{DÔøΩ*mÔøΩÔøΩ}Pff1OÔøΩP)7ÔøΩPeÔøΩÔøΩÔøΩ$ÔøΩÔøΩXÔøΩ[€©ÔøΩÔøΩZ\",ÔøΩÔøΩÔøΩÔøΩZ,,*^UÔøΩF; ÔøΩMÔøΩsrSÔøΩ}&1ÔøΩÔøΩÔøΩ[ÔøΩÔøΩÔøΩÔøΩÔøΩsÔøΩ	ÔøΩ^ÓÉ™+z‡©àbÔøΩb[ÔøΩ3T62ÔøΩ_1ÔøΩÔøΩ\rÕëWG9w<GÔøΩCÔøΩ«åÔøΩ_Y/ÔøΩ	ÔøΩÔøΩ ÔøΩ\\ÔøΩÔøΩ@v\"ÔøΩÔøΩÔøΩÔøΩÔøΩ>%dsÔøΩÔøΩ:GvÔøΩÔøΩm9ÔøΩ5t2ÔøΩ}ÔøΩrrÔøΩÔøΩ2ÔøΩÔøΩÔøΩÔøΩÔøΩ~ÔøΩMmvÔøΩZÔøΩÔøΩÔøΩÔøΩ<ÔøΩÔøΩ\"',2145909600);
 /*!40000 ALTER TABLE `cf_themes_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -807,12 +807,12 @@ DROP TABLE IF EXISTS `cf_themes_cache_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_themes_cache_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -834,12 +834,12 @@ DROP TABLE IF EXISTS `cf_tx_solr`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_tx_solr` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -860,12 +860,12 @@ DROP TABLE IF EXISTS `cf_tx_solr_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_tx_solr_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -885,23 +885,23 @@ DROP TABLE IF EXISTS `fe_groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_groups` (
-  `tx_extbase_type` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
+  `tx_extbase_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `hidden` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_swedish_ci,
-  `subgroup` tinytext COLLATE utf8_swedish_ci,
-  `TSconfig` text COLLATE utf8_swedish_ci,
-  `felogin_redirectPid` tinytext COLLATE utf8_swedish_ci,
+  `description` text COLLATE utf8_general_ci,
+  `subgroup` tinytext COLLATE utf8_general_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
+  `felogin_redirectPid` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -922,12 +922,12 @@ DROP TABLE IF EXISTS `fe_session_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_session_data` (
-  `hash` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `hash` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `content` mediumblob,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`hash`),
   KEY `tstamp` (`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -947,9 +947,9 @@ DROP TABLE IF EXISTS `fe_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_sessions` (
-  `ses_id` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ses_iplock` varchar(39) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `ses_id` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_name` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_iplock` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `ses_hashlock` int(11) NOT NULL DEFAULT '0',
   `ses_userid` int(11) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(11) unsigned NOT NULL DEFAULT '0',
@@ -957,7 +957,7 @@ CREATE TABLE `fe_sessions` (
   `ses_permanent` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ses_id`,`ses_name`),
   KEY `ses_tstamp` (`ses_tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -977,47 +977,47 @@ DROP TABLE IF EXISTS `fe_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_users` (
-  `tx_extbase_type` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
+  `tx_extbase_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `password` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `usergroup` tinytext COLLATE utf8_swedish_ci,
+  `username` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `usergroup` tinytext COLLATE utf8_general_ci,
   `disable` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `name` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `first_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `middle_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `last_name` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `address` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `telephone` varchar(20) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `fax` varchar(20) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `email` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `name` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `first_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `middle_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `last_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `address` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `telephone` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `fax` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `email` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `uc` blob,
-  `title` varchar(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `zip` varchar(10) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `city` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `country` varchar(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `www` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `company` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `image` tinytext COLLATE utf8_swedish_ci,
-  `TSconfig` text COLLATE utf8_swedish_ci,
+  `title` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zip` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `city` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `country` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `www` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `company` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `image` tinytext COLLATE utf8_general_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
   `fe_cruser_id` int(10) unsigned NOT NULL DEFAULT '0',
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `is_online` int(10) unsigned NOT NULL DEFAULT '0',
-  `felogin_redirectPid` tinytext COLLATE utf8_swedish_ci,
-  `felogin_forgotHash` varchar(80) COLLATE utf8_swedish_ci DEFAULT '',
+  `felogin_redirectPid` tinytext COLLATE utf8_general_ci,
+  `felogin_forgotHash` varchar(80) COLLATE utf8_general_ci DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`username`),
   KEY `username` (`username`),
   KEY `is_online` (`is_online`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1043,7 +1043,7 @@ CREATE TABLE `pages` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1062,63 +1062,63 @@ CREATE TABLE `pages` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `doktype` int(11) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_swedish_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
   `is_siteroot` tinyint(4) NOT NULL DEFAULT '0',
   `php_tree_stop` tinyint(4) NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `url` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `url` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `urltype` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(10) unsigned NOT NULL DEFAULT '0',
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `no_cache` int(10) unsigned NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `subtitle` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `subtitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `layout` int(11) unsigned NOT NULL DEFAULT '0',
   `url_scheme` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `target` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `target` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
   `lastUpdated` int(10) unsigned NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_swedish_ci,
+  `keywords` text COLLATE utf8_general_ci,
   `cache_timeout` int(10) unsigned NOT NULL DEFAULT '0',
-  `cache_tags` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cache_tags` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `newUntil` int(10) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_swedish_ci,
+  `description` text COLLATE utf8_general_ci,
   `no_search` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `SYS_LASTCHANGED` int(10) unsigned NOT NULL DEFAULT '0',
-  `abstract` text COLLATE utf8_swedish_ci,
-  `module` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `abstract` text COLLATE utf8_general_ci,
+  `module` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `extendToSubpages` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `author_email` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `nav_title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `author` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `author_email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `nav_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `nav_hide` tinyint(4) NOT NULL DEFAULT '0',
   `content_from_pid` int(10) unsigned NOT NULL DEFAULT '0',
   `mount_pid` int(10) unsigned NOT NULL DEFAULT '0',
   `mount_pid_ol` tinyint(4) NOT NULL DEFAULT '0',
-  `alias` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `alias` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `l18n_cfg` tinyint(4) NOT NULL DEFAULT '0',
   `fe_login_mode` tinyint(4) NOT NULL DEFAULT '0',
-  `backend_layout` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `backend_layout_next_level` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tsconfig_includes` text COLLATE utf8_swedish_ci,
+  `backend_layout` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `backend_layout_next_level` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tsconfig_includes` text COLLATE utf8_general_ci,
   `categories` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_icon` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tx_themes_icon` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tx_realurl_pathoverride` int(1) NOT NULL DEFAULT '0',
   `tx_realurl_exclude` int(1) NOT NULL DEFAULT '0',
   `tx_realurl_nocache` int(1) NOT NULL DEFAULT '0',
-  `tx_seo_titletag` tinytext COLLATE utf8_swedish_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_swedish_ci,
+  `tx_seo_titletag` tinytext COLLATE utf8_general_ci,
+  `tx_seo_canonicaltag` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`sorting`),
   KEY `alias` (`alias`),
   KEY `determineSiteRoot` (`is_siteroot`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1145,7 +1145,7 @@ CREATE TABLE `pages_language_overlay` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1155,33 +1155,33 @@ CREATE TABLE `pages_language_overlay` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `subtitle` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `nav_title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `subtitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `nav_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `abstract` text COLLATE utf8_swedish_ci,
-  `author` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `author_email` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `keywords` text COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `abstract` text COLLATE utf8_general_ci,
+  `author` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `author_email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
   `l18n_diffsource` mediumblob,
-  `url` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `url` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `urltype` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(10) unsigned NOT NULL DEFAULT '0',
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
-  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_seo_titletag` tinytext COLLATE utf8_swedish_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_swedish_ci,
+  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_seo_titletag` tinytext COLLATE utf8_general_ci,
+  `tx_seo_canonicaltag` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1205,28 +1205,28 @@ CREATE TABLE `static_countries` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `cn_iso_2` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cn_iso_3` char(3) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cn_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cn_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
   `cn_parent_territory_uid` int(11) NOT NULL DEFAULT '0',
   `cn_parent_tr_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `cn_official_name_local` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cn_official_name_en` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cn_capital` varchar(45) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cn_tldomain` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cn_official_name_local` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_official_name_en` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_capital` varchar(45) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_tldomain` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cn_currency_uid` int(11) NOT NULL DEFAULT '0',
-  `cn_currency_iso_3` char(3) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cn_currency_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cn_currency_iso_nr` int(10) unsigned NOT NULL DEFAULT '0',
   `cn_phone` int(10) unsigned NOT NULL DEFAULT '0',
   `cn_eu_member` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_uno_member` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_address_format` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_zone_flag` tinyint(4) NOT NULL DEFAULT '0',
-  `cn_short_local` varchar(70) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cn_short_en` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cn_short_local` varchar(70) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_short_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cn_country_zones` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1250,16 +1250,16 @@ CREATE TABLE `static_country_zones` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `zn_country_iso_2` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `zn_country_iso_3` char(3) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `zn_country_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zn_country_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `zn_country_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `zn_code` varchar(45) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `zn_name_local` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `zn_name_en` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `zn_code` varchar(45) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zn_name_local` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zn_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `zn_country_uid` int(11) NOT NULL DEFAULT '0',
-  `zn_country_table` tinytext COLLATE utf8_swedish_ci,
+  `zn_country_table` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=710 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=710 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1283,21 +1283,21 @@ CREATE TABLE `static_currencies` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `cu_iso_3` char(3) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cu_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cu_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `cu_name_en` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cu_symbol_left` varchar(12) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cu_symbol_right` varchar(12) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cu_thousands_point` char(1) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cu_decimal_point` char(1) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cu_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_symbol_left` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_symbol_right` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_thousands_point` char(1) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_decimal_point` char(1) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cu_decimal_digits` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `cu_sub_name_en` varchar(20) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cu_sub_name_en` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `cu_sub_divisor` int(11) NOT NULL DEFAULT '1',
-  `cu_sub_symbol_left` varchar(12) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `cu_sub_symbol_right` varchar(12) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cu_sub_symbol_left` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_sub_symbol_right` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1321,17 +1321,17 @@ CREATE TABLE `static_languages` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `lg_iso_2` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lg_name_local` varchar(99) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lg_name_en` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lg_typo3` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lg_country_iso_2` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `lg_collate_locale` varchar(5) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lg_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_name_local` varchar(99) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_typo3` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_country_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_collate_locale` varchar(5) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `lg_sacred` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `lg_constructed` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1358,9 +1358,9 @@ CREATE TABLE `static_territories` (
   `tr_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
   `tr_parent_territory_uid` int(11) NOT NULL DEFAULT '0',
   `tr_parent_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `tr_name_en` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tr_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1383,14 +1383,14 @@ DROP TABLE IF EXISTS `sys_be_shortcuts`;
 CREATE TABLE `sys_be_shortcuts` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `module_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `url` text COLLATE utf8_swedish_ci,
-  `description` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `module_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `url` text COLLATE utf8_general_ci,
+  `description` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `sc_group` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1422,7 +1422,7 @@ CREATE TABLE `sys_category` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1433,23 +1433,23 @@ CREATE TABLE `sys_category` (
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
   `l10n_diffsource` mediumblob NOT NULL,
-  `title` tinytext COLLATE utf8_swedish_ci NOT NULL,
-  `description` text COLLATE utf8_swedish_ci,
+  `title` tinytext COLLATE utf8_general_ci NOT NULL,
+  `description` text COLLATE utf8_general_ci,
   `parent` int(11) NOT NULL DEFAULT '0',
   `items` int(11) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `images` int(11) unsigned DEFAULT '0',
   `single_pid` int(11) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(11) NOT NULL DEFAULT '0',
-  `import_id` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `import_source` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `import_id` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `import_source` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `category_parent` (`parent`),
   KEY `category_list` (`pid`,`deleted`,`sys_language_uid`),
   KEY `import` (`import_id`,`import_source`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1472,13 +1472,13 @@ DROP TABLE IF EXISTS `sys_category_record_mm`;
 CREATE TABLE `sys_category_record_mm` (
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `fieldname` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `fieldname` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local_foreign` (`uid_local`,`uid_foreign`),
   KEY `uid_foreign_tablefield` (`uid_foreign`,`tablenames`(40),`fieldname`(3),`sorting_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1507,7 +1507,7 @@ CREATE TABLE `sys_collection` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1516,21 +1516,21 @@ CREATE TABLE `sys_collection` (
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
   `fe_group` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `type` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT 'static',
-  `table_name` tinytext COLLATE utf8_swedish_ci,
+  `title` tinytext COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `type` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT 'static',
+  `table_name` tinytext COLLATE utf8_general_ci,
   `items` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1553,12 +1553,12 @@ CREATE TABLE `sys_collection_entries` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1584,8 +1584,8 @@ CREATE TABLE `sys_domain` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `domainName` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `redirectTo` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `domainName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `redirectTo` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `redirectHttpStatusCode` int(4) unsigned NOT NULL DEFAULT '301',
   `sorting` int(10) unsigned NOT NULL DEFAULT '0',
   `prepend_params` int(10) NOT NULL DEFAULT '0',
@@ -1593,7 +1593,7 @@ CREATE TABLE `sys_domain` (
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `getSysDomain` (`redirectTo`,`hidden`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1620,15 +1620,15 @@ CREATE TABLE `sys_file` (
   `last_indexed` int(11) NOT NULL DEFAULT '0',
   `missing` tinyint(4) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
-  `type` varchar(10) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `type` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `metadata` int(11) NOT NULL DEFAULT '0',
-  `identifier` text COLLATE utf8_swedish_ci,
-  `identifier_hash` char(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `folder_hash` char(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `extension` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `mime_type` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `name` tinytext COLLATE utf8_swedish_ci,
-  `sha1` char(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` text COLLATE utf8_general_ci,
+  `identifier_hash` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `folder_hash` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `extension` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `mime_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `name` tinytext COLLATE utf8_general_ci,
+  `sha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `size` bigint(20) unsigned NOT NULL DEFAULT '0',
   `creation_date` int(11) NOT NULL DEFAULT '0',
   `modification_date` int(11) NOT NULL DEFAULT '0',
@@ -1638,7 +1638,7 @@ CREATE TABLE `sys_file` (
   KEY `tstamp` (`tstamp`),
   KEY `lastindex` (`last_indexed`),
   KEY `sha1` (`sha1`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1667,7 +1667,7 @@ CREATE TABLE `sys_file_collection` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1676,23 +1676,23 @@ CREATE TABLE `sys_file_collection` (
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `type` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT 'static',
+  `title` tinytext COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `type` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT 'static',
   `files` int(11) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
-  `folder` text COLLATE utf8_swedish_ci,
+  `folder` text COLLATE utf8_general_ci,
   `recursive` tinyint(4) NOT NULL DEFAULT '0',
   `category` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1723,7 +1723,7 @@ CREATE TABLE `sys_file_metadata` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1731,42 +1731,42 @@ CREATE TABLE `sys_file_metadata` (
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `file` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
+  `title` tinytext COLLATE utf8_general_ci,
   `width` int(11) NOT NULL DEFAULT '0',
   `height` int(11) NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_swedish_ci,
-  `alternative` text COLLATE utf8_swedish_ci,
+  `description` text COLLATE utf8_general_ci,
+  `alternative` text COLLATE utf8_general_ci,
   `categories` int(11) NOT NULL DEFAULT '0',
   `visible` int(11) unsigned DEFAULT '1',
-  `status` varchar(24) COLLATE utf8_swedish_ci DEFAULT '',
-  `keywords` text COLLATE utf8_swedish_ci,
-  `caption` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `creator_tool` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `download_name` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `creator` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `publisher` varchar(45) COLLATE utf8_swedish_ci DEFAULT '',
-  `source` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `copyright` varchar(255) COLLATE utf8_swedish_ci DEFAULT '',
-  `location_country` varchar(45) COLLATE utf8_swedish_ci DEFAULT '',
-  `location_region` varchar(45) COLLATE utf8_swedish_ci DEFAULT '',
-  `location_city` varchar(45) COLLATE utf8_swedish_ci DEFAULT '',
+  `status` varchar(24) COLLATE utf8_general_ci DEFAULT '',
+  `keywords` text COLLATE utf8_general_ci,
+  `caption` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `creator_tool` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `download_name` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `creator` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `publisher` varchar(45) COLLATE utf8_general_ci DEFAULT '',
+  `source` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `copyright` varchar(255) COLLATE utf8_general_ci DEFAULT '',
+  `location_country` varchar(45) COLLATE utf8_general_ci DEFAULT '',
+  `location_region` varchar(45) COLLATE utf8_general_ci DEFAULT '',
+  `location_city` varchar(45) COLLATE utf8_general_ci DEFAULT '',
   `latitude` decimal(24,14) DEFAULT '0.00000000000000',
   `longitude` decimal(24,14) DEFAULT '0.00000000000000',
   `ranking` int(11) unsigned DEFAULT '0',
   `content_creation_date` int(11) unsigned DEFAULT '0',
   `content_modification_date` int(11) unsigned DEFAULT '0',
-  `note` text COLLATE utf8_swedish_ci,
-  `unit` char(3) COLLATE utf8_swedish_ci DEFAULT '',
+  `note` text COLLATE utf8_general_ci,
+  `unit` char(3) COLLATE utf8_general_ci DEFAULT '',
   `duration` float unsigned DEFAULT '0',
-  `color_space` varchar(4) COLLATE utf8_swedish_ci DEFAULT '',
+  `color_space` varchar(4) COLLATE utf8_general_ci DEFAULT '',
   `pages` int(4) unsigned DEFAULT '0',
-  `language` varchar(12) COLLATE utf8_swedish_ci DEFAULT '',
-  `fe_groups` tinytext COLLATE utf8_swedish_ci,
+  `language` varchar(12) COLLATE utf8_general_ci DEFAULT '',
+  `fe_groups` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `file` (`file`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `fal_filelist` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1792,19 +1792,19 @@ CREATE TABLE `sys_file_processedfile` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
   `original` int(11) NOT NULL DEFAULT '0',
-  `identifier` varchar(512) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `name` tinytext COLLATE utf8_swedish_ci,
-  `configuration` text COLLATE utf8_swedish_ci,
-  `configurationsha1` char(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `originalfilesha1` char(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `task_type` varchar(200) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `checksum` char(10) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(512) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `name` tinytext COLLATE utf8_general_ci,
+  `configuration` text COLLATE utf8_general_ci,
+  `configurationsha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `originalfilesha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `task_type` varchar(200) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `checksum` char(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `width` int(11) DEFAULT '0',
   `height` int(11) DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`,`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(199))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1835,7 +1835,7 @@ CREATE TABLE `sys_file_reference` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1847,16 +1847,16 @@ CREATE TABLE `sys_file_reference` (
   `l10n_diffsource` mediumblob NOT NULL,
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `fieldname` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `fieldname` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
-  `table_local` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `alternative` tinytext COLLATE utf8_swedish_ci,
-  `link` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `downloadname` tinytext COLLATE utf8_swedish_ci,
-  `crop` varchar(4000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `table_local` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` tinytext COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `alternative` tinytext COLLATE utf8_general_ci,
+  `link` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `downloadname` tinytext COLLATE utf8_general_ci,
+  `crop` varchar(4000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `autoplay` tinyint(4) NOT NULL DEFAULT '0',
   `showinpreview` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
@@ -1864,7 +1864,7 @@ CREATE TABLE `sys_file_reference` (
   KEY `tablenames_fieldname` (`tablenames`(32),`fieldname`(12)),
   KEY `deleted` (`deleted`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1891,20 +1891,20 @@ CREATE TABLE `sys_file_storage` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `name` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_swedish_ci,
-  `driver` tinytext COLLATE utf8_swedish_ci,
-  `configuration` text COLLATE utf8_swedish_ci,
+  `name` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_general_ci,
+  `driver` tinytext COLLATE utf8_general_ci,
+  `configuration` text COLLATE utf8_general_ci,
   `is_default` tinyint(4) NOT NULL DEFAULT '0',
   `is_browsable` tinyint(4) NOT NULL DEFAULT '0',
   `is_public` tinyint(4) NOT NULL DEFAULT '0',
   `is_writable` tinyint(4) NOT NULL DEFAULT '0',
   `is_online` tinyint(4) NOT NULL DEFAULT '1',
-  `processingfolder` tinytext COLLATE utf8_swedish_ci,
+  `processingfolder` tinytext COLLATE utf8_general_ci,
   `auto_extract_metadata` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1928,9 +1928,9 @@ CREATE TABLE `sys_filemounts` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `path` varchar(120) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `path` varchar(120) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `base` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -1938,7 +1938,7 @@ CREATE TABLE `sys_filemounts` (
   `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1961,19 +1961,19 @@ CREATE TABLE `sys_history` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_log_uid` int(11) NOT NULL DEFAULT '0',
-  `history_data` mediumtext COLLATE utf8_swedish_ci,
-  `fieldlist` text COLLATE utf8_swedish_ci,
+  `history_data` mediumtext COLLATE utf8_general_ci,
+  `fieldlist` text COLLATE utf8_general_ci,
   `recuid` int(11) NOT NULL DEFAULT '0',
-  `tablename` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tstamp` int(11) NOT NULL DEFAULT '0',
-  `history_files` mediumtext COLLATE utf8_swedish_ci,
+  `history_files` mediumtext COLLATE utf8_general_ci,
   `snapshot` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `recordident_1` (`tablename`,`recuid`),
   KEY `recordident_2` (`tablename`,`tstamp`),
   KEY `sys_log_uid` (`sys_log_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1997,13 +1997,13 @@ CREATE TABLE `sys_language` (
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `flag` varchar(20) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `language_isocode` varchar(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `flag` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `language_isocode` varchar(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `static_lang_isocode` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2027,14 +2027,14 @@ CREATE TABLE `sys_lockedrecords` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `record_table` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `record_table` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `record_uid` int(11) NOT NULL DEFAULT '0',
   `record_pid` int(11) NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2059,31 +2059,31 @@ CREATE TABLE `sys_log` (
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
   `action` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `recuid` int(11) unsigned NOT NULL DEFAULT '0',
-  `tablename` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `recpid` int(11) NOT NULL DEFAULT '0',
   `error` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `details` text COLLATE utf8_swedish_ci NOT NULL,
+  `details` text COLLATE utf8_general_ci NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `details_nr` tinyint(3) NOT NULL DEFAULT '0',
-  `IP` varchar(39) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `log_data` text COLLATE utf8_swedish_ci,
+  `IP` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `log_data` text COLLATE utf8_general_ci,
   `event_pid` int(11) NOT NULL DEFAULT '-1',
   `workspace` int(11) NOT NULL DEFAULT '0',
-  `NEWid` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `request_id` varchar(13) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `NEWid` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `request_id` varchar(13) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `time_micro` float NOT NULL DEFAULT '0',
-  `component` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `component` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `level` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `message` text COLLATE utf8_swedish_ci,
-  `data` text COLLATE utf8_swedish_ci,
+  `message` text COLLATE utf8_general_ci,
+  `data` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `event` (`userid`,`event_pid`),
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2112,11 +2112,11 @@ CREATE TABLE `sys_news` (
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `content` mediumtext COLLATE utf8_swedish_ci,
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `content` mediumtext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2142,14 +2142,14 @@ CREATE TABLE `sys_note` (
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser` int(11) unsigned NOT NULL DEFAULT '0',
-  `subject` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8_swedish_ci,
+  `subject` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `message` text COLLATE utf8_general_ci,
   `personal` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `category` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2169,24 +2169,24 @@ DROP TABLE IF EXISTS `sys_refindex`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_refindex` (
-  `hash` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tablename` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `hash` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `recuid` int(11) NOT NULL DEFAULT '0',
-  `field` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `flexpointer` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `softref_key` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `softref_id` varchar(40) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `field` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `flexpointer` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `softref_key` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `softref_id` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `workspace` int(11) NOT NULL DEFAULT '0',
-  `ref_table` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `ref_table` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `ref_uid` int(11) NOT NULL DEFAULT '0',
-  `ref_string` varchar(200) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `ref_string` varchar(200) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`hash`),
   KEY `lookup_rec` (`tablename`,`recuid`),
   KEY `lookup_uid` (`ref_table`,`ref_uid`),
   KEY `lookup_string` (`ref_string`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2208,12 +2208,12 @@ DROP TABLE IF EXISTS `sys_registry`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_registry` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `entry_namespace` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `entry_key` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `entry_namespace` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `entry_key` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `entry_value` blob,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `entry_identifier` (`entry_namespace`,`entry_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2239,7 +2239,7 @@ CREATE TABLE `sys_template` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2249,30 +2249,30 @@ CREATE TABLE `sys_template` (
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `sitetitle` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `sitetitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `root` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `clear` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `include_static_file` text COLLATE utf8_swedish_ci,
-  `constants` text COLLATE utf8_swedish_ci,
-  `config` text COLLATE utf8_swedish_ci,
-  `nextLevel` varchar(5) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_swedish_ci,
-  `basedOn` tinytext COLLATE utf8_swedish_ci,
+  `include_static_file` text COLLATE utf8_general_ci,
+  `constants` text COLLATE utf8_general_ci,
+  `config` text COLLATE utf8_general_ci,
+  `nextLevel` varchar(5) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_general_ci,
+  `basedOn` tinytext COLLATE utf8_general_ci,
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `includeStaticAfterBasedOn` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `static_file_mode` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_skin` tinytext COLLATE utf8_swedish_ci NOT NULL,
+  `tx_themes_skin` tinytext COLLATE utf8_general_ci NOT NULL,
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `roottemplate` (`deleted`,`hidden`,`root`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2298,7 +2298,7 @@ CREATE TABLE `tt_content` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2311,71 +2311,71 @@ CREATE TABLE `tt_content` (
   `editlock` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
-  `CType` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `header` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `rowDescription` text COLLATE utf8_swedish_ci,
-  `bodytext` mediumtext COLLATE utf8_swedish_ci,
+  `CType` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `header` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `rowDescription` text COLLATE utf8_general_ci,
+  `bodytext` mediumtext COLLATE utf8_general_ci,
   `image` int(11) unsigned NOT NULL DEFAULT '0',
   `imagewidth` mediumint(11) unsigned NOT NULL DEFAULT '0',
   `imageorient` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `imagecols` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `imageborder` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
-  `layout` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `layout` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `deleted` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `cols` int(11) unsigned NOT NULL DEFAULT '0',
-  `records` text COLLATE utf8_swedish_ci,
-  `pages` text COLLATE utf8_swedish_ci,
+  `records` text COLLATE utf8_general_ci,
+  `pages` text COLLATE utf8_general_ci,
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `colPos` smallint(6) NOT NULL DEFAULT '0',
-  `subheader` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `header_link` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `subheader` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `header_link` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `image_zoom` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `header_layout` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `menu_type` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `list_type` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `select_key` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `header_layout` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `menu_type` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `list_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `select_key` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `sectionIndex` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `linkToTop` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `file_collections` text COLLATE utf8_swedish_ci,
+  `file_collections` text COLLATE utf8_general_ci,
   `filelink_size` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `filelink_sorting` varchar(10) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `target` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `filelink_sorting` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `target` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `date` int(10) unsigned NOT NULL DEFAULT '0',
   `recursive` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `imageheight` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `pi_flexform` mediumtext COLLATE utf8_swedish_ci,
-  `accessibility_title` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `pi_flexform` mediumtext COLLATE utf8_general_ci,
+  `accessibility_title` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `accessibility_bypass` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `accessibility_bypass_text` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `accessibility_bypass_text` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `l18n_parent` int(11) NOT NULL DEFAULT '0',
   `l18n_diffsource` mediumblob,
-  `selected_categories` text COLLATE utf8_swedish_ci,
-  `category_field` varchar(64) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `table_caption` varchar(255) COLLATE utf8_swedish_ci DEFAULT NULL,
+  `selected_categories` text COLLATE utf8_general_ci,
+  `category_field` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `table_caption` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
   `table_delimiter` smallint(6) unsigned NOT NULL DEFAULT '0',
   `table_enclosure` smallint(6) unsigned NOT NULL DEFAULT '0',
   `table_header_position` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `table_tfoot` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `categories` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_responsive` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_themes_behaviour` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_themes_variants` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_themes_enforceequalcolumnheight` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_themes_columnsettings` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tx_themes_responsive` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_behaviour` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_variants` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_enforceequalcolumnheight` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_columnsettings` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tx_themes_buttoncontent` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_icon` varchar(32) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tx_themes_icon` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `bullets_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `uploads_description` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `uploads_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `tx_news_related_news` int(11) NOT NULL DEFAULT '0',
   `assets` int(11) unsigned NOT NULL DEFAULT '0',
   `backupColPos` smallint(6) NOT NULL DEFAULT '-2',
-  `tx_gridelements_backend_layout` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tx_gridelements_backend_layout` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `tx_gridelements_children` int(11) NOT NULL DEFAULT '0',
   `tx_gridelements_container` int(11) NOT NULL DEFAULT '0',
   `tx_gridelements_columns` int(11) NOT NULL DEFAULT '0',
@@ -2388,7 +2388,7 @@ CREATE TABLE `tt_content` (
   KEY `parent` (`pid`,`sorting`),
   KEY `language` (`l18n_parent`,`sys_language_uid`),
   KEY `gridelements` (`tx_gridelements_container`,`tx_gridelements_columns`)
-) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2411,24 +2411,24 @@ DROP TABLE IF EXISTS `tx_extensionmanager_domain_model_extension`;
 CREATE TABLE `tx_extensionmanager_domain_model_extension` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
-  `extension_key` varchar(60) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `extension_key` varchar(60) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `repository` int(11) unsigned NOT NULL DEFAULT '1',
-  `version` varchar(15) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `version` varchar(15) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `alldownloadcounter` int(11) unsigned NOT NULL DEFAULT '0',
   `downloadcounter` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(150) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8_swedish_ci,
+  `title` varchar(150) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` mediumtext COLLATE utf8_general_ci,
   `state` int(4) NOT NULL DEFAULT '0',
   `review_state` int(4) NOT NULL DEFAULT '0',
   `category` int(4) NOT NULL DEFAULT '0',
   `last_updated` int(11) unsigned NOT NULL DEFAULT '0',
-  `serialized_dependencies` mediumtext COLLATE utf8_swedish_ci,
-  `author_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `author_email` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ownerusername` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `md5hash` varchar(35) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `update_comment` mediumtext COLLATE utf8_swedish_ci,
-  `authorcompany` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `serialized_dependencies` mediumtext COLLATE utf8_general_ci,
+  `author_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `author_email` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ownerusername` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `md5hash` varchar(35) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `update_comment` mediumtext COLLATE utf8_general_ci,
+  `authorcompany` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `integer_version` int(11) NOT NULL DEFAULT '0',
   `current_version` int(3) NOT NULL DEFAULT '0',
   `lastreviewedversion` int(3) NOT NULL DEFAULT '0',
@@ -2437,7 +2437,7 @@ CREATE TABLE `tx_extensionmanager_domain_model_extension` (
   KEY `index_extrepo` (`extension_key`,`repository`),
   KEY `index_versionrepo` (`integer_version`,`repository`),
   KEY `index_currentversions` (`current_version`,`review_state`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2459,14 +2459,14 @@ DROP TABLE IF EXISTS `tx_extensionmanager_domain_model_repository`;
 CREATE TABLE `tx_extensionmanager_domain_model_repository` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(150) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8_swedish_ci,
-  `wsdl_url` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `mirror_list_url` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(150) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` mediumtext COLLATE utf8_general_ci,
+  `wsdl_url` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `mirror_list_url` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `last_update` int(11) unsigned NOT NULL DEFAULT '0',
   `extension_count` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2493,7 +2493,7 @@ CREATE TABLE `tx_gomapsext_address_category_mm` (
   `sorting_foreign` int(11) unsigned NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2517,20 +2517,20 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   `pid` int(11) NOT NULL DEFAULT '0',
   `map` int(11) unsigned NOT NULL DEFAULT '0',
   `categories` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `configuration_map` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `configuration_map` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `latitude` double(11,6) NOT NULL DEFAULT '0.000000',
   `longitude` double(11,6) NOT NULL DEFAULT '0.000000',
-  `address` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `marker` text COLLATE utf8_swedish_ci NOT NULL,
+  `address` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `marker` text COLLATE utf8_general_ci NOT NULL,
   `image_size` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `image_width` int(11) NOT NULL DEFAULT '0',
   `image_height` int(11) NOT NULL DEFAULT '0',
-  `shadow` text COLLATE utf8_swedish_ci NOT NULL,
+  `shadow` text COLLATE utf8_general_ci NOT NULL,
   `shadow_size` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `shadow_width` int(11) NOT NULL DEFAULT '0',
   `shadow_height` int(11) NOT NULL DEFAULT '0',
-  `info_window_content` text COLLATE utf8_swedish_ci NOT NULL,
+  `info_window_content` text COLLATE utf8_general_ci NOT NULL,
   `info_window_link` int(11) NOT NULL DEFAULT '0',
   `close_by_click` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `open_by_click` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -2545,7 +2545,7 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2559,7 +2559,7 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2581,7 +2581,7 @@ DROP TABLE IF EXISTS `tx_gomapsext_domain_model_category`;
 CREATE TABLE `tx_gomapsext_domain_model_category` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `addresses` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
@@ -2593,7 +2593,7 @@ CREATE TABLE `tx_gomapsext_domain_model_category` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2607,7 +2607,7 @@ CREATE TABLE `tx_gomapsext_domain_model_category` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2629,15 +2629,15 @@ DROP TABLE IF EXISTS `tx_gomapsext_domain_model_map`;
 CREATE TABLE `tx_gomapsext_domain_model_map` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tooltip_title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `class` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `width` varchar(11) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `height` varchar(11) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tooltip_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `class` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `width` varchar(11) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `height` varchar(11) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `zoom` int(11) NOT NULL DEFAULT '0',
   `addresses` int(11) unsigned NOT NULL DEFAULT '0',
   `show_categories` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `kml_url` text COLLATE utf8_swedish_ci NOT NULL,
+  `kml_url` text COLLATE utf8_general_ci NOT NULL,
   `kml_preserve_viewport` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `kml_local` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `scroll_zoom` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -2656,13 +2656,13 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   `zoom_control` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `zoom_control_type` int(11) NOT NULL DEFAULT '0',
   `map_type_control` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `map_types` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `map_types` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `show_route` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `calc_route` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `travel_mode` int(11) NOT NULL DEFAULT '0',
   `unit_system` int(11) NOT NULL DEFAULT '0',
-  `styled_map_name` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `styled_map_code` text COLLATE utf8_swedish_ci NOT NULL,
+  `styled_map_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `styled_map_code` text COLLATE utf8_general_ci NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -2673,7 +2673,7 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2688,7 +2688,7 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2715,7 +2715,7 @@ CREATE TABLE `tx_gomapsext_map_address_mm` (
   `sorting_foreign` int(11) unsigned NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2743,7 +2743,7 @@ CREATE TABLE `tx_gridelements_backend_layout` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2753,20 +2753,20 @@ CREATE TABLE `tx_gridelements_backend_layout` (
   `sorting` int(10) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `alias` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `frame` int(11) NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_swedish_ci,
+  `description` text COLLATE utf8_general_ci,
   `horizontal` tinyint(4) NOT NULL DEFAULT '0',
   `top_level_layout` tinyint(4) NOT NULL DEFAULT '0',
-  `config` text COLLATE utf8_swedish_ci,
-  `pi_flexform_ds` mediumtext COLLATE utf8_swedish_ci,
-  `pi_flexform_ds_file` text COLLATE utf8_swedish_ci,
-  `icon` text COLLATE utf8_swedish_ci,
+  `config` text COLLATE utf8_general_ci,
+  `pi_flexform_ds` mediumtext COLLATE utf8_general_ci,
+  `pi_flexform_ds_file` text COLLATE utf8_general_ci,
+  `icon` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2788,13 +2788,13 @@ DROP TABLE IF EXISTS `tx_impexp_presets`;
 CREATE TABLE `tx_impexp_presets` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `user_uid` int(11) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `public` tinyint(3) NOT NULL DEFAULT '0',
   `item_uid` int(11) NOT NULL DEFAULT '0',
   `preset_data` blob,
   PRIMARY KEY (`uid`),
   KEY `lookup` (`item_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2821,12 +2821,12 @@ CREATE TABLE `tx_news_domain_model_file` (
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2835,14 +2835,14 @@ CREATE TABLE `tx_news_domain_model_file` (
   `sorting` int(10) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `file` text COLLATE utf8_swedish_ci,
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `title` tinytext COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `file` text COLLATE utf8_general_ci,
   `parent` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2869,12 +2869,12 @@ CREATE TABLE `tx_news_domain_model_link` (
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2884,12 +2884,12 @@ CREATE TABLE `tx_news_domain_model_link` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
-  `uri` text COLLATE utf8_swedish_ci,
+  `title` tinytext COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
+  `uri` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2918,11 +2918,11 @@ CREATE TABLE `tx_news_domain_model_media` (
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2932,21 +2932,21 @@ CREATE TABLE `tx_news_domain_model_media` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL DEFAULT '0',
-  `caption` tinytext COLLATE utf8_swedish_ci,
-  `alt` tinytext COLLATE utf8_swedish_ci,
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `copyright` tinytext COLLATE utf8_swedish_ci,
-  `image` text COLLATE utf8_swedish_ci,
-  `html` text COLLATE utf8_swedish_ci,
-  `multimedia` tinytext COLLATE utf8_swedish_ci,
+  `caption` tinytext COLLATE utf8_general_ci,
+  `alt` tinytext COLLATE utf8_general_ci,
+  `title` tinytext COLLATE utf8_general_ci,
+  `copyright` tinytext COLLATE utf8_general_ci,
+  `image` text COLLATE utf8_general_ci,
+  `html` text COLLATE utf8_general_ci,
+  `multimedia` tinytext COLLATE utf8_general_ci,
   `type` int(11) NOT NULL DEFAULT '0',
   `showinpreview` tinyint(4) NOT NULL DEFAULT '0',
   `width` int(11) NOT NULL DEFAULT '0',
   `height` int(11) NOT NULL DEFAULT '0',
-  `description` mediumtext COLLATE utf8_swedish_ci,
+  `description` mediumtext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2974,7 +2974,7 @@ CREATE TABLE `tx_news_domain_model_news` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2984,45 +2984,45 @@ CREATE TABLE `tx_news_domain_model_news` (
   `editlock` tinyint(4) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_swedish_ci,
+  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
   `sorting` int(11) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
-  `teaser` text COLLATE utf8_swedish_ci,
-  `bodytext` mediumtext COLLATE utf8_swedish_ci,
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `title` tinytext COLLATE utf8_general_ci,
+  `teaser` text COLLATE utf8_general_ci,
+  `bodytext` mediumtext COLLATE utf8_general_ci,
   `datetime` int(11) NOT NULL DEFAULT '0',
   `archive` int(11) NOT NULL DEFAULT '0',
-  `author` tinytext COLLATE utf8_swedish_ci,
-  `author_email` tinytext COLLATE utf8_swedish_ci,
+  `author` tinytext COLLATE utf8_general_ci,
+  `author_email` tinytext COLLATE utf8_general_ci,
   `categories` int(11) NOT NULL DEFAULT '0',
   `related` int(11) NOT NULL DEFAULT '0',
   `related_from` int(11) NOT NULL DEFAULT '0',
-  `related_files` tinytext COLLATE utf8_swedish_ci,
+  `related_files` tinytext COLLATE utf8_general_ci,
   `fal_related_files` int(11) unsigned DEFAULT '0',
-  `related_links` tinytext COLLATE utf8_swedish_ci,
-  `type` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_swedish_ci,
-  `description` text COLLATE utf8_swedish_ci,
+  `related_links` tinytext COLLATE utf8_general_ci,
+  `type` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `keywords` text COLLATE utf8_general_ci,
+  `description` text COLLATE utf8_general_ci,
   `tags` int(11) NOT NULL DEFAULT '0',
-  `media` text COLLATE utf8_swedish_ci,
+  `media` text COLLATE utf8_general_ci,
   `fal_media` int(11) unsigned DEFAULT '0',
-  `internalurl` text COLLATE utf8_swedish_ci,
-  `externalurl` text COLLATE utf8_swedish_ci,
+  `internalurl` text COLLATE utf8_general_ci,
+  `externalurl` text COLLATE utf8_general_ci,
   `istopnews` int(11) NOT NULL DEFAULT '0',
-  `content_elements` text COLLATE utf8_swedish_ci,
-  `path_segment` tinytext COLLATE utf8_swedish_ci,
-  `alternative_title` tinytext COLLATE utf8_swedish_ci,
-  `import_id` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `import_source` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `content_elements` text COLLATE utf8_general_ci,
+  `path_segment` tinytext COLLATE utf8_general_ci,
+  `alternative_title` tinytext COLLATE utf8_general_ci,
+  `import_id` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `import_source` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `sys_language_uid_l10n_parent` (`sys_language_uid`,`l10n_parent`),
   KEY `import` (`import_id`,`import_source`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3049,7 +3049,7 @@ CREATE TABLE `tx_news_domain_model_news_related_mm` (
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3075,7 +3075,7 @@ CREATE TABLE `tx_news_domain_model_news_tag_mm` (
   `sorting` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3101,7 +3101,7 @@ CREATE TABLE `tx_news_domain_model_news_ttcontent_mm` (
   `sorting` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3133,16 +3133,16 @@ CREATE TABLE `tx_news_domain_model_tag` (
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
   `t3ver_tstamp` int(11) NOT NULL DEFAULT '0',
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_swedish_ci,
+  `title` tinytext COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3165,9 +3165,9 @@ DROP TABLE IF EXISTS `tx_pxaformenhancement_domain_model_form`;
 CREATE TABLE `tx_pxaformenhancement_domain_model_form` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `name` text COLLATE utf8_swedish_ci NOT NULL,
+  `name` text COLLATE utf8_general_ci NOT NULL,
   `attachment` int(11) unsigned NOT NULL DEFAULT '0',
-  `form_data` text COLLATE utf8_swedish_ci NOT NULL,
+  `form_data` text COLLATE utf8_general_ci NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3177,7 +3177,7 @@ CREATE TABLE `tx_pxaformenhancement_domain_model_form` (
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3202,15 +3202,15 @@ CREATE TABLE `tx_realurl_pathcache` (
   `page_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL DEFAULT '0',
   `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `mpvar` tinytext COLLATE utf8_swedish_ci,
-  `pagepath` text COLLATE utf8_swedish_ci,
+  `mpvar` tinytext COLLATE utf8_general_ci,
+  `pagepath` text COLLATE utf8_general_ci,
   `expire` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `pathq1` (`rootpage_id`,`pagepath`(32),`expire`),
   KEY `pathq2` (`page_id`,`language_id`,`rootpage_id`,`expire`),
   KEY `expire` (`expire`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3231,10 +3231,10 @@ DROP TABLE IF EXISTS `tx_realurl_uniqalias`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_uniqalias` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `tablename` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `field_alias` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `field_id` varchar(60) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `value_alias` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `field_alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `field_id` varchar(60) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `value_alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `value_id` int(11) NOT NULL DEFAULT '0',
   `lang` int(11) NOT NULL DEFAULT '0',
   `expire` int(11) NOT NULL DEFAULT '0',
@@ -3244,7 +3244,7 @@ CREATE TABLE `tx_realurl_uniqalias` (
   KEY `bk_realurl01` (`field_alias`(20),`field_id`,`value_id`,`lang`,`expire`),
   KEY `bk_realurl02` (`tablename`(32),`field_alias`(20),`field_id`,`value_alias`(20),`expire`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3266,9 +3266,9 @@ DROP TABLE IF EXISTS `tx_realurl_uniqalias_cache_map`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_uniqalias_cache_map` (
   `alias_uid` int(11) NOT NULL DEFAULT '0',
-  `url_cache_id` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `url_cache_id` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   KEY `check_existence` (`alias_uid`,`url_cache_id`(6))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3293,14 +3293,14 @@ CREATE TABLE `tx_realurl_urlcache` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `page_id` int(11) NOT NULL DEFAULT '0',
   `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `original_url` text COLLATE utf8_swedish_ci,
-  `speaking_url` text COLLATE utf8_swedish_ci,
-  `request_variables` text COLLATE utf8_swedish_ci,
+  `original_url` text COLLATE utf8_general_ci,
+  `speaking_url` text COLLATE utf8_general_ci,
+  `request_variables` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `pathq1` (`rootpage_id`,`original_url`(32)),
   KEY `pathq2` (`rootpage_id`,`speaking_url`(32))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3323,10 +3323,10 @@ CREATE TABLE `tx_rsaauth_keys` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
   `crdate` int(11) NOT NULL DEFAULT '0',
-  `key_value` text COLLATE utf8_swedish_ci,
+  `key_value` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3355,12 +3355,12 @@ CREATE TABLE `tx_rtehtmlarea_acronym` (
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `type` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `term` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `acronym` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `term` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `acronym` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `static_lang_isocode` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3383,17 +3383,17 @@ CREATE TABLE `tx_scheduler_task` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `disable` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_swedish_ci,
+  `description` text COLLATE utf8_general_ci,
   `nextexecution` int(11) unsigned NOT NULL DEFAULT '0',
   `lastexecution_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `lastexecution_failure` text COLLATE utf8_swedish_ci,
-  `lastexecution_context` char(3) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lastexecution_failure` text COLLATE utf8_general_ci,
+  `lastexecution_context` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `serialized_task_object` blob,
   `serialized_executions` blob,
   `task_group` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `index_nextexecution` (`nextexecution`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3422,11 +3422,11 @@ CREATE TABLE `tx_scheduler_task_group` (
   `deleted` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `groupName` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_swedish_ci,
+  `groupName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_general_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3448,13 +3448,13 @@ DROP TABLE IF EXISTS `tx_solr_cache`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_solr_cache` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   `lifetime` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3475,12 +3475,12 @@ DROP TABLE IF EXISTS `tx_solr_cache_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_solr_cache_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3503,11 +3503,11 @@ CREATE TABLE `tx_solr_indexqueue_indexing_property` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `root` int(11) NOT NULL DEFAULT '0',
   `item_id` int(11) NOT NULL DEFAULT '0',
-  `property_key` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `property_value` mediumtext COLLATE utf8_swedish_ci NOT NULL,
+  `property_key` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `property_value` mediumtext COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`uid`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3530,20 +3530,20 @@ DROP TABLE IF EXISTS `tx_solr_indexqueue_item`;
 CREATE TABLE `tx_solr_indexqueue_item` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `root` int(11) NOT NULL DEFAULT '0',
-  `item_type` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `item_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `item_uid` int(11) NOT NULL DEFAULT '0',
-  `indexing_configuration` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `indexing_configuration` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `has_indexing_properties` tinyint(1) NOT NULL DEFAULT '0',
   `indexing_priority` int(11) NOT NULL DEFAULT '0',
   `changed` int(11) NOT NULL DEFAULT '0',
   `indexed` int(11) NOT NULL DEFAULT '0',
-  `errors` text COLLATE utf8_swedish_ci NOT NULL,
-  `pages_mountidentifier` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `errors` text COLLATE utf8_general_ci NOT NULL,
+  `pages_mountidentifier` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `changed` (`changed`),
   KEY `item_id` (`item_type`,`item_uid`),
   KEY `pages_mountpoint` (`item_type`,`item_uid`,`has_indexing_properties`,`pages_mountidentifier`)
-) ENGINE=InnoDB AUTO_INCREMENT=1485 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1485 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3566,9 +3566,9 @@ DROP TABLE IF EXISTS `tx_solr_last_searches`;
 CREATE TABLE `tx_solr_last_searches` (
   `sequence_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) NOT NULL DEFAULT '0',
-  `keywords` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `keywords` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`sequence_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3599,17 +3599,17 @@ CREATE TABLE `tx_solr_statistics` (
   `time_preparation` int(11) NOT NULL DEFAULT '0',
   `time_processing` int(11) NOT NULL DEFAULT '0',
   `feuser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `cookie` varchar(10) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `ip` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `keywords` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `cookie` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ip` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `keywords` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `page` int(5) unsigned NOT NULL DEFAULT '0',
   `filters` blob,
-  `sorting` varchar(128) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `sorting` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `parameters` blob,
   PRIMARY KEY (`uid`),
   KEY `keywords` (`keywords`),
   KEY `rootpid_keywords` (`root_pid`,`keywords`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3637,7 +3637,7 @@ CREATE TABLE `tx_themes_buttoncontent` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -3652,17 +3652,17 @@ CREATE TABLE `tx_themes_buttoncontent` (
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
-  `linktext` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `linktarget` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `linktitle` varchar(1024) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `icon` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '0',
+  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `linktext` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `linktarget` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `linktitle` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `icon` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
   `tt_content` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3713,43 +3713,43 @@ CREATE TABLE `be_users` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `avatar` int(11) unsigned NOT NULL DEFAULT '0',
-  `password` varchar(100) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `admin` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `usergroup` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `usergroup` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `disable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `lang` char(2) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `email` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `db_mountpoints` text COLLATE utf8_swedish_ci,
+  `lang` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `db_mountpoints` text COLLATE utf8_general_ci,
   `options` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `realName` varchar(80) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `userMods` text COLLATE utf8_swedish_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `uc` mediumtext COLLATE utf8_swedish_ci,
-  `file_mountpoints` text COLLATE utf8_swedish_ci,
-  `file_permissions` text COLLATE utf8_swedish_ci,
+  `realName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `userMods` text COLLATE utf8_general_ci,
+  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `uc` mediumtext COLLATE utf8_general_ci,
+  `file_mountpoints` text COLLATE utf8_general_ci,
+  `file_permissions` text COLLATE utf8_general_ci,
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `lockToDomain` varchar(50) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   `disableIPlock` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_swedish_ci,
+  `TSconfig` text COLLATE utf8_general_ci,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `createdByAction` int(11) NOT NULL DEFAULT '0',
-  `usergroup_cached_list` text COLLATE utf8_swedish_ci,
+  `usergroup_cached_list` text COLLATE utf8_general_ci,
   `workspace_id` int(11) NOT NULL DEFAULT '0',
   `workspace_preview` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
-  `tx_news_categorymounts` varchar(255) COLLATE utf8_swedish_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_news_categorymounts` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
