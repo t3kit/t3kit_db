@@ -21,8 +21,8 @@ mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" -e "GRANT ALL PRIVILEGES ON $DATAB
 mysql -h${DBHOST} -u"$USERNAME" -p"$PASSWORD" $DATABASE < /var/www/shared/db/t3kit.sql
 
 if [ ! -n "${DOCKER}" ]; then
-	-echo -e "Restarting MySQL... \r60% "
-	-service mysql restart > /dev/null 2>&1
-	-echo -e "Restarting Apache... \r85% "
-	-service apache2 restart > /dev/null 2>&1
+	echo -e "Restarting MySQL... \r60% "
+	service mysql restart > /dev/null 2>&1
+	echo -e "Restarting Apache... \r85% "
+	service apache2 restart > /dev/null 2>&1
 fi
