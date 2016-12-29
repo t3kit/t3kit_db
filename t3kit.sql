@@ -28,7 +28,7 @@ CREATE TABLE `backend_layout` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -41,14 +41,14 @@ CREATE TABLE `backend_layout` (
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_general_ci,
-  `config` text COLLATE utf8_general_ci NOT NULL,
-  `icon` text COLLATE utf8_general_ci NOT NULL,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `description` text,
+  `config` text NOT NULL,
+  `icon` text NOT NULL,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -71,32 +71,32 @@ CREATE TABLE `be_groups` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `non_exclude_fields` text COLLATE utf8_general_ci,
-  `explicit_allowdeny` text COLLATE utf8_general_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `custom_options` text COLLATE utf8_general_ci,
-  `db_mountpoints` text COLLATE utf8_general_ci,
-  `pagetypes_select` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tables_select` text COLLATE utf8_general_ci,
-  `tables_modify` text COLLATE utf8_general_ci,
+  `title` varchar(50) NOT NULL DEFAULT '',
+  `non_exclude_fields` text,
+  `explicit_allowdeny` text,
+  `allowed_languages` varchar(255) NOT NULL DEFAULT '',
+  `custom_options` text,
+  `db_mountpoints` text,
+  `pagetypes_select` varchar(255) NOT NULL DEFAULT '',
+  `tables_select` text,
+  `tables_modify` text,
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `groupMods` text COLLATE utf8_general_ci,
-  `file_mountpoints` text COLLATE utf8_general_ci,
-  `file_permissions` text COLLATE utf8_general_ci,
+  `groupMods` text,
+  `file_mountpoints` text,
+  `file_permissions` text,
   `hidden` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_general_ci,
-  `subgroup` text COLLATE utf8_general_ci,
+  `TSconfig` text,
+  `subgroup` text,
   `hide_in_lists` tinyint(4) NOT NULL DEFAULT '0',
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -117,17 +117,17 @@ DROP TABLE IF EXISTS `be_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `be_sessions` (
-  `ses_id` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ses_iplock` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_id` varchar(32) NOT NULL DEFAULT '',
+  `ses_name` varchar(32) NOT NULL DEFAULT '',
+  `ses_iplock` varchar(39) NOT NULL DEFAULT '',
   `ses_hashlock` int(11) NOT NULL DEFAULT '0',
   `ses_userid` int(11) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `ses_data` longtext COLLATE utf8_general_ci,
+  `ses_data` longtext,
   `ses_backuserid` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`ses_id`,`ses_name`),
   KEY `ses_tstamp` (`ses_tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -150,43 +150,43 @@ CREATE TABLE `be_users` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `username` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(2000) NOT NULL DEFAULT '',
   `avatar` int(11) unsigned NOT NULL DEFAULT '0',
-  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
   `admin` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `usergroup` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `usergroup` varchar(255) NOT NULL DEFAULT '',
   `disable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `lang` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `db_mountpoints` text COLLATE utf8_general_ci,
+  `lang` char(2) NOT NULL DEFAULT '',
+  `email` varchar(80) NOT NULL DEFAULT '',
+  `db_mountpoints` text,
   `options` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `realName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `userMods` text COLLATE utf8_general_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `uc` mediumtext COLLATE utf8_general_ci,
-  `file_mountpoints` text COLLATE utf8_general_ci,
-  `file_permissions` text COLLATE utf8_general_ci,
+  `realName` varchar(80) NOT NULL DEFAULT '',
+  `userMods` text,
+  `allowed_languages` varchar(255) NOT NULL DEFAULT '',
+  `uc` mediumtext,
+  `file_mountpoints` text,
+  `file_permissions` text,
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `disableIPlock` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_general_ci,
+  `TSconfig` text,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `createdByAction` int(11) NOT NULL DEFAULT '0',
-  `usergroup_cached_list` text COLLATE utf8_general_ci,
+  `usergroup_cached_list` text,
   `workspace_id` int(11) NOT NULL DEFAULT '0',
   `workspace_preview` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_news_categorymounts` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) NOT NULL DEFAULT '',
+  `tx_news_categorymounts` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,12 +206,12 @@ DROP TABLE IF EXISTS `cache_md5params`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cache_md5params` (
-  `md5hash` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `md5hash` varchar(20) NOT NULL DEFAULT '',
   `tstamp` int(11) NOT NULL DEFAULT '0',
   `type` tinyint(3) NOT NULL DEFAULT '0',
-  `params` text COLLATE utf8_general_ci,
+  `params` text,
   PRIMARY KEY (`md5hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,13 +231,13 @@ DROP TABLE IF EXISTS `cache_treelist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cache_treelist` (
-  `md5hash` char(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `md5hash` char(32) NOT NULL DEFAULT '',
   `pid` int(11) NOT NULL DEFAULT '0',
-  `treelist` mediumtext COLLATE utf8_general_ci,
+  `treelist` mediumtext,
   `tstamp` int(11) NOT NULL DEFAULT '0',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`md5hash`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,12 +258,12 @@ DROP TABLE IF EXISTS `cf_cache_hash`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_hash` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -284,12 +284,12 @@ DROP TABLE IF EXISTS `cf_cache_hash_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_hash_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,12 +310,12 @@ DROP TABLE IF EXISTS `cf_cache_imagesizes`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_imagesizes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,7 +324,6 @@ CREATE TABLE `cf_cache_imagesizes` (
 
 LOCK TABLES `cf_cache_imagesizes` WRITE;
 /*!40000 ALTER TABLE `cf_cache_imagesizes` DISABLE KEYS */;
-INSERT INTO `cf_cache_imagesizes` VALUES (1,'ac53ec6bc3749a87fba5066c5c243c3e5f4d4e98',2145909600,'a:3:{s:4:\"hash\";s:40:\"fcb5679cec79709ce0e1a2ff158a3573b9c28ef5\";s:10:\"imagewidth\";i:2083;s:11:\"imageheight\";i:927;}');
 /*!40000 ALTER TABLE `cf_cache_imagesizes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -337,12 +336,12 @@ DROP TABLE IF EXISTS `cf_cache_imagesizes_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_imagesizes_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -363,12 +362,12 @@ DROP TABLE IF EXISTS `cf_cache_news_category`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_news_category` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,12 +388,12 @@ DROP TABLE IF EXISTS `cf_cache_news_category_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_news_category_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,12 +414,12 @@ DROP TABLE IF EXISTS `cf_cache_pages`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pages` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -441,12 +440,12 @@ DROP TABLE IF EXISTS `cf_cache_pages_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pages_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -467,12 +466,12 @@ DROP TABLE IF EXISTS `cf_cache_pagesection`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pagesection` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -493,12 +492,12 @@ DROP TABLE IF EXISTS `cf_cache_pagesection_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_pagesection_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -519,12 +518,12 @@ DROP TABLE IF EXISTS `cf_cache_rootline`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_rootline` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -545,12 +544,12 @@ DROP TABLE IF EXISTS `cf_cache_rootline_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_cache_rootline_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -571,12 +570,12 @@ DROP TABLE IF EXISTS `cf_extbase_datamapfactory_datamap`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_datamapfactory_datamap` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -597,12 +596,12 @@ DROP TABLE IF EXISTS `cf_extbase_datamapfactory_datamap_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_datamapfactory_datamap_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -623,12 +622,12 @@ DROP TABLE IF EXISTS `cf_extbase_object`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_object` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -649,12 +648,12 @@ DROP TABLE IF EXISTS `cf_extbase_object_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_object_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -675,12 +674,12 @@ DROP TABLE IF EXISTS `cf_extbase_reflection`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_reflection` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -701,12 +700,12 @@ DROP TABLE IF EXISTS `cf_extbase_reflection_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_reflection_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -727,12 +726,12 @@ DROP TABLE IF EXISTS `cf_extbase_typo3dbbackend_queries`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_typo3dbbackend_queries` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -753,12 +752,12 @@ DROP TABLE IF EXISTS `cf_extbase_typo3dbbackend_queries_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_extbase_typo3dbbackend_queries_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,13 +778,13 @@ DROP TABLE IF EXISTS `cf_themes_cache`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_themes_cache` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -794,7 +793,6 @@ CREATE TABLE `cf_themes_cache` (
 
 LOCK TABLES `cf_themes_cache` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache` DISABLE KEYS */;
-INSERT INTO `cf_themes_cache` VALUES (40,'87bc68c937aceb96df09391854ce3e6f7489f336',0,'x��[{s�8�*�����r������f&�e�\\{;77Z�e^$Q+R~L��~\0EʒEJvn��	?\0@\0|,�\r/�f��l<������I\Z���__8��D�����/㑅>%�d$��-���\\�3�y\"i\"{]�<�)	h��K)�ӑ�4�Ŋg��eO��G*ϛ�K9��AF���	��u���Ǆ%�4Rw>�4��(�g��c0�9�8#�E�~Ɠ]?��3��Q�!X\0��8|��\"���s�\0�T2���C��G>�w�����Y��­`	�\0�5|ɋ3\n\n,AY���J�C���3��>|���g�ŠK@����D?���YL%�jB@*Z�h��ř 1�%�%� ��1X.)�?d�^���$��-#�~^y\r.�.\\<��_.xgPU2���v�@��d�[W\roI��1\r��d�M�lv>�/���>y��5h�A�- �O\'O)�Y*�f��nYߜ��_�H�����`<�8��W�����/G⾱���l3E�y���_P��mN�@�����1�`\0^����䊲p%5tj��c�0꿱$�������P�o?$�A��w�چ���*��}�mŨ��Z}�ѵ�!�ȥʛ��ۿ���:�Y����}�52��\r!Fe5M7ߦ�M�Kb��9�V�bkԌ��Bi���b0j�T�!ȗ<�{)��Xt.IM���E��=���_ϳ%U4�/T�<��?fl\r��gS���g�]������#3B�(�[P2��5�k�DՔ4�je�������-|�f;��m`T���h��*S���L��W$Ih�S�Y�>�]ǻ�gs�E4��Ϙ*�-D�H��+)�Y�O�P�\"\n!7��d@�0\'!��&��E��\r���]f��t}����Ϻk��UC����./�	͈,��pb��L�Rw���S���V=��<!1m��須(�1�����@���Q#�����h\r�<K�{Wo��{i��G���oF��RB�W	ar�6���J�n	\"���<e�w[��=v^w&oz�-�8M��+<���1��4\r�n�.�S ������iO�`���X�8��1��^��c��J�y�Ll�+.T�\0�B�O\"�>�9M�]ZI��0C��N����Ē�%���E�Q����H)�an�2a����ز�k`ʋڀ����a�)����Ga��:��T�&y���t�N!7O����=��	PT�t�$�	��ܯJ�/��(���5a�����b|1���>�A��N��-aʴ0]��B�g�=5?��?$a������0�o�(U��ܘ~��ҁ8B�� ]���{����ߎ��j\\�^F�̔�r�]c��ϳ���q�M\rmiS\\\Zi�Wѽ:�m�U̍e��\0�No�,�q�a�N;`n��S�n�H���am|��j�d��4t�K��\0a��(���̉��<�MO�]�<���e�l6:���Ǿ1й��bs��jU��ZA���J�|�ԢT��C� ��ٚB�g[\n6��$oՕ�;���O\Z��Ze�s�kI�\n�I�/p���8\nc*��}k�/\"��aB�@��v��-DJ�ǌK��`��Xe�t+�������/��T,0��<`\Z���7���׌�|M���_�H��itN�\n�ty��{o���B)�Fe�i�M\\����n$Dң����\"��6l\0��{-)�9HЕ�	Z�\Z�%��a3r#�ڛ�zZS~GpP��s���^)�u*��]���Ѝ\"���L��ۋ\'���<�+\n3�<�;L1$��o�oժ�Y&)օ�3J̭�CT��5��\n{0��sEg�8az\nZ=A#\ZC�\r��n�ы�<�F�38ѷ�B���K�h�T�e�ѩ\\�T��x��j��	r?�aat�Y?�5�Y^)��+�9bAP�=W\"ic��C^cr�Y�\'������5pZU��n�b#�\'yڃJ��%0�){̩b��� �����z�`:9�V�Y��S��\n�b��Krq1kJ�켰����p,��5ɔ���na��������&��\\�S��LC��g*�[\'I|`�K�j�\ZȏP⛂]�Y�Wf�~,�/�5֛؛�!ؕ���C�3m@�����3?�0��I-N�ɮ��rD��ve��\rK]�&��n�2B7�.�2��\0;�m5��HC��Mp��He��׽��Q���S��͛1���U�%l;}U�o�ü��	Y7u��|�\Z*�3CP[&��H;ߕ}�����}5�����k_�5mDK����*8�#����2$�[lp�e|�&���eji�;3T�6�߻s���kJ��śs�`����3\"_�{N��w�:5֫:t\Z��/��ɥ3rk\\�����Q;+��O�Zv��C&��p�y����t�j0\r�,��\Z&ݱZ�`uO��<`�V{�9�T\n5\'�[?�\ns�&j�����O�1�	��ZTy��0զU�&R�A�[�v�e��~��>i̹]�/�*hc��xU����*{�����C&N38��!����è�*�VcTx�X@+<lfq.�j5fʙ4���ع.�z��R.��ħ�_jXW�W�K\r|Ч:p���^�7���ܥ|�:�;P�y�p���7��(����R�с>G�	��>9�L�\Z��3�YR�d�8%ɮP���Yrv�~e1�-�8��*p���l��J�J�������Uk�8��Ρ�~���b��W�a	-�W�+�����.�&��`2�xz5����hpY�=�e��#�3�TԶ_�z�� K��u��J��ӆ4��Џ��O��n��S��O ��O֖��vRѶ|�4��j#��-Qh���\'�e�8=E�\n\\�e��5�c�!H�*���{D�*m��}Pff1O�P)7�Pe���$��X�[۩��Z\",����Z,,*^U�F; �M�srS�}&1���[�����s�	�^+zੈb�b[�3T62�_1��\r͑WG9w<G�C�ǌ�_Y/�	�� �\\��@v\"�����>%ds��:Gv��m9�5t2�}�rr��2�����~�Mmv�Z����<��\"',2145909600);
 /*!40000 ALTER TABLE `cf_themes_cache` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -807,12 +805,12 @@ DROP TABLE IF EXISTS `cf_themes_cache_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_themes_cache_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -821,7 +819,6 @@ CREATE TABLE `cf_themes_cache_tags` (
 
 LOCK TABLES `cf_themes_cache_tags` WRITE;
 /*!40000 ALTER TABLE `cf_themes_cache_tags` DISABLE KEYS */;
-INSERT INTO `cf_themes_cache_tags` VALUES (40,'87bc68c937aceb96df09391854ce3e6f7489f336','page-15');
 /*!40000 ALTER TABLE `cf_themes_cache_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -834,12 +831,12 @@ DROP TABLE IF EXISTS `cf_tx_solr`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_tx_solr` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `expires` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`,`expires`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -860,12 +857,12 @@ DROP TABLE IF EXISTS `cf_tx_solr_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cf_tx_solr_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -885,23 +882,23 @@ DROP TABLE IF EXISTS `fe_groups`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_groups` (
-  `tx_extbase_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `tx_extbase_type` varchar(255) NOT NULL DEFAULT '0',
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(50) NOT NULL DEFAULT '',
   `hidden` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_general_ci,
-  `subgroup` tinytext COLLATE utf8_general_ci,
-  `TSconfig` text COLLATE utf8_general_ci,
-  `felogin_redirectPid` tinytext COLLATE utf8_general_ci,
+  `description` text,
+  `subgroup` tinytext,
+  `TSconfig` text,
+  `felogin_redirectPid` tinytext,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -922,12 +919,12 @@ DROP TABLE IF EXISTS `fe_session_data`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_session_data` (
-  `hash` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `hash` varchar(32) NOT NULL DEFAULT '',
   `content` mediumblob,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`hash`),
   KEY `tstamp` (`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -947,9 +944,9 @@ DROP TABLE IF EXISTS `fe_sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_sessions` (
-  `ses_id` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ses_iplock` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ses_id` varchar(32) NOT NULL DEFAULT '',
+  `ses_name` varchar(32) NOT NULL DEFAULT '',
+  `ses_iplock` varchar(39) NOT NULL DEFAULT '',
   `ses_hashlock` int(11) NOT NULL DEFAULT '0',
   `ses_userid` int(11) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(11) unsigned NOT NULL DEFAULT '0',
@@ -957,7 +954,7 @@ CREATE TABLE `fe_sessions` (
   `ses_permanent` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`ses_id`,`ses_name`),
   KEY `ses_tstamp` (`ses_tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -977,47 +974,47 @@ DROP TABLE IF EXISTS `fe_users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_users` (
-  `tx_extbase_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `tx_extbase_type` varchar(255) NOT NULL DEFAULT '0',
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `usergroup` tinytext COLLATE utf8_general_ci,
+  `username` varchar(255) NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
+  `usergroup` tinytext,
   `disable` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `name` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `first_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `middle_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `last_name` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `address` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `telephone` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `fax` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `email` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `name` varchar(80) NOT NULL DEFAULT '',
+  `first_name` varchar(50) NOT NULL DEFAULT '',
+  `middle_name` varchar(50) NOT NULL DEFAULT '',
+  `last_name` varchar(50) NOT NULL DEFAULT '',
+  `address` varchar(255) NOT NULL DEFAULT '',
+  `telephone` varchar(20) NOT NULL DEFAULT '',
+  `fax` varchar(20) NOT NULL DEFAULT '',
+  `email` varchar(255) NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `uc` blob,
-  `title` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `zip` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `city` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `country` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `www` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `company` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `image` tinytext COLLATE utf8_general_ci,
-  `TSconfig` text COLLATE utf8_general_ci,
+  `title` varchar(40) NOT NULL DEFAULT '',
+  `zip` varchar(10) NOT NULL DEFAULT '',
+  `city` varchar(50) NOT NULL DEFAULT '',
+  `country` varchar(40) NOT NULL DEFAULT '',
+  `www` varchar(80) NOT NULL DEFAULT '',
+  `company` varchar(80) NOT NULL DEFAULT '',
+  `image` tinytext,
+  `TSconfig` text,
   `fe_cruser_id` int(10) unsigned NOT NULL DEFAULT '0',
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `is_online` int(10) unsigned NOT NULL DEFAULT '0',
-  `felogin_redirectPid` tinytext COLLATE utf8_general_ci,
-  `felogin_forgotHash` varchar(80) COLLATE utf8_general_ci DEFAULT '',
+  `felogin_redirectPid` tinytext,
+  `felogin_forgotHash` varchar(80) DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`username`),
   KEY `username` (`username`),
   KEY `is_online` (`is_online`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1043,7 +1040,7 @@ CREATE TABLE `pages` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1062,63 +1059,63 @@ CREATE TABLE `pages` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
   `doktype` int(11) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_general_ci,
+  `TSconfig` text,
   `is_siteroot` tinyint(4) NOT NULL DEFAULT '0',
   `php_tree_stop` tinyint(4) NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `url` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT '',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `urltype` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(10) unsigned NOT NULL DEFAULT '0',
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `no_cache` int(10) unsigned NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `subtitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
+  `subtitle` varchar(255) NOT NULL DEFAULT '',
   `layout` int(11) unsigned NOT NULL DEFAULT '0',
   `url_scheme` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `target` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `target` varchar(80) NOT NULL DEFAULT '',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
   `lastUpdated` int(10) unsigned NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_general_ci,
+  `keywords` text,
   `cache_timeout` int(10) unsigned NOT NULL DEFAULT '0',
-  `cache_tags` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cache_tags` varchar(255) NOT NULL DEFAULT '',
   `newUntil` int(10) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_general_ci,
+  `description` text,
   `no_search` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `SYS_LASTCHANGED` int(10) unsigned NOT NULL DEFAULT '0',
-  `abstract` text COLLATE utf8_general_ci,
-  `module` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `abstract` text,
+  `module` varchar(255) NOT NULL DEFAULT '',
   `extendToSubpages` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `author` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `author_email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `nav_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `author` varchar(255) NOT NULL DEFAULT '',
+  `author_email` varchar(80) NOT NULL DEFAULT '',
+  `nav_title` varchar(255) NOT NULL DEFAULT '',
   `nav_hide` tinyint(4) NOT NULL DEFAULT '0',
   `content_from_pid` int(10) unsigned NOT NULL DEFAULT '0',
   `mount_pid` int(10) unsigned NOT NULL DEFAULT '0',
   `mount_pid_ol` tinyint(4) NOT NULL DEFAULT '0',
-  `alias` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `alias` varchar(32) NOT NULL DEFAULT '',
   `l18n_cfg` tinyint(4) NOT NULL DEFAULT '0',
   `fe_login_mode` tinyint(4) NOT NULL DEFAULT '0',
-  `backend_layout` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `backend_layout_next_level` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tsconfig_includes` text COLLATE utf8_general_ci,
+  `backend_layout` varchar(64) NOT NULL DEFAULT '',
+  `backend_layout_next_level` varchar(64) NOT NULL DEFAULT '',
+  `tsconfig_includes` text,
   `categories` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_icon` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_icon` varchar(32) NOT NULL DEFAULT '',
+  `tx_realurl_pathsegment` varchar(255) NOT NULL DEFAULT '',
   `tx_realurl_pathoverride` int(1) NOT NULL DEFAULT '0',
   `tx_realurl_exclude` int(1) NOT NULL DEFAULT '0',
   `tx_realurl_nocache` int(1) NOT NULL DEFAULT '0',
-  `tx_seo_titletag` tinytext COLLATE utf8_general_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_general_ci,
+  `tx_seo_titletag` tinytext,
+  `tx_seo_canonicaltag` tinytext,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`sorting`),
   KEY `alias` (`alias`),
   KEY `determineSiteRoot` (`is_siteroot`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1145,7 +1142,7 @@ CREATE TABLE `pages_language_overlay` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1155,33 +1152,33 @@ CREATE TABLE `pages_language_overlay` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `subtitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `nav_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `subtitle` varchar(255) NOT NULL DEFAULT '',
+  `nav_title` varchar(255) NOT NULL DEFAULT '',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `abstract` text COLLATE utf8_general_ci,
-  `author` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `author_email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `keywords` text,
+  `description` text,
+  `abstract` text,
+  `author` varchar(255) NOT NULL DEFAULT '',
+  `author_email` varchar(80) NOT NULL DEFAULT '',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
   `l18n_diffsource` mediumblob,
-  `url` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT '',
   `urltype` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(10) unsigned NOT NULL DEFAULT '0',
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
-  `tx_realurl_pathsegment` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_seo_titletag` tinytext COLLATE utf8_general_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_general_ci,
+  `tx_realurl_pathsegment` varchar(255) NOT NULL DEFAULT '',
+  `tx_seo_titletag` tinytext,
+  `tx_seo_canonicaltag` tinytext,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1205,28 +1202,28 @@ CREATE TABLE `static_countries` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `cn_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cn_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_iso_2` char(2) NOT NULL DEFAULT '',
+  `cn_iso_3` char(3) NOT NULL DEFAULT '',
   `cn_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
   `cn_parent_territory_uid` int(11) NOT NULL DEFAULT '0',
   `cn_parent_tr_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `cn_official_name_local` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cn_official_name_en` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cn_capital` varchar(45) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cn_tldomain` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_official_name_local` varchar(128) NOT NULL DEFAULT '',
+  `cn_official_name_en` varchar(128) NOT NULL DEFAULT '',
+  `cn_capital` varchar(45) NOT NULL DEFAULT '',
+  `cn_tldomain` char(2) NOT NULL DEFAULT '',
   `cn_currency_uid` int(11) NOT NULL DEFAULT '0',
-  `cn_currency_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_currency_iso_3` char(3) NOT NULL DEFAULT '',
   `cn_currency_iso_nr` int(10) unsigned NOT NULL DEFAULT '0',
   `cn_phone` int(10) unsigned NOT NULL DEFAULT '0',
   `cn_eu_member` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_uno_member` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_address_format` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `cn_zone_flag` tinyint(4) NOT NULL DEFAULT '0',
-  `cn_short_local` varchar(70) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cn_short_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cn_short_local` varchar(70) NOT NULL DEFAULT '',
+  `cn_short_en` varchar(50) NOT NULL DEFAULT '',
   `cn_country_zones` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=253 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1250,16 +1247,16 @@ CREATE TABLE `static_country_zones` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `zn_country_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `zn_country_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zn_country_iso_2` char(2) NOT NULL DEFAULT '',
+  `zn_country_iso_3` char(3) NOT NULL DEFAULT '',
   `zn_country_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `zn_code` varchar(45) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `zn_name_local` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `zn_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `zn_code` varchar(45) NOT NULL DEFAULT '',
+  `zn_name_local` varchar(128) NOT NULL DEFAULT '',
+  `zn_name_en` varchar(50) NOT NULL DEFAULT '',
   `zn_country_uid` int(11) NOT NULL DEFAULT '0',
-  `zn_country_table` tinytext COLLATE utf8_general_ci,
+  `zn_country_table` tinytext,
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=710 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=710 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1283,21 +1280,21 @@ CREATE TABLE `static_currencies` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `cu_iso_3` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_iso_3` char(3) NOT NULL DEFAULT '',
   `cu_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `cu_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cu_symbol_left` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cu_symbol_right` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cu_thousands_point` char(1) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cu_decimal_point` char(1) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_name_en` varchar(50) NOT NULL DEFAULT '',
+  `cu_symbol_left` varchar(12) NOT NULL DEFAULT '',
+  `cu_symbol_right` varchar(12) NOT NULL DEFAULT '',
+  `cu_thousands_point` char(1) NOT NULL DEFAULT '',
+  `cu_decimal_point` char(1) NOT NULL DEFAULT '',
   `cu_decimal_digits` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `cu_sub_name_en` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_sub_name_en` varchar(20) NOT NULL DEFAULT '',
   `cu_sub_divisor` int(11) NOT NULL DEFAULT '1',
-  `cu_sub_symbol_left` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `cu_sub_symbol_right` varchar(12) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cu_sub_symbol_left` varchar(12) NOT NULL DEFAULT '',
+  `cu_sub_symbol_right` varchar(12) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=181 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1321,17 +1318,17 @@ CREATE TABLE `static_languages` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `lg_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lg_name_local` varchar(99) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lg_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lg_typo3` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lg_country_iso_2` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `lg_collate_locale` varchar(5) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lg_iso_2` char(2) NOT NULL DEFAULT '',
+  `lg_name_local` varchar(99) NOT NULL DEFAULT '',
+  `lg_name_en` varchar(50) NOT NULL DEFAULT '',
+  `lg_typo3` char(2) NOT NULL DEFAULT '',
+  `lg_country_iso_2` char(2) NOT NULL DEFAULT '',
+  `lg_collate_locale` varchar(5) NOT NULL DEFAULT '',
   `lg_sacred` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `lg_constructed` tinyint(3) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=194 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1358,9 +1355,9 @@ CREATE TABLE `static_territories` (
   `tr_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
   `tr_parent_territory_uid` int(11) NOT NULL DEFAULT '0',
   `tr_parent_iso_nr` int(11) unsigned NOT NULL DEFAULT '0',
-  `tr_name_en` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tr_name_en` varchar(50) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1383,14 +1380,14 @@ DROP TABLE IF EXISTS `sys_be_shortcuts`;
 CREATE TABLE `sys_be_shortcuts` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
-  `module_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `url` text COLLATE utf8_general_ci,
-  `description` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `module_name` varchar(255) NOT NULL DEFAULT '',
+  `url` text,
+  `description` varchar(255) NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `sc_group` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1422,7 +1419,7 @@ CREATE TABLE `sys_category` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1433,23 +1430,23 @@ CREATE TABLE `sys_category` (
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
   `l10n_diffsource` mediumblob NOT NULL,
-  `title` tinytext COLLATE utf8_general_ci NOT NULL,
-  `description` text COLLATE utf8_general_ci,
+  `title` tinytext NOT NULL,
+  `description` text,
   `parent` int(11) NOT NULL DEFAULT '0',
   `items` int(11) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
   `images` int(11) unsigned DEFAULT '0',
   `single_pid` int(11) unsigned NOT NULL DEFAULT '0',
   `shortcut` int(11) NOT NULL DEFAULT '0',
-  `import_id` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `import_source` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `import_id` varchar(100) NOT NULL DEFAULT '',
+  `import_source` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `category_parent` (`parent`),
   KEY `category_list` (`pid`,`deleted`,`sys_language_uid`),
   KEY `import` (`import_id`,`import_source`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1472,13 +1469,13 @@ DROP TABLE IF EXISTS `sys_category_record_mm`;
 CREATE TABLE `sys_category_record_mm` (
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `fieldname` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(255) NOT NULL DEFAULT '',
+  `fieldname` varchar(255) NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local_foreign` (`uid_local`,`uid_foreign`),
   KEY `uid_foreign_tablefield` (`uid_foreign`,`tablenames`(40),`fieldname`(3),`sorting_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1507,7 +1504,7 @@ CREATE TABLE `sys_collection` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1516,21 +1513,21 @@ CREATE TABLE `sys_collection` (
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
   `fe_group` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `type` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT 'static',
-  `table_name` tinytext COLLATE utf8_general_ci,
+  `title` tinytext,
+  `description` text,
+  `type` varchar(32) NOT NULL DEFAULT 'static',
+  `table_name` tinytext,
   `items` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1553,12 +1550,12 @@ CREATE TABLE `sys_collection_entries` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(64) NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1584,8 +1581,8 @@ CREATE TABLE `sys_domain` (
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `domainName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `redirectTo` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `domainName` varchar(80) NOT NULL DEFAULT '',
+  `redirectTo` varchar(255) NOT NULL DEFAULT '',
   `redirectHttpStatusCode` int(4) unsigned NOT NULL DEFAULT '301',
   `sorting` int(10) unsigned NOT NULL DEFAULT '0',
   `prepend_params` int(10) NOT NULL DEFAULT '0',
@@ -1593,7 +1590,7 @@ CREATE TABLE `sys_domain` (
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `getSysDomain` (`redirectTo`,`hidden`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1620,15 +1617,15 @@ CREATE TABLE `sys_file` (
   `last_indexed` int(11) NOT NULL DEFAULT '0',
   `missing` tinyint(4) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
-  `type` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `type` varchar(10) NOT NULL DEFAULT '',
   `metadata` int(11) NOT NULL DEFAULT '0',
-  `identifier` text COLLATE utf8_general_ci,
-  `identifier_hash` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `folder_hash` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `extension` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `mime_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `name` tinytext COLLATE utf8_general_ci,
-  `sha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` text,
+  `identifier_hash` char(40) NOT NULL DEFAULT '',
+  `folder_hash` char(40) NOT NULL DEFAULT '',
+  `extension` varchar(255) NOT NULL DEFAULT '',
+  `mime_type` varchar(255) NOT NULL DEFAULT '',
+  `name` tinytext,
+  `sha1` char(40) NOT NULL DEFAULT '',
   `size` bigint(20) unsigned NOT NULL DEFAULT '0',
   `creation_date` int(11) NOT NULL DEFAULT '0',
   `modification_date` int(11) NOT NULL DEFAULT '0',
@@ -1638,7 +1635,7 @@ CREATE TABLE `sys_file` (
   KEY `tstamp` (`tstamp`),
   KEY `lastindex` (`last_indexed`),
   KEY `sha1` (`sha1`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1667,7 +1664,7 @@ CREATE TABLE `sys_file_collection` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1676,23 +1673,23 @@ CREATE TABLE `sys_file_collection` (
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `type` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT 'static',
+  `title` tinytext,
+  `description` text,
+  `type` varchar(30) NOT NULL DEFAULT 'static',
   `files` int(11) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
-  `folder` text COLLATE utf8_general_ci,
+  `folder` text,
   `recursive` tinyint(4) NOT NULL DEFAULT '0',
   `category` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1723,7 +1720,7 @@ CREATE TABLE `sys_file_metadata` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1731,42 +1728,42 @@ CREATE TABLE `sys_file_metadata` (
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `file` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
+  `title` tinytext,
   `width` int(11) NOT NULL DEFAULT '0',
   `height` int(11) NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_general_ci,
-  `alternative` text COLLATE utf8_general_ci,
+  `description` text,
+  `alternative` text,
   `categories` int(11) NOT NULL DEFAULT '0',
   `visible` int(11) unsigned DEFAULT '1',
-  `status` varchar(24) COLLATE utf8_general_ci DEFAULT '',
-  `keywords` text COLLATE utf8_general_ci,
-  `caption` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `creator_tool` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `download_name` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `creator` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `publisher` varchar(45) COLLATE utf8_general_ci DEFAULT '',
-  `source` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `copyright` varchar(255) COLLATE utf8_general_ci DEFAULT '',
-  `location_country` varchar(45) COLLATE utf8_general_ci DEFAULT '',
-  `location_region` varchar(45) COLLATE utf8_general_ci DEFAULT '',
-  `location_city` varchar(45) COLLATE utf8_general_ci DEFAULT '',
+  `status` varchar(24) DEFAULT '',
+  `keywords` text,
+  `caption` varchar(255) DEFAULT '',
+  `creator_tool` varchar(255) DEFAULT '',
+  `download_name` varchar(255) DEFAULT '',
+  `creator` varchar(255) DEFAULT '',
+  `publisher` varchar(45) DEFAULT '',
+  `source` varchar(255) DEFAULT '',
+  `copyright` varchar(255) DEFAULT '',
+  `location_country` varchar(45) DEFAULT '',
+  `location_region` varchar(45) DEFAULT '',
+  `location_city` varchar(45) DEFAULT '',
   `latitude` decimal(24,14) DEFAULT '0.00000000000000',
   `longitude` decimal(24,14) DEFAULT '0.00000000000000',
   `ranking` int(11) unsigned DEFAULT '0',
   `content_creation_date` int(11) unsigned DEFAULT '0',
   `content_modification_date` int(11) unsigned DEFAULT '0',
-  `note` text COLLATE utf8_general_ci,
-  `unit` char(3) COLLATE utf8_general_ci DEFAULT '',
+  `note` text,
+  `unit` char(3) DEFAULT '',
   `duration` float unsigned DEFAULT '0',
-  `color_space` varchar(4) COLLATE utf8_general_ci DEFAULT '',
+  `color_space` varchar(4) DEFAULT '',
   `pages` int(4) unsigned DEFAULT '0',
-  `language` varchar(12) COLLATE utf8_general_ci DEFAULT '',
-  `fe_groups` tinytext COLLATE utf8_general_ci,
+  `language` varchar(12) DEFAULT '',
+  `fe_groups` tinytext,
   PRIMARY KEY (`uid`),
   KEY `file` (`file`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `fal_filelist` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1792,19 +1789,19 @@ CREATE TABLE `sys_file_processedfile` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `storage` int(11) NOT NULL DEFAULT '0',
   `original` int(11) NOT NULL DEFAULT '0',
-  `identifier` varchar(512) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `name` tinytext COLLATE utf8_general_ci,
-  `configuration` text COLLATE utf8_general_ci,
-  `configurationsha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `originalfilesha1` char(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `task_type` varchar(200) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `checksum` char(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(512) NOT NULL DEFAULT '',
+  `name` tinytext,
+  `configuration` text,
+  `configurationsha1` char(40) NOT NULL DEFAULT '',
+  `originalfilesha1` char(40) NOT NULL DEFAULT '',
+  `task_type` varchar(200) NOT NULL DEFAULT '',
+  `checksum` char(10) NOT NULL DEFAULT '',
   `width` int(11) DEFAULT '0',
   `height` int(11) DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `combined_1` (`original`,`task_type`,`configurationsha1`),
   KEY `identifier` (`storage`,`identifier`(199))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1835,7 +1832,7 @@ CREATE TABLE `sys_file_reference` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -1847,16 +1844,16 @@ CREATE TABLE `sys_file_reference` (
   `l10n_diffsource` mediumblob NOT NULL,
   `uid_local` int(11) NOT NULL DEFAULT '0',
   `uid_foreign` int(11) NOT NULL DEFAULT '0',
-  `tablenames` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `fieldname` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablenames` varchar(64) NOT NULL DEFAULT '',
+  `fieldname` varchar(64) NOT NULL DEFAULT '',
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
-  `table_local` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `title` tinytext COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `alternative` tinytext COLLATE utf8_general_ci,
-  `link` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `downloadname` tinytext COLLATE utf8_general_ci,
-  `crop` varchar(4000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `table_local` varchar(64) NOT NULL DEFAULT '',
+  `title` tinytext,
+  `description` text,
+  `alternative` tinytext,
+  `link` varchar(1024) NOT NULL DEFAULT '',
+  `downloadname` tinytext,
+  `crop` varchar(4000) NOT NULL DEFAULT '',
   `autoplay` tinyint(4) NOT NULL DEFAULT '0',
   `showinpreview` tinyint(4) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
@@ -1864,7 +1861,7 @@ CREATE TABLE `sys_file_reference` (
   KEY `tablenames_fieldname` (`tablenames`(32),`fieldname`(12)),
   KEY `deleted` (`deleted`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1891,20 +1888,20 @@ CREATE TABLE `sys_file_storage` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
-  `name` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_general_ci,
-  `driver` tinytext COLLATE utf8_general_ci,
-  `configuration` text COLLATE utf8_general_ci,
+  `name` varchar(30) NOT NULL DEFAULT '',
+  `description` text,
+  `driver` tinytext,
+  `configuration` text,
   `is_default` tinyint(4) NOT NULL DEFAULT '0',
   `is_browsable` tinyint(4) NOT NULL DEFAULT '0',
   `is_public` tinyint(4) NOT NULL DEFAULT '0',
   `is_writable` tinyint(4) NOT NULL DEFAULT '0',
   `is_online` tinyint(4) NOT NULL DEFAULT '1',
-  `processingfolder` tinytext COLLATE utf8_general_ci,
+  `processingfolder` tinytext,
   `auto_extract_metadata` tinyint(4) NOT NULL DEFAULT '1',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1928,9 +1925,9 @@ CREATE TABLE `sys_filemounts` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `path` varchar(120) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(30) NOT NULL DEFAULT '',
+  `description` varchar(2000) NOT NULL DEFAULT '',
+  `path` varchar(120) NOT NULL DEFAULT '',
   `base` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -1938,7 +1935,7 @@ CREATE TABLE `sys_filemounts` (
   `read_only` tinyint(1) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1961,19 +1958,19 @@ CREATE TABLE `sys_history` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_log_uid` int(11) NOT NULL DEFAULT '0',
-  `history_data` mediumtext COLLATE utf8_general_ci,
-  `fieldlist` text COLLATE utf8_general_ci,
+  `history_data` mediumtext,
+  `fieldlist` text,
   `recuid` int(11) NOT NULL DEFAULT '0',
-  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) NOT NULL DEFAULT '',
   `tstamp` int(11) NOT NULL DEFAULT '0',
-  `history_files` mediumtext COLLATE utf8_general_ci,
+  `history_files` mediumtext,
   `snapshot` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `recordident_1` (`tablename`,`recuid`),
   KEY `recordident_2` (`tablename`,`tstamp`),
   KEY `sys_log_uid` (`sys_log_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1997,13 +1994,13 @@ CREATE TABLE `sys_language` (
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `flag` varchar(20) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `language_isocode` varchar(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(80) NOT NULL DEFAULT '',
+  `flag` varchar(20) NOT NULL DEFAULT '',
+  `language_isocode` varchar(2) NOT NULL DEFAULT '',
   `static_lang_isocode` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2027,14 +2024,14 @@ CREATE TABLE `sys_lockedrecords` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `record_table` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `record_table` varchar(255) NOT NULL DEFAULT '',
   `record_uid` int(11) NOT NULL DEFAULT '0',
   `record_pid` int(11) NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `username` varchar(50) NOT NULL DEFAULT '',
   `feuserid` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2059,31 +2056,31 @@ CREATE TABLE `sys_log` (
   `userid` int(11) unsigned NOT NULL DEFAULT '0',
   `action` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `recuid` int(11) unsigned NOT NULL DEFAULT '0',
-  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) NOT NULL DEFAULT '',
   `recpid` int(11) NOT NULL DEFAULT '0',
   `error` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `details` text COLLATE utf8_general_ci NOT NULL,
+  `details` text NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `details_nr` tinyint(3) NOT NULL DEFAULT '0',
-  `IP` varchar(39) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `log_data` text COLLATE utf8_general_ci,
+  `IP` varchar(39) NOT NULL DEFAULT '',
+  `log_data` text,
   `event_pid` int(11) NOT NULL DEFAULT '-1',
   `workspace` int(11) NOT NULL DEFAULT '0',
-  `NEWid` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `request_id` varchar(13) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `NEWid` varchar(30) NOT NULL DEFAULT '',
+  `request_id` varchar(13) NOT NULL DEFAULT '',
   `time_micro` float NOT NULL DEFAULT '0',
-  `component` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `component` varchar(255) NOT NULL DEFAULT '',
   `level` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `message` text COLLATE utf8_general_ci,
-  `data` text COLLATE utf8_general_ci,
+  `message` text,
+  `data` text,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `event` (`userid`,`event_pid`),
   KEY `recuidIdx` (`recuid`,`uid`),
   KEY `user_auth` (`type`,`action`,`tstamp`),
   KEY `request` (`request_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2112,11 +2109,11 @@ CREATE TABLE `sys_news` (
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `content` mediumtext COLLATE utf8_general_ci,
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `content` mediumtext,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2142,14 +2139,14 @@ CREATE TABLE `sys_note` (
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser` int(11) unsigned NOT NULL DEFAULT '0',
-  `subject` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `message` text COLLATE utf8_general_ci,
+  `subject` varchar(255) NOT NULL DEFAULT '',
+  `message` text,
   `personal` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `category` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2169,24 +2166,24 @@ DROP TABLE IF EXISTS `sys_refindex`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_refindex` (
-  `hash` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `hash` varchar(32) NOT NULL DEFAULT '',
+  `tablename` varchar(255) NOT NULL DEFAULT '',
   `recuid` int(11) NOT NULL DEFAULT '0',
-  `field` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `flexpointer` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `softref_key` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `softref_id` varchar(40) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `field` varchar(64) NOT NULL DEFAULT '',
+  `flexpointer` varchar(255) NOT NULL DEFAULT '',
+  `softref_key` varchar(30) NOT NULL DEFAULT '',
+  `softref_id` varchar(40) NOT NULL DEFAULT '',
   `sorting` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `workspace` int(11) NOT NULL DEFAULT '0',
-  `ref_table` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ref_table` varchar(255) NOT NULL DEFAULT '',
   `ref_uid` int(11) NOT NULL DEFAULT '0',
-  `ref_string` varchar(200) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `ref_string` varchar(200) NOT NULL DEFAULT '',
   PRIMARY KEY (`hash`),
   KEY `lookup_rec` (`tablename`,`recuid`),
   KEY `lookup_uid` (`ref_table`,`ref_uid`),
   KEY `lookup_string` (`ref_string`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2208,12 +2205,12 @@ DROP TABLE IF EXISTS `sys_registry`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sys_registry` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `entry_namespace` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `entry_key` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `entry_namespace` varchar(128) NOT NULL DEFAULT '',
+  `entry_key` varchar(128) NOT NULL DEFAULT '',
   `entry_value` blob,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `entry_identifier` (`entry_namespace`,`entry_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2222,7 +2219,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:10:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}s:4:\"82|0\";a:9:{s:13:\"connectionKey\";s:4:\"82|0\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:4:\"82|1\";a:9:{s:13:\"connectionKey\";s:4:\"82|1\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:4:\"82|2\";a:9:{s:13:\"connectionKey\";s:4:\"82|2\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:4:\"82|3\";a:9:{s:13:\"connectionKey\";s:4:\"82|3\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:83:\"Home Blue Mountain (pid: 82, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:4:\"82|4\";a:9:{s:13:\"connectionKey\";s:4:\"82|4\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:95:\"Home Blue Mountain (pid: 82, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1464256524;s:3:\"end\";i:1464256527;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"273581f41e1c0169490f5cf70d21d58197ea7731aa547b31989e7791bb529e91\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
+INSERT INTO `sys_registry` VALUES (2,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(3,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(4,'extensionDataImport','typo3conf/ext/yaml_parser/ext_tables_static+adt.sql','i:1;'),(5,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(6,'extensionDataImport','typo3conf/ext/themes/ext_tables_static+adt.sql','i:1;'),(7,'extensionDataImport','typo3conf/ext/theme_core/ext_tables_static+adt.sql','i:1;'),(9,'extensionDataImport','typo3conf/ext/extension_tools/ext_tables_static+adt.sql','i:1;'),(11,'core','formSessionToken:1','s:64:\"8f0064f82514719f718d8242e4b66dbfa66e2386de26b490ebbc6d12975dce06\";'),(12,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(13,'extensionDataImport','typo3conf/ext/theme_t3kit/ext_tables_static+adt.sql','i:1;'),(14,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(17,'tx_solr','servers','a:10:{s:3:\"1|0\";a:9:{s:13:\"connectionKey\";s:3:\"1|0\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:67:\"Home (pid: 1, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:3:\"1|1\";a:9:{s:13:\"connectionKey\";s:3:\"1|1\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:67:\"Home (pid: 1, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:3:\"1|2\";a:9:{s:13:\"connectionKey\";s:3:\"1|2\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:67:\"Home (pid: 1, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:3:\"1|3\";a:9:{s:13:\"connectionKey\";s:3:\"1|3\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:68:\"Home (pid: 1, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:3:\"1|4\";a:9:{s:13:\"connectionKey\";s:3:\"1|4\";s:13:\"rootPageTitle\";s:4:\"Home\";s:11:\"rootPageUid\";s:1:\"1\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:80:\"Home (pid: 1, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}s:4:\"82|0\";a:9:{s:13:\"connectionKey\";s:4:\"82|0\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_en_GB/\";s:8:\"language\";i:0;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: default) - localhost:8080/solr/t3kit_en_GB/\";}s:4:\"82|1\";a:9:{s:13:\"connectionKey\";s:4:\"82|1\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_sv_SE/\";s:8:\"language\";i:1;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Svenska) - localhost:8080/solr/t3kit_sv_SE/\";}s:4:\"82|2\";a:9:{s:13:\"connectionKey\";s:4:\"82|2\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_de_DE/\";s:8:\"language\";i:2;s:5:\"label\";s:82:\"Home Blue Mountain (pid: 82, language: Deutsch) - localhost:8080/solr/t3kit_de_DE/\";}s:4:\"82|3\";a:9:{s:13:\"connectionKey\";s:4:\"82|3\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_ro_RO/\";s:8:\"language\";i:3;s:5:\"label\";s:83:\"Home Blue Mountain (pid: 82, language: Română) - localhost:8080/solr/t3kit_ro_RO/\";}s:4:\"82|4\";a:9:{s:13:\"connectionKey\";s:4:\"82|4\";s:13:\"rootPageTitle\";s:18:\"Home Blue Mountain\";s:11:\"rootPageUid\";s:2:\"82\";s:10:\"solrScheme\";s:4:\"http\";s:8:\"solrHost\";s:9:\"localhost\";s:8:\"solrPort\";s:4:\"8080\";s:8:\"solrPath\";s:18:\"/solr/t3kit_uk_UA/\";s:8:\"language\";i:4;s:5:\"label\";s:95:\"Home Blue Mountain (pid: 82, language: Українська) - localhost:8080/solr/t3kit_uk_UA/\";}}'),(18,'tx_scheduler','lastRun','a:3:{s:5:\"start\";i:1464256524;s:3:\"end\";i:1464256527;s:4:\"type\";s:6:\"manual\";}'),(19,'extensionDataImport','typo3conf/ext/realurl_404_multilingual/ext_tables_static+adt.sql','i:1;'),(26,'TYPO3.CMS.Install','coreVersionMatrix','a:6:{i:8;a:4:{s:8:\"releases\";a:1:{s:5:\"8.0.0\";a:5:{s:7:\"version\";s:5:\"8.0.0\";s:4:\"date\";s:23:\"2016-03-22 13:42:34 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"026918c819f0b92b74de4320dd3750b1\";s:4:\"sha1\";s:40:\"6625dc6e4b86eaff9c7d1114365d2c5037901b28\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"84c1bf8ea60a472a11ca0678a34939a5\";s:4:\"sha1\";s:40:\"c05638d60ca0bcdc7437c646876dc464c6a7a40a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/8.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/8.0.0\";}}}s:6:\"latest\";s:5:\"8.0.0\";s:6:\"stable\";s:5:\"8.0.0\";s:6:\"active\";b:1;}i:7;a:4:{s:8:\"releases\";a:14:{s:5:\"7.6.4\";a:5:{s:7:\"version\";s:5:\"7.6.4\";s:4:\"date\";s:23:\"2016-02-23 11:04:27 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"400d5f8808c1377034ddc35165ccbb18\";s:4:\"sha1\";s:40:\"2f545ec705056377cf566f55dcc1b5764f6ea377\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"d9b4ec13fdc935445f6e85c3e3c7fdc8\";s:4:\"sha1\";s:40:\"f48ed5e816b06f72180b4cc30be077e3c86ded5c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.4/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.4\";}}s:21:\"7.6-snapshot-20160223\";a:5:{s:7:\"version\";s:21:\"7.6-snapshot-20160223\";s:4:\"date\";s:23:\"2016-02-23 09:58:12 UTC\";s:4:\"type\";s:11:\"development\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"f44204c9f1b95207af7984a958309c84\";s:4:\"sha1\";s:40:\"5a2a896459d9368e44e8db35668625233fb4e817\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"597a6fbc4fdde23a49a580da5220177e\";s:4:\"sha1\";s:40:\"7ef5d0900b8875d385534b28415a9382e22ed4f8\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:47:\"https://get.typo3.org/7.6-snapshot-20160223/zip\";s:3:\"tar\";s:43:\"https://get.typo3.org/7.6-snapshot-20160223\";}}s:5:\"7.6.3\";a:5:{s:7:\"version\";s:5:\"7.6.3\";s:4:\"date\";s:23:\"2016-02-16 11:12:06 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"bc0c39ebcecd497490d7825c20971f81\";s:4:\"sha1\";s:40:\"6b39467b132955840e20c1d84b1978935447d244\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"af674b4b912dd36c350e5a905e8e4e46\";s:4:\"sha1\";s:40:\"116945ce7197eecd175372d13a6cb87c10d7953e\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.3/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.3\";}}s:5:\"7.6.2\";a:5:{s:7:\"version\";s:5:\"7.6.2\";s:4:\"date\";s:23:\"2015-12-21 10:57:46 UTC\";s:4:\"type\";s:7:\"regular\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7f67a22b4a08a57a3259f5be34633d26\";s:4:\"sha1\";s:40:\"2633a582ab500a99867a50751303c3570c527cbe\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a4e0f2b5667add63e10dc9b8ed64ed2d\";s:4:\"sha1\";s:40:\"8a034d0378b015b33e7c827d15ca7aa2c68c9507\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.2\";}}s:5:\"7.6.1\";a:5:{s:7:\"version\";s:5:\"7.6.1\";s:4:\"date\";s:23:\"2015-12-15 10:58:43 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3af669dd8bcbea0dad127f2b1190fd59\";s:4:\"sha1\";s:40:\"9c140d653889623a453fa16a0d8fc3268e6ad3ac\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"e43ceb2b858baa6528ac8f272db0bb0e\";s:4:\"sha1\";s:40:\"ed878b4c420966d47ced8855f27acf941aac03ea\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.1\";}}s:5:\"7.6.0\";a:5:{s:7:\"version\";s:5:\"7.6.0\";s:4:\"date\";s:23:\"2015-11-10 13:41:21 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"91b5ab3c7f0e4b60aafb1c0e9966a06b\";s:4:\"sha1\";s:40:\"f63e5506bb11f4aecaf58aea284395fbba90d722\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a8a70c11a09bef943bb6d7076f841776\";s:4:\"sha1\";s:40:\"0dab4383b304d18cd7739ad7c07f84a51dbc6150\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.6.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.6.0\";}}s:5:\"7.5.0\";a:5:{s:7:\"version\";s:5:\"7.5.0\";s:4:\"date\";s:23:\"2015-09-29 12:26:04 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c3e8922b36e45286dd1e6e6057985853\";s:4:\"sha1\";s:40:\"bb95dcd5f0ee05c9b6c79234d48866346b7d336f\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"66bac9ad4d0b2cfd05ec9f8d1254bf81\";s:4:\"sha1\";s:40:\"bc4dae12067376098bc50a12404ca6ad9c7f40f9\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.5.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.5.0\";}}s:5:\"7.4.0\";a:5:{s:7:\"version\";s:5:\"7.4.0\";s:4:\"date\";s:23:\"2015-08-04 13:13:37 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"7ad94538fa4a848f62402b08a6846fed\";s:4:\"sha1\";s:40:\"09bd028c05f3d74f5d3c0095028c951e387d908d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a01a3606abf4e8ff5ba4bc645c2380b5\";s:4:\"sha1\";s:40:\"c2756f167855c015a0dc41391a32a58f325e9c4c\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.4.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.4.0\";}}s:5:\"7.3.1\";a:5:{s:7:\"version\";s:5:\"7.3.1\";s:4:\"date\";s:23:\"2015-07-01 14:29:14 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"b4ee3d70b569c569654bc062df4da51f\";s:4:\"sha1\";s:40:\"557f27afbc9586dc7937048f7ebc6fda3bd05257\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"3d8c386ece8e3bd0764ddac2e4763120\";s:4:\"sha1\";s:40:\"81033b6ae6394eaadcab7079ed114cf9d7b672d1\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.1/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.1\";}}s:5:\"7.3.0\";a:5:{s:7:\"version\";s:5:\"7.3.0\";s:4:\"date\";s:23:\"2015-06-15 18:29:53 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"3a36ee4ac34a2433ab2e2089c923d8f1\";s:4:\"sha1\";s:40:\"16c91366a5ce6209986ef0007bdb6cb9bdadf43a\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"56904794c4d880512963d48d78e25674\";s:4:\"sha1\";s:40:\"c52b4e0f7da558c0f26665cdd54a51795b429414\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.3.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.3.0\";}}s:5:\"7.2.0\";a:5:{s:7:\"version\";s:5:\"7.2.0\";s:4:\"date\";s:23:\"2015-04-28 12:28:02 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"144e4d29acf2e6a3ed7f548b5d470310\";s:4:\"sha1\";s:40:\"506d22dcf384f23c172ebe7f562057e0bbf89d32\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"caebda48df74d0dac007c6ce338a0a4e\";s:4:\"sha1\";s:40:\"55fff8c6c465b1fdf090fd52b0d311cce79d71f0\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.2.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.2.0\";}}s:5:\"7.1.0\";a:5:{s:7:\"version\";s:5:\"7.1.0\";s:4:\"date\";s:23:\"2015-02-24 14:43:06 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"c17d256e7d2e1b6bfaf7c70ba5b26d90\";s:4:\"sha1\";s:40:\"82f3ce50a83c0ae266649d8051f0456f97cfa3f7\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"60a1725869c7633cdb697cea6672ad5d\";s:4:\"sha1\";s:40:\"3aba4c8def027d7f75b1ccba62005847732fcd41\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.1.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.1.0\";}}s:5:\"7.0.2\";a:5:{s:7:\"version\";s:5:\"7.0.2\";s:4:\"date\";s:23:\"2014-12-10 10:47:44 UTC\";s:4:\"type\";s:8:\"security\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"a42d3292df8761b59ff64e8719a18520\";s:4:\"sha1\";s:40:\"8f09b63a549d667f5077a937bf4701669ccde07d\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"89a17926865ddbc2d087fcf0c2ec9757\";s:4:\"sha1\";s:40:\"49718c2631c93c4eb633b205918375bd233dcf3a\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.2/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.2\";}}s:5:\"7.0.0\";a:5:{s:7:\"version\";s:5:\"7.0.0\";s:4:\"date\";s:23:\"2014-12-02 20:46:36 UTC\";s:4:\"type\";s:7:\"release\";s:9:\"checksums\";a:2:{s:3:\"tar\";a:2:{s:3:\"md5\";s:32:\"9a8bde071766dc899471c5aeb0352a91\";s:4:\"sha1\";s:40:\"cc2957be8b41ba5009d85dda1cb9d01bffd03e75\";}s:3:\"zip\";a:2:{s:3:\"md5\";s:32:\"a35a51b6104247c78dabdced052027fd\";s:4:\"sha1\";s:40:\"4f45a9176c6086751a5f095433d2e7a932be1de4\";}}s:3:\"url\";a:2:{s:3:\"zip\";s:31:\"https://get.typo3.org/7.0.0/zip\";s:3:\"tar\";s:27:\"https://get.typo3.org/7.0.0\";}}}s:6:\"latest\";s:5:\"7.6.4\";s:6:\"stable\";s:5:\"7.6.4\";s:6:\"active\";b:1;}s:13:\"latest_stable\";s:5:\"7.6.4\";s:17:\"latest_old_stable\";s:6:\"6.2.19\";s:10:\"latest_lts\";s:5:\"7.6.4\";s:14:\"latest_old_lts\";s:6:\"6.2.19\";}'),(27,'tx_reports','status.highestSeverity','i:0;'),(29,'core','formProtectionSessionToken:1','s:64:\"663018ca7438eccee45c1a5dc2d2a3a66fc58b7cc1f731886194830389a81293\";'),(30,'TYPO3\\CMS\\Lang','sv','i:1459776874;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2239,7 +2236,7 @@ CREATE TABLE `sys_template` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2249,30 +2246,30 @@ CREATE TABLE `sys_template` (
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `sitetitle` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `sitetitle` varchar(255) NOT NULL DEFAULT '',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `root` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `clear` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `include_static_file` text COLLATE utf8_general_ci,
-  `constants` text COLLATE utf8_general_ci,
-  `config` text COLLATE utf8_general_ci,
-  `nextLevel` varchar(5) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_general_ci,
-  `basedOn` tinytext COLLATE utf8_general_ci,
+  `include_static_file` text,
+  `constants` text,
+  `config` text,
+  `nextLevel` varchar(5) NOT NULL DEFAULT '',
+  `description` text,
+  `basedOn` tinytext,
   `deleted` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `includeStaticAfterBasedOn` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `static_file_mode` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_skin` tinytext COLLATE utf8_general_ci NOT NULL,
+  `tx_themes_skin` tinytext NOT NULL,
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `roottemplate` (`deleted`,`hidden`,`root`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2298,7 +2295,7 @@ CREATE TABLE `tt_content` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2311,71 +2308,71 @@ CREATE TABLE `tt_content` (
   `editlock` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
-  `CType` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `header` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `rowDescription` text COLLATE utf8_general_ci,
-  `bodytext` mediumtext COLLATE utf8_general_ci,
+  `CType` varchar(255) NOT NULL DEFAULT '',
+  `header` varchar(255) NOT NULL DEFAULT '',
+  `rowDescription` text,
+  `bodytext` mediumtext,
   `image` int(11) unsigned NOT NULL DEFAULT '0',
   `imagewidth` mediumint(11) unsigned NOT NULL DEFAULT '0',
   `imageorient` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `imagecols` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `imageborder` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `media` int(11) unsigned NOT NULL DEFAULT '0',
-  `layout` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `layout` varchar(255) NOT NULL DEFAULT '',
   `deleted` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `cols` int(11) unsigned NOT NULL DEFAULT '0',
-  `records` text COLLATE utf8_general_ci,
-  `pages` text COLLATE utf8_general_ci,
+  `records` text,
+  `pages` text,
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   `colPos` smallint(6) NOT NULL DEFAULT '0',
-  `subheader` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `header_link` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `subheader` varchar(255) NOT NULL DEFAULT '',
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
+  `header_link` varchar(1024) NOT NULL DEFAULT '',
   `image_zoom` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `header_layout` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `menu_type` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `list_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `select_key` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `header_layout` varchar(30) NOT NULL DEFAULT '0',
+  `menu_type` varchar(30) NOT NULL DEFAULT '0',
+  `list_type` varchar(255) NOT NULL DEFAULT '',
+  `select_key` varchar(80) NOT NULL DEFAULT '',
   `sectionIndex` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `linkToTop` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `file_collections` text COLLATE utf8_general_ci,
+  `file_collections` text,
   `filelink_size` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `filelink_sorting` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `target` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `filelink_sorting` varchar(10) NOT NULL DEFAULT '',
+  `target` varchar(30) NOT NULL DEFAULT '',
   `date` int(10) unsigned NOT NULL DEFAULT '0',
   `recursive` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `imageheight` mediumint(8) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `pi_flexform` mediumtext COLLATE utf8_general_ci,
-  `accessibility_title` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `pi_flexform` mediumtext,
+  `accessibility_title` varchar(30) NOT NULL DEFAULT '',
   `accessibility_bypass` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `accessibility_bypass_text` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `accessibility_bypass_text` varchar(30) NOT NULL DEFAULT '',
   `l18n_parent` int(11) NOT NULL DEFAULT '0',
   `l18n_diffsource` mediumblob,
-  `selected_categories` text COLLATE utf8_general_ci,
-  `category_field` varchar(64) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `table_caption` varchar(255) COLLATE utf8_general_ci DEFAULT NULL,
+  `selected_categories` text,
+  `category_field` varchar(64) NOT NULL DEFAULT '',
+  `table_caption` varchar(255) DEFAULT NULL,
   `table_delimiter` smallint(6) unsigned NOT NULL DEFAULT '0',
   `table_enclosure` smallint(6) unsigned NOT NULL DEFAULT '0',
   `table_header_position` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `table_tfoot` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `categories` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_responsive` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_themes_behaviour` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_themes_variants` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_themes_enforceequalcolumnheight` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_themes_columnsettings` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_responsive` varchar(1024) NOT NULL DEFAULT '',
+  `tx_themes_behaviour` varchar(1024) NOT NULL DEFAULT '',
+  `tx_themes_variants` varchar(1024) NOT NULL DEFAULT '',
+  `tx_themes_enforceequalcolumnheight` varchar(1024) NOT NULL DEFAULT '',
+  `tx_themes_columnsettings` varchar(1024) NOT NULL DEFAULT '',
   `tx_themes_buttoncontent` int(11) NOT NULL DEFAULT '0',
-  `tx_themes_icon` varchar(32) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_themes_icon` varchar(32) NOT NULL DEFAULT '',
   `bullets_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `uploads_description` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `uploads_type` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `tx_news_related_news` int(11) NOT NULL DEFAULT '0',
   `assets` int(11) unsigned NOT NULL DEFAULT '0',
   `backupColPos` smallint(6) NOT NULL DEFAULT '-2',
-  `tx_gridelements_backend_layout` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tx_gridelements_backend_layout` varchar(255) NOT NULL DEFAULT '',
   `tx_gridelements_children` int(11) NOT NULL DEFAULT '0',
   `tx_gridelements_container` int(11) NOT NULL DEFAULT '0',
   `tx_gridelements_columns` int(11) NOT NULL DEFAULT '0',
@@ -2388,7 +2385,7 @@ CREATE TABLE `tt_content` (
   KEY `parent` (`pid`,`sorting`),
   KEY `language` (`l18n_parent`,`sys_language_uid`),
   KEY `gridelements` (`tx_gridelements_container`,`tx_gridelements_columns`)
-) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=372 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2411,24 +2408,24 @@ DROP TABLE IF EXISTS `tx_extensionmanager_domain_model_extension`;
 CREATE TABLE `tx_extensionmanager_domain_model_extension` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
-  `extension_key` varchar(60) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `extension_key` varchar(60) NOT NULL DEFAULT '',
   `repository` int(11) unsigned NOT NULL DEFAULT '1',
-  `version` varchar(15) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `version` varchar(15) NOT NULL DEFAULT '',
   `alldownloadcounter` int(11) unsigned NOT NULL DEFAULT '0',
   `downloadcounter` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(150) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8_general_ci,
+  `title` varchar(150) NOT NULL DEFAULT '',
+  `description` mediumtext,
   `state` int(4) NOT NULL DEFAULT '0',
   `review_state` int(4) NOT NULL DEFAULT '0',
   `category` int(4) NOT NULL DEFAULT '0',
   `last_updated` int(11) unsigned NOT NULL DEFAULT '0',
-  `serialized_dependencies` mediumtext COLLATE utf8_general_ci,
-  `author_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `author_email` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ownerusername` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `md5hash` varchar(35) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `update_comment` mediumtext COLLATE utf8_general_ci,
-  `authorcompany` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `serialized_dependencies` mediumtext,
+  `author_name` varchar(255) NOT NULL DEFAULT '',
+  `author_email` varchar(255) NOT NULL DEFAULT '',
+  `ownerusername` varchar(50) NOT NULL DEFAULT '',
+  `md5hash` varchar(35) NOT NULL DEFAULT '',
+  `update_comment` mediumtext,
+  `authorcompany` varchar(255) NOT NULL DEFAULT '',
   `integer_version` int(11) NOT NULL DEFAULT '0',
   `current_version` int(3) NOT NULL DEFAULT '0',
   `lastreviewedversion` int(3) NOT NULL DEFAULT '0',
@@ -2437,7 +2434,7 @@ CREATE TABLE `tx_extensionmanager_domain_model_extension` (
   KEY `index_extrepo` (`extension_key`,`repository`),
   KEY `index_versionrepo` (`integer_version`,`repository`),
   KEY `index_currentversions` (`current_version`,`review_state`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2459,14 +2456,14 @@ DROP TABLE IF EXISTS `tx_extensionmanager_domain_model_repository`;
 CREATE TABLE `tx_extensionmanager_domain_model_repository` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(150) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` mediumtext COLLATE utf8_general_ci,
-  `wsdl_url` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `mirror_list_url` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(150) NOT NULL DEFAULT '',
+  `description` mediumtext,
+  `wsdl_url` varchar(100) NOT NULL DEFAULT '',
+  `mirror_list_url` varchar(100) NOT NULL DEFAULT '',
   `last_update` int(11) unsigned NOT NULL DEFAULT '0',
   `extension_count` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2493,7 +2490,7 @@ CREATE TABLE `tx_gomapsext_address_category_mm` (
   `sorting_foreign` int(11) unsigned NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2517,20 +2514,20 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   `pid` int(11) NOT NULL DEFAULT '0',
   `map` int(11) unsigned NOT NULL DEFAULT '0',
   `categories` int(11) unsigned NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `configuration_map` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `configuration_map` varchar(255) NOT NULL DEFAULT '',
   `latitude` double(11,6) NOT NULL DEFAULT '0.000000',
   `longitude` double(11,6) NOT NULL DEFAULT '0.000000',
-  `address` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `marker` text COLLATE utf8_general_ci NOT NULL,
+  `address` varchar(255) NOT NULL DEFAULT '',
+  `marker` text NOT NULL,
   `image_size` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `image_width` int(11) NOT NULL DEFAULT '0',
   `image_height` int(11) NOT NULL DEFAULT '0',
-  `shadow` text COLLATE utf8_general_ci NOT NULL,
+  `shadow` text NOT NULL,
   `shadow_size` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `shadow_width` int(11) NOT NULL DEFAULT '0',
   `shadow_height` int(11) NOT NULL DEFAULT '0',
-  `info_window_content` text COLLATE utf8_general_ci NOT NULL,
+  `info_window_content` text NOT NULL,
   `info_window_link` int(11) NOT NULL DEFAULT '0',
   `close_by_click` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `open_by_click` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -2545,7 +2542,7 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2559,7 +2556,7 @@ CREATE TABLE `tx_gomapsext_domain_model_address` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2581,7 +2578,7 @@ DROP TABLE IF EXISTS `tx_gomapsext_domain_model_category`;
 CREATE TABLE `tx_gomapsext_domain_model_category` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `name` varchar(255) NOT NULL DEFAULT '',
   `addresses` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
@@ -2593,7 +2590,7 @@ CREATE TABLE `tx_gomapsext_domain_model_category` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2607,7 +2604,7 @@ CREATE TABLE `tx_gomapsext_domain_model_category` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2629,15 +2626,15 @@ DROP TABLE IF EXISTS `tx_gomapsext_domain_model_map`;
 CREATE TABLE `tx_gomapsext_domain_model_map` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tooltip_title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `class` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `width` varchar(11) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `height` varchar(11) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `tooltip_title` varchar(255) NOT NULL DEFAULT '',
+  `class` varchar(255) NOT NULL DEFAULT '',
+  `width` varchar(11) NOT NULL DEFAULT '',
+  `height` varchar(11) NOT NULL DEFAULT '',
   `zoom` int(11) NOT NULL DEFAULT '0',
   `addresses` int(11) unsigned NOT NULL DEFAULT '0',
   `show_categories` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `kml_url` text COLLATE utf8_general_ci NOT NULL,
+  `kml_url` text NOT NULL,
   `kml_preserve_viewport` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `kml_local` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `scroll_zoom` tinyint(1) unsigned NOT NULL DEFAULT '0',
@@ -2656,13 +2653,13 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   `zoom_control` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `zoom_control_type` int(11) NOT NULL DEFAULT '0',
   `map_type_control` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `map_types` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `map_types` varchar(255) NOT NULL DEFAULT '',
   `show_route` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `calc_route` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `travel_mode` int(11) NOT NULL DEFAULT '0',
   `unit_system` int(11) NOT NULL DEFAULT '0',
-  `styled_map_name` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `styled_map_code` text COLLATE utf8_general_ci NOT NULL,
+  `styled_map_name` varchar(255) NOT NULL DEFAULT '',
+  `styled_map_code` text NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -2673,7 +2670,7 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(255) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2688,7 +2685,7 @@ CREATE TABLE `tx_gomapsext_domain_model_map` (
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2715,7 +2712,7 @@ CREATE TABLE `tx_gomapsext_map_address_mm` (
   `sorting_foreign` int(11) unsigned NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2743,7 +2740,7 @@ CREATE TABLE `tx_gridelements_backend_layout` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2753,20 +2750,20 @@ CREATE TABLE `tx_gridelements_backend_layout` (
   `sorting` int(10) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `alias` varchar(255) NOT NULL DEFAULT '',
   `frame` int(11) NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_general_ci,
+  `description` text,
   `horizontal` tinyint(4) NOT NULL DEFAULT '0',
   `top_level_layout` tinyint(4) NOT NULL DEFAULT '0',
-  `config` text COLLATE utf8_general_ci,
-  `pi_flexform_ds` mediumtext COLLATE utf8_general_ci,
-  `pi_flexform_ds_file` text COLLATE utf8_general_ci,
-  `icon` text COLLATE utf8_general_ci,
+  `config` text,
+  `pi_flexform_ds` mediumtext,
+  `pi_flexform_ds_file` text,
+  `icon` text,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2788,13 +2785,13 @@ DROP TABLE IF EXISTS `tx_impexp_presets`;
 CREATE TABLE `tx_impexp_presets` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `user_uid` int(11) NOT NULL DEFAULT '0',
-  `title` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `title` varchar(255) NOT NULL DEFAULT '',
   `public` tinyint(3) NOT NULL DEFAULT '0',
   `item_uid` int(11) NOT NULL DEFAULT '0',
   `preset_data` blob,
   PRIMARY KEY (`uid`),
   KEY `lookup` (`item_uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2821,12 +2818,12 @@ CREATE TABLE `tx_news_domain_model_file` (
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2835,14 +2832,14 @@ CREATE TABLE `tx_news_domain_model_file` (
   `sorting` int(10) NOT NULL DEFAULT '0',
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `file` text COLLATE utf8_general_ci,
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
+  `title` tinytext,
+  `description` text,
+  `file` text,
   `parent` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2869,12 +2866,12 @@ CREATE TABLE `tx_news_domain_model_link` (
   `cruser_id` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2884,12 +2881,12 @@ CREATE TABLE `tx_news_domain_model_link` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
-  `uri` text COLLATE utf8_general_ci,
+  `title` tinytext,
+  `description` text,
+  `uri` text,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2918,11 +2915,11 @@ CREATE TABLE `tx_news_domain_model_media` (
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2932,21 +2929,21 @@ CREATE TABLE `tx_news_domain_model_media` (
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `parent` int(11) NOT NULL DEFAULT '0',
-  `caption` tinytext COLLATE utf8_general_ci,
-  `alt` tinytext COLLATE utf8_general_ci,
-  `title` tinytext COLLATE utf8_general_ci,
-  `copyright` tinytext COLLATE utf8_general_ci,
-  `image` text COLLATE utf8_general_ci,
-  `html` text COLLATE utf8_general_ci,
-  `multimedia` tinytext COLLATE utf8_general_ci,
+  `caption` tinytext,
+  `alt` tinytext,
+  `title` tinytext,
+  `copyright` tinytext,
+  `image` text,
+  `html` text,
+  `multimedia` tinytext,
   `type` int(11) NOT NULL DEFAULT '0',
   `showinpreview` tinyint(4) NOT NULL DEFAULT '0',
   `width` int(11) NOT NULL DEFAULT '0',
   `height` int(11) NOT NULL DEFAULT '0',
-  `description` mediumtext COLLATE utf8_general_ci,
+  `description` mediumtext,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2974,7 +2971,7 @@ CREATE TABLE `tx_news_domain_model_news` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -2984,45 +2981,45 @@ CREATE TABLE `tx_news_domain_model_news` (
   `editlock` tinyint(4) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
-  `l10n_diffsource` mediumtext COLLATE utf8_general_ci,
+  `l10n_diffsource` mediumtext,
   `deleted` tinyint(4) NOT NULL DEFAULT '0',
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) NOT NULL DEFAULT '0',
   `endtime` int(11) NOT NULL DEFAULT '0',
   `sorting` int(11) NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
-  `teaser` text COLLATE utf8_general_ci,
-  `bodytext` mediumtext COLLATE utf8_general_ci,
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
+  `title` tinytext,
+  `teaser` text,
+  `bodytext` mediumtext,
   `datetime` int(11) NOT NULL DEFAULT '0',
   `archive` int(11) NOT NULL DEFAULT '0',
-  `author` tinytext COLLATE utf8_general_ci,
-  `author_email` tinytext COLLATE utf8_general_ci,
+  `author` tinytext,
+  `author_email` tinytext,
   `categories` int(11) NOT NULL DEFAULT '0',
   `related` int(11) NOT NULL DEFAULT '0',
   `related_from` int(11) NOT NULL DEFAULT '0',
-  `related_files` tinytext COLLATE utf8_general_ci,
+  `related_files` tinytext,
   `fal_related_files` int(11) unsigned DEFAULT '0',
-  `related_links` tinytext COLLATE utf8_general_ci,
-  `type` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `keywords` text COLLATE utf8_general_ci,
-  `description` text COLLATE utf8_general_ci,
+  `related_links` tinytext,
+  `type` varchar(100) NOT NULL DEFAULT '0',
+  `keywords` text,
+  `description` text,
   `tags` int(11) NOT NULL DEFAULT '0',
-  `media` text COLLATE utf8_general_ci,
+  `media` text,
   `fal_media` int(11) unsigned DEFAULT '0',
-  `internalurl` text COLLATE utf8_general_ci,
-  `externalurl` text COLLATE utf8_general_ci,
+  `internalurl` text,
+  `externalurl` text,
   `istopnews` int(11) NOT NULL DEFAULT '0',
-  `content_elements` text COLLATE utf8_general_ci,
-  `path_segment` tinytext COLLATE utf8_general_ci,
-  `alternative_title` tinytext COLLATE utf8_general_ci,
-  `import_id` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `import_source` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `content_elements` text,
+  `path_segment` tinytext,
+  `alternative_title` tinytext,
+  `import_id` varchar(100) NOT NULL DEFAULT '',
+  `import_source` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `sys_language_uid_l10n_parent` (`sys_language_uid`,`l10n_parent`),
   KEY `import` (`import_id`,`import_source`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3049,7 +3046,7 @@ CREATE TABLE `tx_news_domain_model_news_related_mm` (
   `sorting_foreign` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3075,7 +3072,7 @@ CREATE TABLE `tx_news_domain_model_news_tag_mm` (
   `sorting` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3101,7 +3098,7 @@ CREATE TABLE `tx_news_domain_model_news_ttcontent_mm` (
   `sorting` int(11) NOT NULL DEFAULT '0',
   KEY `uid_local` (`uid_local`),
   KEY `uid_foreign` (`uid_foreign`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3133,16 +3130,16 @@ CREATE TABLE `tx_news_domain_model_tag` (
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
   `t3ver_tstamp` int(11) NOT NULL DEFAULT '0',
   `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
-  `title` tinytext COLLATE utf8_general_ci,
+  `title` tinytext,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3165,9 +3162,9 @@ DROP TABLE IF EXISTS `tx_pxaformenhancement_domain_model_form`;
 CREATE TABLE `tx_pxaformenhancement_domain_model_form` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
-  `name` text COLLATE utf8_general_ci NOT NULL,
+  `name` text NOT NULL,
   `attachment` int(11) unsigned NOT NULL DEFAULT '0',
-  `form_data` text COLLATE utf8_general_ci NOT NULL,
+  `form_data` text NOT NULL,
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
@@ -3177,7 +3174,7 @@ CREATE TABLE `tx_pxaformenhancement_domain_model_form` (
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3202,15 +3199,15 @@ CREATE TABLE `tx_realurl_pathcache` (
   `page_id` int(11) NOT NULL DEFAULT '0',
   `language_id` int(11) NOT NULL DEFAULT '0',
   `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `mpvar` tinytext COLLATE utf8_general_ci,
-  `pagepath` text COLLATE utf8_general_ci,
+  `mpvar` tinytext,
+  `pagepath` text,
   `expire` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `pathq1` (`rootpage_id`,`pagepath`(32),`expire`),
   KEY `pathq2` (`page_id`,`language_id`,`rootpage_id`,`expire`),
   KEY `expire` (`expire`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3231,10 +3228,10 @@ DROP TABLE IF EXISTS `tx_realurl_uniqalias`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_uniqalias` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
-  `tablename` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `field_alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `field_id` varchar(60) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `value_alias` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `tablename` varchar(255) NOT NULL DEFAULT '',
+  `field_alias` varchar(255) NOT NULL DEFAULT '',
+  `field_id` varchar(60) NOT NULL DEFAULT '',
+  `value_alias` varchar(255) NOT NULL DEFAULT '',
   `value_id` int(11) NOT NULL DEFAULT '0',
   `lang` int(11) NOT NULL DEFAULT '0',
   `expire` int(11) NOT NULL DEFAULT '0',
@@ -3244,7 +3241,7 @@ CREATE TABLE `tx_realurl_uniqalias` (
   KEY `bk_realurl01` (`field_alias`(20),`field_id`,`value_id`,`lang`,`expire`),
   KEY `bk_realurl02` (`tablename`(32),`field_alias`(20),`field_id`,`value_alias`(20),`expire`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3266,9 +3263,9 @@ DROP TABLE IF EXISTS `tx_realurl_uniqalias_cache_map`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_realurl_uniqalias_cache_map` (
   `alias_uid` int(11) NOT NULL DEFAULT '0',
-  `url_cache_id` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `url_cache_id` varchar(255) NOT NULL DEFAULT '',
   KEY `check_existence` (`alias_uid`,`url_cache_id`(6))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3293,14 +3290,14 @@ CREATE TABLE `tx_realurl_urlcache` (
   `crdate` int(11) NOT NULL DEFAULT '0',
   `page_id` int(11) NOT NULL DEFAULT '0',
   `rootpage_id` int(11) NOT NULL DEFAULT '0',
-  `original_url` text COLLATE utf8_general_ci,
-  `speaking_url` text COLLATE utf8_general_ci,
-  `request_variables` text COLLATE utf8_general_ci,
+  `original_url` text,
+  `speaking_url` text,
+  `request_variables` text,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `pathq1` (`rootpage_id`,`original_url`(32)),
   KEY `pathq2` (`rootpage_id`,`speaking_url`(32))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3323,10 +3320,10 @@ CREATE TABLE `tx_rsaauth_keys` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `pid` int(11) NOT NULL DEFAULT '0',
   `crdate` int(11) NOT NULL DEFAULT '0',
-  `key_value` text COLLATE utf8_general_ci,
+  `key_value` text,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3355,12 +3352,12 @@ CREATE TABLE `tx_rtehtmlarea_acronym` (
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `type` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `term` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `acronym` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `term` varchar(255) NOT NULL DEFAULT '',
+  `acronym` varchar(255) NOT NULL DEFAULT '',
   `static_lang_isocode` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3383,17 +3380,17 @@ CREATE TABLE `tx_scheduler_task` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `disable` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `description` text COLLATE utf8_general_ci,
+  `description` text,
   `nextexecution` int(11) unsigned NOT NULL DEFAULT '0',
   `lastexecution_time` int(11) unsigned NOT NULL DEFAULT '0',
-  `lastexecution_failure` text COLLATE utf8_general_ci,
-  `lastexecution_context` char(3) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lastexecution_failure` text,
+  `lastexecution_context` char(3) NOT NULL DEFAULT '',
   `serialized_task_object` blob,
   `serialized_executions` blob,
   `task_group` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `index_nextexecution` (`nextexecution`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3422,11 +3419,11 @@ CREATE TABLE `tx_scheduler_task_group` (
   `deleted` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `sorting` int(11) unsigned NOT NULL DEFAULT '0',
   `hidden` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `groupName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` text COLLATE utf8_general_ci,
+  `groupName` varchar(80) NOT NULL DEFAULT '',
+  `description` text,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3448,13 +3445,13 @@ DROP TABLE IF EXISTS `tx_solr_cache`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_solr_cache` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `content` mediumblob,
   `lifetime` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3475,12 +3472,12 @@ DROP TABLE IF EXISTS `tx_solr_cache_tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tx_solr_cache_tags` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `identifier` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tag` varchar(250) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `identifier` varchar(250) NOT NULL DEFAULT '',
+  `tag` varchar(250) NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `cache_id` (`identifier`),
   KEY `cache_tag` (`tag`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3503,11 +3500,11 @@ CREATE TABLE `tx_solr_indexqueue_indexing_property` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `root` int(11) NOT NULL DEFAULT '0',
   `item_id` int(11) NOT NULL DEFAULT '0',
-  `property_key` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `property_value` mediumtext COLLATE utf8_general_ci NOT NULL,
+  `property_key` varchar(255) NOT NULL DEFAULT '',
+  `property_value` mediumtext NOT NULL,
   PRIMARY KEY (`uid`),
   KEY `item_id` (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=244 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3530,20 +3527,20 @@ DROP TABLE IF EXISTS `tx_solr_indexqueue_item`;
 CREATE TABLE `tx_solr_indexqueue_item` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
   `root` int(11) NOT NULL DEFAULT '0',
-  `item_type` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `item_type` varchar(255) NOT NULL DEFAULT '',
   `item_uid` int(11) NOT NULL DEFAULT '0',
-  `indexing_configuration` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `indexing_configuration` varchar(255) NOT NULL DEFAULT '',
   `has_indexing_properties` tinyint(1) NOT NULL DEFAULT '0',
   `indexing_priority` int(11) NOT NULL DEFAULT '0',
   `changed` int(11) NOT NULL DEFAULT '0',
   `indexed` int(11) NOT NULL DEFAULT '0',
-  `errors` text COLLATE utf8_general_ci NOT NULL,
-  `pages_mountidentifier` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `errors` text NOT NULL,
+  `pages_mountidentifier` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `changed` (`changed`),
   KEY `item_id` (`item_type`,`item_uid`),
   KEY `pages_mountpoint` (`item_type`,`item_uid`,`has_indexing_properties`,`pages_mountidentifier`)
-) ENGINE=InnoDB AUTO_INCREMENT=1485 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1485 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3566,9 +3563,9 @@ DROP TABLE IF EXISTS `tx_solr_last_searches`;
 CREATE TABLE `tx_solr_last_searches` (
   `sequence_id` tinyint(3) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) NOT NULL DEFAULT '0',
-  `keywords` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `keywords` varchar(128) NOT NULL DEFAULT '',
   PRIMARY KEY (`sequence_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3599,17 +3596,17 @@ CREATE TABLE `tx_solr_statistics` (
   `time_preparation` int(11) NOT NULL DEFAULT '0',
   `time_processing` int(11) NOT NULL DEFAULT '0',
   `feuser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `cookie` varchar(10) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `ip` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `keywords` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `cookie` varchar(10) NOT NULL DEFAULT '',
+  `ip` varchar(255) NOT NULL DEFAULT '',
+  `keywords` varchar(128) NOT NULL DEFAULT '',
   `page` int(5) unsigned NOT NULL DEFAULT '0',
   `filters` blob,
-  `sorting` varchar(128) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `sorting` varchar(128) NOT NULL DEFAULT '',
   `parameters` blob,
   PRIMARY KEY (`uid`),
   KEY `keywords` (`keywords`),
   KEY `rootpid_keywords` (`root_pid`,`keywords`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3637,7 +3634,7 @@ CREATE TABLE `tx_themes_buttoncontent` (
   `t3ver_oid` int(11) NOT NULL DEFAULT '0',
   `t3ver_id` int(11) NOT NULL DEFAULT '0',
   `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(30) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `t3ver_label` varchar(30) NOT NULL DEFAULT '',
   `t3ver_state` tinyint(4) NOT NULL DEFAULT '0',
   `t3ver_stage` int(11) NOT NULL DEFAULT '0',
   `t3ver_count` int(11) NOT NULL DEFAULT '0',
@@ -3652,17 +3649,17 @@ CREATE TABLE `tx_themes_buttoncontent` (
   `hidden` tinyint(4) NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `fe_group` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
-  `linktext` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `linktarget` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `linktitle` varchar(1024) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `icon` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '0',
+  `fe_group` varchar(100) NOT NULL DEFAULT '0',
+  `linktext` varchar(1024) NOT NULL DEFAULT '',
+  `linktarget` varchar(1024) NOT NULL DEFAULT '',
+  `linktitle` varchar(1024) NOT NULL DEFAULT '',
+  `icon` varchar(100) NOT NULL DEFAULT '0',
   `tt_content` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3684,12 +3681,12 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-18 15:57:00
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
+-- Dump completed on 2016-12-29  9:15:17
+-- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
 -- ------------------------------------------------------
--- Server version	5.5.46-0ubuntu0.14.04.2
+-- Server version	5.5.49-0ubuntu0.14.04.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -3713,43 +3710,43 @@ CREATE TABLE `be_users` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `username` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(2000) NOT NULL DEFAULT '',
   `avatar` int(11) unsigned NOT NULL DEFAULT '0',
-  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
   `admin` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `usergroup` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `usergroup` varchar(255) NOT NULL DEFAULT '',
   `disable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `lang` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `db_mountpoints` text COLLATE utf8_general_ci,
+  `lang` char(2) NOT NULL DEFAULT '',
+  `email` varchar(80) NOT NULL DEFAULT '',
+  `db_mountpoints` text,
   `options` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `realName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `userMods` text COLLATE utf8_general_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `uc` mediumtext COLLATE utf8_general_ci,
-  `file_mountpoints` text COLLATE utf8_general_ci,
-  `file_permissions` text COLLATE utf8_general_ci,
+  `realName` varchar(80) NOT NULL DEFAULT '',
+  `userMods` text,
+  `allowed_languages` varchar(255) NOT NULL DEFAULT '',
+  `uc` mediumtext,
+  `file_mountpoints` text,
+  `file_permissions` text,
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `disableIPlock` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_general_ci,
+  `TSconfig` text,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `createdByAction` int(11) NOT NULL DEFAULT '0',
-  `usergroup_cached_list` text COLLATE utf8_general_ci,
+  `usergroup_cached_list` text,
   `workspace_id` int(11) NOT NULL DEFAULT '0',
   `workspace_preview` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_news_categorymounts` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) NOT NULL DEFAULT '',
+  `tx_news_categorymounts` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3771,4 +3768,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-23 12:47:14
+-- Dump completed on 2016-12-29  9:06:42

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: t3kit
 -- ------------------------------------------------------
--- Server version	5.5.46-0ubuntu0.14.04.2
+-- Server version	5.5.49-0ubuntu0.14.04.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -26,43 +26,43 @@ CREATE TABLE `be_users` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(11) unsigned NOT NULL DEFAULT '0',
   `tstamp` int(11) unsigned NOT NULL DEFAULT '0',
-  `username` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `description` varchar(2000) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `username` varchar(50) NOT NULL DEFAULT '',
+  `description` varchar(2000) NOT NULL DEFAULT '',
   `avatar` int(11) unsigned NOT NULL DEFAULT '0',
-  `password` varchar(100) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `password` varchar(100) NOT NULL DEFAULT '',
   `admin` tinyint(4) unsigned NOT NULL DEFAULT '0',
-  `usergroup` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `usergroup` varchar(255) NOT NULL DEFAULT '',
   `disable` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `starttime` int(11) unsigned NOT NULL DEFAULT '0',
   `endtime` int(11) unsigned NOT NULL DEFAULT '0',
-  `lang` char(2) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `email` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `db_mountpoints` text COLLATE utf8_general_ci,
+  `lang` char(2) NOT NULL DEFAULT '',
+  `email` varchar(80) NOT NULL DEFAULT '',
+  `db_mountpoints` text,
   `options` tinyint(4) unsigned NOT NULL DEFAULT '0',
   `crdate` int(11) unsigned NOT NULL DEFAULT '0',
   `cruser_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `realName` varchar(80) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `userMods` text COLLATE utf8_general_ci,
-  `allowed_languages` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `uc` mediumtext COLLATE utf8_general_ci,
-  `file_mountpoints` text COLLATE utf8_general_ci,
-  `file_permissions` text COLLATE utf8_general_ci,
+  `realName` varchar(80) NOT NULL DEFAULT '',
+  `userMods` text,
+  `allowed_languages` varchar(255) NOT NULL DEFAULT '',
+  `uc` mediumtext,
+  `file_mountpoints` text,
+  `file_permissions` text,
   `workspace_perms` tinyint(3) NOT NULL DEFAULT '1',
-  `lockToDomain` varchar(50) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `lockToDomain` varchar(50) NOT NULL DEFAULT '',
   `disableIPlock` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `deleted` tinyint(1) unsigned NOT NULL DEFAULT '0',
-  `TSconfig` text COLLATE utf8_general_ci,
+  `TSconfig` text,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `createdByAction` int(11) NOT NULL DEFAULT '0',
-  `usergroup_cached_list` text COLLATE utf8_general_ci,
+  `usergroup_cached_list` text,
   `workspace_id` int(11) NOT NULL DEFAULT '0',
   `workspace_preview` tinyint(3) NOT NULL DEFAULT '1',
-  `category_perms` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
-  `tx_news_categorymounts` varchar(255) COLLATE utf8_general_ci NOT NULL DEFAULT '',
+  `category_perms` varchar(255) NOT NULL DEFAULT '',
+  `tx_news_categorymounts` varchar(255) NOT NULL DEFAULT '',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,4 +84,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-23 12:47:14
+-- Dump completed on 2016-12-29  9:06:42
