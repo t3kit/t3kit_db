@@ -1,4 +1,18 @@
 
+#### v0.5.0 `January 24, 2017`
+- **[FEATURE]** add cookie_bar ext (Podio feature_56) ([f34a328](https://github.com/t3kit/t3kit_db/commit/f34a328))
+- **[FEATURE]** add new db records to have possibility to change link text, and appearance for each slide (Podio feature_54) ([9ca2f9d](https://github.com/t3kit/t3kit_db/commit/9ca2f9d))
+- **[BUGFIX]** fix packdb - remove wrong db tables from CLEAR_TABLES fn ([652732b](https://github.com/t3kit/t3kit_db/commit/652732b))
+- **[TASK]** Remove ukrainian and romanian langauge (Podio bug_65) (#5) ([7a041d4](https://github.com/t3kit/t3kit_db/commit/7a041d4))
+- **[FEATURE]** Change Login label to Logout, when a user logged. (Podio fe… …ature_5) ([c5d2869](https://github.com/t3kit/t3kit_db/commit/c5d2869))
+- **[TASK]** utf8_general_ci collation by default ([ae307ae](https://github.com/t3kit/t3kit_db/commit/ae307ae))
+- **[BUGFIX]** English should be default locale (Podio bug_58) ([185d714](https://github.com/t3kit/t3kit_db/commit/185d714))
+- **[BUGFIX]** English should be default locale (Podio bug_58) (#2) ([1eb525d](https://github.com/t3kit/t3kit_db/commit/1eb525d))
+- **[TASK]** update CLEAR_TABLES to clear cache before pack new db ([a407a9b](https://github.com/t3kit/t3kit_db/commit/a407a9b))
+- **[BUGFIX]** fix echo command (restoredb.sh) ([25c8d5d](https://github.com/t3kit/t3kit_db/commit/25c8d5d))
+
+***
+
 #### v0.4.0 `October 19, 2016`
 - **[FIX]** restore service restart commands ([6b89507](https://github.com/t3kit/t3kit_db/commit/6b89507))
 - **[DOC]** Update README ([2526179](https://github.com/t3kit/t3kit_db/commit/2526179))
