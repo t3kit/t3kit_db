@@ -45,8 +45,6 @@ CLEAR_TABLES=(
 	"tx_solr_cache_tags"
 	"cf_cache_news_category_tags"
 	"cf_cache_news_category"
-	"sys_language"
-	"sys_template"
 )
 
 
