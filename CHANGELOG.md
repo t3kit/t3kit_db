@@ -1,4 +1,12 @@
 
+#### v0.5.1 `January 25, 2017`
+- **[FEATURE]** add Simple accordion element ([cd7c612](https://github.com/t3kit/t3kit_db/commit/cd7c612))
+- **[FEATURE]** add 6 and 7 level to sub navigation ([764461d](https://github.com/t3kit/t3kit_db/commit/764461d))
+- **[FEATURE]** add Slider container element examples ([771ff47](https://github.com/t3kit/t3kit_db/commit/771ff47))
+- **[FEATURE]** add ImageTextLink elements with hover effects ([ea5ce4e](https://github.com/t3kit/t3kit_db/commit/ea5ce4e))
+
+***
+
 #### v0.5.0 `January 24, 2017`
 - **[FEATURE]** add cookie_bar ext (Podio feature_56) ([f34a328](https://github.com/t3kit/t3kit_db/commit/f34a328))
 - **[FEATURE]** add new db records to have possibility to change link text, and appearance for each slide (Podio feature_54) ([9ca2f9d](https://github.com/t3kit/t3kit_db/commit/9ca2f9d))
