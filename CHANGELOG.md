@@ -1,4 +1,15 @@
 
+#### v0.6.0 `February 20, 2017`
+- **[FEATURE]** add new page with HeroImage elem. examples ([d79d000](https://github.com/t3kit/t3kit_db/commit/d79d000))
+- **[TASK]** update db - t3kit_extension_tools, fixed post vars ([98ed005](https://github.com/t3kit/t3kit_db/commit/98ed005))
+- **[TASK]** update db for TYPO3 v7.6.15 ([1c85c08](https://github.com/t3kit/t3kit_db/commit/1c85c08))
+- **[FIX]** unhide field "Link text" in content elements for editors ([3786587](https://github.com/t3kit/t3kit_db/commit/3786587))
+- **[TASK]** update db for solr v5.1.0 ([29f4d35](https://github.com/t3kit/t3kit_db/commit/29f4d35))
+- **[TASK]** update db for News ext v.5.3.2 ([2a74314](https://github.com/t3kit/t3kit_db/commit/2a74314))
+- **[TASK]** add urlforwarding ext ([9bbb77a](https://github.com/t3kit/t3kit_db/commit/9bbb77a))
+
+***
+
 #### v0.5.1 `January 25, 2017`
 - **[FEATURE]** add Simple accordion element ([cd7c612](https://github.com/t3kit/t3kit_db/commit/cd7c612))
 - **[FEATURE]** add 6 and 7 level to sub navigation ([764461d](https://github.com/t3kit/t3kit_db/commit/764461d))
