@@ -1,8 +1,21 @@
-# t3kit_db
+# t3kit database
 
-[![Release](https://img.shields.io/github/release/t3kit/t3kit_db.svg?style=flat-square)](https://github.com/t3kit/t3kit_db/releases)
+### t3kit_db [![Release](https://img.shields.io/github/release/t3kit/t3kit_db.svg?style=flat-square)](https://github.com/t3kit/t3kit_db/releases)
 
-Just to make the t3kit TYPO3 database available for other projects.
+# t3kit v7
+
+
+Previous version of **t3kit_db** for **t3kit v7** you can find on branch [t3kit7](https://github.com/t3kit/t3kit_db/tree/t3kit7), or you can use git tags to chose needed version:
+```
+git checkout 0.0.6
+or
+git checkout 0.5.1
+```
+_this message will be here until stable version of **t3kit v8**_
+
+***
+
+
 
 ### [CHANGELOG](https://github.com/t3kit/t3kit_db/blob/master/CHANGELOG.md)
 ### [CONTRIBUTING](https://github.com/t3kit/t3kit/blob/master/CONTRIBUTING.md)
