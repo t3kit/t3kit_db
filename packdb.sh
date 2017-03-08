@@ -1,7 +1,5 @@
 #!/bin/bash
 DB_DB="t3kit"
-DB_USER="t3kit"
-DB_PW="t3kit1234"
 OUT_FILE=${1:-"t3kit.sql"}
 
 CLEAR_TABLES=(
@@ -19,13 +17,9 @@ CLEAR_TABLES=(
 	"cf_extbase_object_tags"
 	"cf_extbase_reflection"
 	"cf_extbase_reflection_tags"
-	"cf_extbase_typo3dbbackend_queries"
-	"cf_extbase_typo3dbbackend_queries_tags"
 	"cf_tx_solr"
 	"cf_tx_solr_tags"
 	"tx_solr_statistics"
-	"tx_realurl_pathcache"
-	"tx_realurl_urlcache"
 	"tx_realurl_uniqalias_cache_map"
 	"sys_log"
 	"sys_history"
@@ -38,7 +32,6 @@ CLEAR_TABLES=(
 	"tx_extensionmanager_domain_model_extension"
 	"sys_file_processedfile"
 	"fe_sessions"
-	"fe_session_data"
 	"cf_themes_cache"
 	"cf_themes_cache_tags"
 	"tx_solr_cache"
@@ -51,25 +44,13 @@ CLEAR_TABLES=(
 echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
 do
-	if [ -f "/.dockerenv" ]; then
-	mysql -hdb -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
-	else
-	mysql -u "$DB_USER" -p"$DB_PW" -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
-	fi
+mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
 done
 
 echo "Dumping db..."
-	if [ -f "/.dockerenv" ]; then
-	mysqldump -hdb -u "$DB_USER" -p"$DB_PW" "$DB_DB" > /var/www/shared/db/"$OUT_FILE"
-	else
-	mysqldump -u "$DB_USER" -p"$DB_PW" "$DB_DB" > "$OUT_FILE"
-	fi
+mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"$OUT_FILE"
 
 echo "Output in ${OUT_FILE}"
 
 echo "Merge be_users.sql dump, must include admin user with password admin1234"
-	if [ -f "/.dockerenv" ]; then
-	cat /var/www/shared/db/be_users.sql >> "/var/www/shared/db/${OUT_FILE}"
-	else
-	cat be_users.sql >> "${OUT_FILE}"
-	fi
+cat /t3kit_db/be_users.sql >> "/t3kit_db/${OUT_FILE}"
