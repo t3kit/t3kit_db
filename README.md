@@ -1,4 +1,4 @@
-# t3kit database
+# t3kit v8 (BETA) database
 
 ### t3kit_db [![Release](https://img.shields.io/github/release/t3kit/t3kit_db.svg?style=flat-square)](https://github.com/t3kit/t3kit_db/releases)
 
