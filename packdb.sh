@@ -34,12 +34,12 @@ CLEAR_TABLES=(
     "cf_themes_cache_tags"
     "cf_cache_news_category_tags"
     "cf_cache_news_category"
-    # "cf_tx_solr"
-    # "cf_tx_solr_tags"
-    # "tx_solr_statistics"
-    # "tx_realurl_uniqalias_cache_map"
-    # "tx_solr_cache"
-    # "tx_solr_cache_tags"
+    "cf_tx_solr"
+    "cf_tx_solr_tags"
+    "tx_solr_statistics"
+    "tx_realurl_uniqalias_cache_map"
+    "tx_solr_cache"
+    "tx_solr_cache_tags"
 )
 
 
@@ -54,5 +54,5 @@ mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"
 
 echo "Output in ${OUT_FILE}"
 
-# echo "Merge be_users.sql dump, must include admin user with password admin1234"
+# echo "Merge be_users.sql dump, must include admin user with password admin1234 and editor user with password aditor1234"
 # cat /t3kit_db/be_users.sql >> "/t3kit_db/${OUT_FILE}"
