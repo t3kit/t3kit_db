@@ -18,5 +18,5 @@ if [ "`mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e 'show databases;
     echo "Creating DB $DATABASE ..."
     mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "CREATE DATABASE IF NOT EXISTS $DATABASE CHARACTER SET utf8 COLLATE utf8_general_ci;"
     mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "GRANT ALL PRIVILEGES ON $DATABASE.* TO '$T3KIT_USER'@'$DBHOST' IDENTIFIED BY '$T3KIT_PASSWORD';"
-    mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf $DATABASE < /t3kit_db/t3kit8.sql
+    mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf $DATABASE < /t3kit_db/t3kit_temp.sql
 fi

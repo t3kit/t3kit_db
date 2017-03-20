@@ -1,6 +1,6 @@
 #!/bin/bash
 DB_DB="t3kit"
-OUT_FILE=${1:-"t3kit8.sql"}
+OUT_FILE=${1:-"t3kit_temp.sql"}
 
 CLEAR_TABLES=(
     "be_sessions"
