@@ -117,13 +117,12 @@ DROP TABLE IF EXISTS `be_sessions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `be_sessions` (
   `ses_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `ses_iplock` varchar(39) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `ses_userid` int(10) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(10) unsigned NOT NULL DEFAULT '0',
   `ses_data` longblob,
   `ses_backuserid` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ses_id`,`ses_name`),
+  PRIMARY KEY (`ses_id`),
   KEY `ses_tstamp` (`ses_tstamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -184,7 +183,7 @@ CREATE TABLE `be_users` (
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,7 +192,6 @@ CREATE TABLE `be_users` (
 
 LOCK TABLES `be_users` WRITE;
 /*!40000 ALTER TABLE `be_users` DISABLE KEYS */;
-INSERT INTO `be_users` VALUES (1,0,1489056864,'admin','',0,'$P$CQvEQg7vuJJfrATv8TPQRcV6klmdhB/',1,'',0,0,0,'','',NULL,0,1489056864,0,'',NULL,'','a:16:{s:14:\"interfaceSetup\";s:7:\"backend\";s:10:\"moduleData\";a:3:{s:12:\"system_dbint\";a:3:{s:8:\"function\";s:8:\"refindex\";s:6:\"search\";s:3:\"raw\";s:22:\"search_query_makeQuery\";s:3:\"all\";}s:10:\"web_layout\";a:2:{s:8:\"function\";s:1:\"1\";s:8:\"language\";s:1:\"0\";}s:6:\"web_ts\";a:1:{s:8:\"function\";s:88:\"TYPO3\\CMS\\Tstemplate\\Controller\\TypoScriptTemplateConstantEditorModuleFunctionController\";}}s:19:\"thumbnailsByDefault\";i:1;s:14:\"emailMeAtLogin\";i:0;s:11:\"startModule\";s:22:\"help_AboutAboutmodules\";s:8:\"titleLen\";i:50;s:8:\"edit_RTE\";s:1:\"1\";s:20:\"edit_docModuleUpload\";s:1:\"1\";s:15:\"resizeTextareas\";i:1;s:25:\"resizeTextareas_MaxHeight\";i:500;s:24:\"resizeTextareas_Flexible\";i:0;s:4:\"lang\";s:0:\"\";s:19:\"firstLoginTimeStamp\";i:1489056893;s:15:\"moduleSessionID\";a:3:{s:12:\"system_dbint\";s:32:\"4d82cd290ed1530a16d01e4cb65c7b17\";s:10:\"web_layout\";s:32:\"4d7d82e300df13dcad7e8e96944beee2\";s:6:\"web_ts\";s:32:\"31610adc9be467bd512bcc8ad4c982f2\";}s:17:\"BackendComponents\";a:1:{s:6:\"States\";a:1:{s:8:\"Pagetree\";a:1:{s:9:\"stateHash\";a:3:{i:0;s:1:\"1\";s:4:\"root\";s:1:\"1\";s:16:\"lastSelectedNode\";s:2:\"p0\";}}}}s:10:\"modulemenu\";s:2:\"{}\";}',NULL,NULL,1,'',0,0,NULL,1489486393,0,NULL,0,1,NULL,'');
 /*!40000 ALTER TABLE `be_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -918,14 +916,13 @@ DROP TABLE IF EXISTS `fe_sessions`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `fe_sessions` (
   `ses_id` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `ses_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `ses_iplock` varchar(39) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `ses_userid` int(10) unsigned NOT NULL DEFAULT '0',
   `ses_tstamp` int(10) unsigned NOT NULL DEFAULT '0',
   `ses_data` mediumblob,
   `ses_permanent` smallint(5) unsigned NOT NULL DEFAULT '0',
   `ses_anonymous` smallint(5) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ses_id`,`ses_name`),
+  PRIMARY KEY (`ses_id`),
   KEY `ses_tstamp` (`ses_tstamp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -982,6 +979,7 @@ CREATE TABLE `fe_users` (
   `TSconfig` text COLLATE utf8_unicode_ci,
   `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
   `is_online` int(10) unsigned NOT NULL DEFAULT '0',
+  `description` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`username`),
   KEY `username` (`username`),
@@ -1081,6 +1079,7 @@ CREATE TABLE `pages` (
   `tx_seo_titletag` tinytext COLLATE utf8_unicode_ci,
   `tx_seo_canonicaltag` tinytext COLLATE utf8_unicode_ci,
   `tx_seo_robots` tinytext COLLATE utf8_unicode_ci,
+  `tx_t3kitextensiontools_fixed_post_var_conf` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`sorting`),
@@ -1088,7 +1087,7 @@ CREATE TABLE `pages` (
   KEY `determineSiteRoot` (`is_siteroot`),
   KEY `content_from_pid_deleted` (`content_from_pid`,`deleted`),
   KEY `doktype_no_search_deleted` (`doktype`,`no_search`,`deleted`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1097,6 +1096,7 @@ CREATE TABLE `pages` (
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` VALUES (1,0,0,0,0,'',0,0,0,0,0,0,1489566843,256,0,1,0,31,27,0,0,1489509716,1,0,'Home',1,NULL,1,0,'',0,0,1,0,0,0,'','',0,'',0,0,NULL,0,'',0,NULL,0,1489567236,NULL,'',0,'','','',0,0,0,0,'',0,0,'pagets__StartPage','',NULL,0,0,'','',0,0,0,NULL,NULL,'0','0');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1144,11 +1144,11 @@ CREATE TABLE `pages_language_overlay` (
   `shortcut` int(10) unsigned NOT NULL DEFAULT '0',
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `l10n_state` text COLLATE utf8_unicode_ci,
   `tx_realurl_pathsegment` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `tx_seo_titletag` tinytext COLLATE utf8_unicode_ci,
   `tx_seo_canonicaltag` tinytext COLLATE utf8_unicode_ci,
   `tx_seo_robots` tinytext COLLATE utf8_unicode_ci,
+  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`sys_language_uid`)
@@ -1407,7 +1407,6 @@ CREATE TABLE `sys_category` (
   `description` text COLLATE utf8_unicode_ci,
   `parent` int(11) NOT NULL DEFAULT '0',
   `items` int(11) NOT NULL DEFAULT '0',
-  `l10n_state` text COLLATE utf8_unicode_ci,
   `fe_group` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   `images` int(10) unsigned DEFAULT '0',
   `single_pid` int(10) unsigned NOT NULL DEFAULT '0',
@@ -1418,6 +1417,7 @@ CREATE TABLE `sys_category` (
   `seo_description` text COLLATE utf8_unicode_ci,
   `seo_headline` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `seo_text` text COLLATE utf8_unicode_ci,
+  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
@@ -1566,7 +1566,8 @@ CREATE TABLE `sys_domain` (
   `forced` smallint(5) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
-  KEY `getSysDomain` (`redirectTo`,`hidden`)
+  KEY `getSysDomain` (`redirectTo`,`hidden`),
+  KEY `getDomainStartPage` (`pid`,`hidden`,`domainName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -1709,7 +1710,6 @@ CREATE TABLE `sys_file_metadata` (
   `height` int(11) NOT NULL DEFAULT '0',
   `description` text COLLATE utf8_unicode_ci,
   `alternative` text COLLATE utf8_unicode_ci,
-  `l10n_state` text COLLATE utf8_unicode_ci,
   `categories` int(11) NOT NULL DEFAULT '0',
   `visible` int(10) unsigned DEFAULT '1',
   `status` varchar(24) COLLATE utf8_unicode_ci DEFAULT '',
@@ -1736,6 +1736,7 @@ CREATE TABLE `sys_file_metadata` (
   `pages` int(10) unsigned DEFAULT '0',
   `language` varchar(12) COLLATE utf8_unicode_ci DEFAULT '',
   `fe_groups` tinytext COLLATE utf8_unicode_ci,
+  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `file` (`file`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
@@ -1826,18 +1827,21 @@ CREATE TABLE `sys_file_reference` (
   `table_local` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `title` tinytext COLLATE utf8_unicode_ci,
   `description` text COLLATE utf8_unicode_ci,
-  `alternative` tinytext COLLATE utf8_unicode_ci,
+  `alternative` text COLLATE utf8_unicode_ci,
   `link` varchar(1024) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `crop` varchar(4000) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `autoplay` smallint(6) NOT NULL DEFAULT '0',
-  `l10n_state` text COLLATE utf8_unicode_ci,
   `showinpreview` smallint(6) NOT NULL DEFAULT '0',
+  `tx_themet3kit_slide_btn_txt` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `tx_themet3kit_slide_appearance` int(10) unsigned NOT NULL DEFAULT '0',
+  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`,`deleted`),
   KEY `tablenames_fieldname` (`tablenames`(32),`fieldname`(12)),
   KEY `deleted` (`deleted`),
   KEY `uid_local` (`uid_local`),
-  KEY `uid_foreign` (`uid_foreign`)
+  KEY `uid_foreign` (`uid_foreign`),
+  KEY `combined_1` (`l10n_parent`,`t3ver_oid`,`t3ver_wsid`,`t3ver_state`,`deleted`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -2007,7 +2011,7 @@ CREATE TABLE `sys_lockedrecords` (
   `feuserid` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `event` (`userid`,`tstamp`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2016,6 +2020,7 @@ CREATE TABLE `sys_lockedrecords` (
 
 LOCK TABLES `sys_lockedrecords` WRITE;
 /*!40000 ALTER TABLE `sys_lockedrecords` DISABLE KEYS */;
+INSERT INTO `sys_lockedrecords` VALUES (17,1,1489567236,'tt_content',1,1,'admin',0);
 /*!40000 ALTER TABLE `sys_lockedrecords` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2184,7 +2189,7 @@ CREATE TABLE `sys_registry` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `entry_namespace` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `entry_key` varchar(128) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `entry_value` mediumblob,
+  `entry_value` longblob,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `entry_identifier` (`entry_namespace`,`entry_key`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -2196,7 +2201,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (1,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\DeprecatedRteProperties','i:0;'),(2,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\RteAcronymButtonRenamedToAbbreviation','i:0;'),(3,'installUpdate','TYPO3\\CMS\\Install\\Updates\\AccessRightParametersUpdate','i:0;'),(4,'installUpdate','TYPO3\\CMS\\Install\\Updates\\LanguageIsoCodeUpdate','i:0;'),(5,'installUpdate','TYPO3\\CMS\\Install\\Updates\\PageShortcutParentUpdate','i:0;'),(6,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateShortcutUrlsAgainUpdate','i:0;'),(7,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ProcessedFileChecksumUpdate','i:0;'),(8,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FilesReplacePermissionUpdate','i:0;'),(9,'installUpdate','TYPO3\\CMS\\Install\\Updates\\TableFlexFormToTtContentFieldsUpdate','i:0;'),(10,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FileListIsStartModuleUpdate','i:0;'),(11,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ContentTypesToTextMediaUpdate','i:0;'),(12,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WorkspacesNotificationSettingsUpdate','i:0;'),(13,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateMediaToAssetsForTextMediaCe','i:1;'),(14,'installUpdate','TYPO3\\CMS\\Install\\Updates\\Compatibility6ExtractionUpdate','i:0;'),(15,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MediaceExtractionUpdate','i:0;'),(16,'installUpdate','TYPO3\\CMS\\Install\\Updates\\OpenidExtractionUpdate','i:0;'),(17,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ExtensionManagerTables','i:0;'),(18,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WizardDoneToRegistry','i:0;'),(19,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BackendUserStartModuleUpdate','i:0;'),(20,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FrontendUserImageUpdateWizard','i:1;'),(21,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DbalAndAdodbExtractionUpdate','i:0;'),(22,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseRowsUpdateWizard','i:0;'),(23,'installUpdate','TYPO3\\CMS\\Install\\Updates\\CommandLineBackendUserRemovalUpdate','i:0;'),(24,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FillTranslationSourceField','i:0;'),(25,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SectionFrameToFrameClassUpdate','i:0;'),(26,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SplitMenusUpdate','i:0;'),(27,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BulletContentElementUpdate','i:0;'),(28,'installUpdate','TYPO3\\CMS\\Install\\Updates\\UploadContentElementUpdate','i:0;'),(29,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateCscStaticTemplateUpdate','i:0;'),(30,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateFscStaticTemplateUpdate','i:0;'),(32,'core','sys_refindex_lastUpdate','i:1489067308;'),(33,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseCharsetUpdate','i:1;'),(36,'installUpdateRows','rowUpdatersDone','a:2:{i:0;s:52:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\L10nModeUpdater\";i:1;s:53:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\ImageCropUpdater\";}'),(37,'extensionDataImport','typo3/sysext/scheduler/ext_tables_static+adt.sql','i:1;'),(38,'extensionDataImport','typo3/sysext/filemetadata/ext_tables_static+adt.sql','i:1;'),(39,'extensionDataImport','typo3conf/ext/gridelements/ext_tables_static+adt.sql','i:1;'),(40,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(41,'extensionDataImport','typo3conf/ext/go_maps_ext/ext_tables_static+adt.sql','i:1;'),(42,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(43,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(44,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(45,'core','formProtectionSessionToken:1','s:64:\"16c90f76c00c1cfb7f983ff26fb315799a805727c6f06a68d755afc3d08809a6\";'),(46,'extensionDataImport','typo3conf/ext/realurl/ext_tables_static+adt.sql','i:1;'),(47,'tx_realurl','updateLevel','i:3;'),(48,'extensionDataImport','typo3conf/ext/seo_basics/ext_tables_static+adt.sql','i:1;'),(49,'extensionDataImport','typo3conf/ext/solr/ext_tables_static+adt.sql','i:1;'),(50,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(51,'extensionDataImport','typo3conf/ext/pxa_cookie_bar/ext_tables_static+adt.sql','i:1;');
+INSERT INTO `sys_registry` VALUES (1,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\DeprecatedRteProperties','i:0;'),(2,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\RteAcronymButtonRenamedToAbbreviation','i:0;'),(3,'installUpdate','TYPO3\\CMS\\Install\\Updates\\AccessRightParametersUpdate','i:0;'),(4,'installUpdate','TYPO3\\CMS\\Install\\Updates\\LanguageIsoCodeUpdate','i:0;'),(5,'installUpdate','TYPO3\\CMS\\Install\\Updates\\PageShortcutParentUpdate','i:0;'),(6,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateShortcutUrlsAgainUpdate','i:0;'),(7,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ProcessedFileChecksumUpdate','i:0;'),(8,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FilesReplacePermissionUpdate','i:0;'),(9,'installUpdate','TYPO3\\CMS\\Install\\Updates\\TableFlexFormToTtContentFieldsUpdate','i:0;'),(10,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FileListIsStartModuleUpdate','i:0;'),(11,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ContentTypesToTextMediaUpdate','i:0;'),(12,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WorkspacesNotificationSettingsUpdate','i:0;'),(13,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateMediaToAssetsForTextMediaCe','i:1;'),(14,'installUpdate','TYPO3\\CMS\\Install\\Updates\\Compatibility6ExtractionUpdate','i:0;'),(15,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MediaceExtractionUpdate','i:0;'),(16,'installUpdate','TYPO3\\CMS\\Install\\Updates\\OpenidExtractionUpdate','i:0;'),(17,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ExtensionManagerTables','i:0;'),(18,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WizardDoneToRegistry','i:0;'),(19,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BackendUserStartModuleUpdate','i:0;'),(20,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FrontendUserImageUpdateWizard','i:1;'),(21,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DbalAndAdodbExtractionUpdate','i:0;'),(22,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseRowsUpdateWizard','i:0;'),(23,'installUpdate','TYPO3\\CMS\\Install\\Updates\\CommandLineBackendUserRemovalUpdate','i:0;'),(24,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FillTranslationSourceField','i:0;'),(25,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SectionFrameToFrameClassUpdate','i:0;'),(26,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SplitMenusUpdate','i:0;'),(27,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BulletContentElementUpdate','i:0;'),(28,'installUpdate','TYPO3\\CMS\\Install\\Updates\\UploadContentElementUpdate','i:0;'),(29,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateCscStaticTemplateUpdate','i:0;'),(30,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateFscStaticTemplateUpdate','i:1;'),(32,'core','sys_refindex_lastUpdate','i:1489067308;'),(33,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseCharsetUpdate','i:1;'),(36,'installUpdateRows','rowUpdatersDone','a:2:{i:0;s:52:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\L10nModeUpdater\";i:1;s:53:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\ImageCropUpdater\";}'),(37,'extensionDataImport','typo3/sysext/scheduler/ext_tables_static+adt.sql','i:1;'),(38,'extensionDataImport','typo3/sysext/filemetadata/ext_tables_static+adt.sql','i:1;'),(39,'extensionDataImport','typo3conf/ext/gridelements/ext_tables_static+adt.sql','i:1;'),(40,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(41,'extensionDataImport','typo3conf/ext/go_maps_ext/ext_tables_static+adt.sql','i:1;'),(42,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(43,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(44,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(45,'core','formProtectionSessionToken:1','s:64:\"8acd55f1def9752ad7d1b542692c559ff81f450631a81d5742339bc97d792ce8\";'),(46,'extensionDataImport','typo3conf/ext/realurl/ext_tables_static+adt.sql','i:1;'),(47,'tx_realurl','updateLevel','i:3;'),(48,'extensionDataImport','typo3conf/ext/seo_basics/ext_tables_static+adt.sql','i:1;'),(49,'extensionDataImport','typo3conf/ext/solr/ext_tables_static+adt.sql','i:1;'),(50,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(51,'extensionDataImport','typo3conf/ext/pxa_cookie_bar/ext_tables_static+adt.sql','i:1;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2246,7 +2251,7 @@ CREATE TABLE `sys_template` (
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`hidden`,`sorting`),
   KEY `roottemplate` (`deleted`,`hidden`,`root`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2255,6 +2260,7 @@ CREATE TABLE `sys_template` (
 
 LOCK TABLES `sys_template` WRITE;
 /*!40000 ALTER TABLE `sys_template` DISABLE KEYS */;
+INSERT INTO `sys_template` VALUES (1,1,0,0,0,'',0,0,0,0,0,0,1489566987,256,1489566490,1,'t3kit8','',0,0,0,1,3,'EXT:fluid_styled_content/Configuration/TypoScript/,EXT:fluid_styled_content/Configuration/TypoScript/Styling/,EXT:news/Configuration/TypoScript,EXT:themes/Configuration/TypoScript,EXT:gridelements/Configuration/TypoScript/,EXT:seo_basics/Configuration/TypoScript,EXT:pxa_newsletter_subscription/Configuration/TypoScript,EXT:news/Configuration/TypoScript/Sitemap','themes.configuration.header.logo.main.file = \r\nthemes.configuration.socialmedia.useFacebook = 1\r\nthemes.configuration.socialmedia.useGooglePlus = 1\r\nthemes.configuration.socialmedia.useInstagram = 1\r\nthemes.configuration.socialmedia.useLinkedIn = 1\r\nthemes.configuration.socialmedia.usePinterest = 1\r\nthemes.configuration.socialmedia.useTwitter = 1\r\nthemes.configuration.socialmedia.useVimeo = 1\r\nthemes.configuration.socialmedia.useYoutube = 1\r\nthemes.configuration.isDevelopment = 1','','','','',0,0,0,0,'theme_t3kit');
 /*!40000 ALTER TABLE `sys_template` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2286,7 +2292,6 @@ CREATE TABLE `tt_content` (
   `sorting` int(10) unsigned NOT NULL DEFAULT '0',
   `CType` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `header` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `header_position` varchar(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `rowDescription` text COLLATE utf8_unicode_ci,
   `bodytext` mediumtext COLLATE utf8_unicode_ci,
   `bullets_type` smallint(5) unsigned NOT NULL DEFAULT '0',
@@ -2300,13 +2305,8 @@ CREATE TABLE `tt_content` (
   `imageborder` smallint(5) unsigned NOT NULL DEFAULT '0',
   `media` int(10) unsigned NOT NULL DEFAULT '0',
   `layout` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `frame_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
   `deleted` smallint(5) unsigned NOT NULL DEFAULT '0',
   `cols` int(10) unsigned NOT NULL DEFAULT '0',
-  `spaceBefore` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `spaceAfter` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `space_before_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `space_after_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `records` text COLLATE utf8_unicode_ci,
   `pages` text COLLATE utf8_unicode_ci,
   `starttime` int(10) unsigned NOT NULL DEFAULT '0',
@@ -2334,17 +2334,14 @@ CREATE TABLE `tt_content` (
   `accessibility_bypass_text` varchar(30) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `l18n_parent` int(11) NOT NULL DEFAULT '0',
   `l18n_diffsource` mediumblob,
-  `l10n_source` int(11) NOT NULL DEFAULT '0',
   `selected_categories` text COLLATE utf8_unicode_ci,
   `category_field` varchar(64) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `table_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `table_caption` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `table_delimiter` smallint(5) unsigned NOT NULL DEFAULT '0',
   `table_enclosure` smallint(5) unsigned NOT NULL DEFAULT '0',
   `table_header_position` smallint(5) unsigned NOT NULL DEFAULT '0',
   `table_tfoot` smallint(5) unsigned NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
-  `l10n_state` text COLLATE utf8_unicode_ci,
   `categories` int(11) NOT NULL DEFAULT '0',
   `backupColPos` smallint(6) NOT NULL DEFAULT '-2',
   `tx_gridelements_backend_layout` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
@@ -2359,13 +2356,26 @@ CREATE TABLE `tt_content` (
   `tx_themes_buttoncontent` int(11) NOT NULL DEFAULT '0',
   `tx_themes_icon` varchar(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   `tx_news_related_news` int(11) NOT NULL DEFAULT '0',
+  `wrapper` int(10) unsigned NOT NULL DEFAULT '0',
+  `aligning` int(10) unsigned NOT NULL DEFAULT '0',
+  `wrapper_margin_top` int(10) unsigned NOT NULL DEFAULT '0',
+  `wrapper_margin_bottom` int(10) unsigned NOT NULL DEFAULT '0',
+  `header_position` varchar(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `frame_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'default',
+  `spaceBefore` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `spaceAfter` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `space_before_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `space_after_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `l10n_source` int(11) NOT NULL DEFAULT '0',
+  `table_class` varchar(60) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`sorting`),
   KEY `language` (`l18n_parent`,`sys_language_uid`),
   KEY `gridelements` (`tx_gridelements_container`,`tx_gridelements_columns`),
   KEY `index_newscontent` (`tx_news_related_news`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2374,6 +2384,7 @@ CREATE TABLE `tt_content` (
 
 LOCK TABLES `tt_content` WRITE;
 /*!40000 ALTER TABLE `tt_content` DISABLE KEYS */;
+INSERT INTO `tt_content` VALUES (1,1,0,0,0,'',0,0,0,0,0,0,1489567236,1489567202,1,0,0,256,'header','Test','',NULL,0,0,0,0,0,0,0,2,0,0,'0',0,0,NULL,NULL,0,0,0,'','','',0,'0','',1,0,NULL,0,'','',0,0,0,0,NULL,'',0,'',0,'a:23:{s:5:\"CType\";N;s:6:\"colPos\";N;s:6:\"header\";N;s:13:\"header_layout\";N;s:4:\"date\";N;s:11:\"header_link\";N;s:9:\"subheader\";N;s:6:\"layout\";N;s:7:\"wrapper\";N;s:8:\"aligning\";N;s:18:\"wrapper_margin_top\";N;s:21:\"wrapper_margin_bottom\";N;s:12:\"sectionIndex\";N;s:9:\"linkToTop\";N;s:16:\"sys_language_uid\";N;s:6:\"hidden\";N;s:9:\"starttime\";N;s:7:\"endtime\";N;s:8:\"fe_group\";N;s:8:\"editlock\";N;s:10:\"categories\";N;s:14:\"rowDescription\";N;s:25:\"tx_gridelements_container\";N;}',NULL,'',NULL,124,0,0,0,0,0,-2,'0',0,0,0,'','','','','',0,'',0,0,0,0,0,'','default',0,0,'','',0,'',NULL);
 /*!40000 ALTER TABLE `tt_content` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3160,7 +3171,7 @@ CREATE TABLE `tx_realurl_urldata` (
   KEY `pathq1` (`rootpage_id`,`original_url`(32),`expire`),
   KEY `pathq2` (`rootpage_id`,`speaking_url`(32)),
   KEY `page_id` (`page_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3169,6 +3180,7 @@ CREATE TABLE `tx_realurl_urldata` (
 
 LOCK TABLES `tx_realurl_urldata` WRITE;
 /*!40000 ALTER TABLE `tx_realurl_urldata` DISABLE KEYS */;
+INSERT INTO `tx_realurl_urldata` VALUES (1,0,1489566884,1,1,'id=1&no_cache=1','?no_cache=1','{\"id\":\"1\",\"no_cache\":\"1\"}',0),(2,0,1489566885,1,1,'id=1','/','{\"id\":\"1\"}',0);
 /*!40000 ALTER TABLE `tx_realurl_urldata` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3186,7 +3198,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3196,40 +3208,6 @@ CREATE TABLE `tx_rsaauth_keys` (
 LOCK TABLES `tx_rsaauth_keys` WRITE;
 /*!40000 ALTER TABLE `tx_rsaauth_keys` DISABLE KEYS */;
 /*!40000 ALTER TABLE `tx_rsaauth_keys` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `tx_rtehtmlarea_acronym`
---
-
-DROP TABLE IF EXISTS `tx_rtehtmlarea_acronym`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `tx_rtehtmlarea_acronym` (
-  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `pid` int(10) unsigned NOT NULL DEFAULT '0',
-  `deleted` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `hidden` smallint(5) unsigned NOT NULL DEFAULT '0',
-  `starttime` int(10) unsigned NOT NULL DEFAULT '0',
-  `endtime` int(10) unsigned NOT NULL DEFAULT '0',
-  `sorting` int(10) unsigned NOT NULL DEFAULT '0',
-  `sys_language_uid` int(11) NOT NULL DEFAULT '0',
-  `type` smallint(5) unsigned NOT NULL DEFAULT '1',
-  `term` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `acronym` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `static_lang_isocode` int(10) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`uid`),
-  KEY `parent` (`pid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `tx_rtehtmlarea_acronym`
---
-
-LOCK TABLES `tx_rtehtmlarea_acronym` WRITE;
-/*!40000 ALTER TABLE `tx_rtehtmlarea_acronym` DISABLE KEYS */;
-/*!40000 ALTER TABLE `tx_rtehtmlarea_acronym` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -3539,4 +3517,91 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-14 10:19:59
+-- Dump completed on 2017-04-05 11:57:14
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
+--
+-- Host: db    Database: t3kit
+-- ------------------------------------------------------
+-- Server version	5.7.17
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `be_users`
+--
+
+DROP TABLE IF EXISTS `be_users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `be_users` (
+  `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(10) unsigned NOT NULL DEFAULT '0',
+  `tstamp` int(10) unsigned NOT NULL DEFAULT '0',
+  `username` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `description` varchar(2000) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `avatar` int(10) unsigned NOT NULL DEFAULT '0',
+  `password` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `admin` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `usergroup` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `disable` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `starttime` int(10) unsigned NOT NULL DEFAULT '0',
+  `endtime` int(10) unsigned NOT NULL DEFAULT '0',
+  `lang` varchar(6) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `email` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `db_mountpoints` text COLLATE utf8_unicode_ci,
+  `options` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `crdate` int(10) unsigned NOT NULL DEFAULT '0',
+  `cruser_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `realName` varchar(80) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `userMods` text COLLATE utf8_unicode_ci,
+  `allowed_languages` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `uc` mediumblob,
+  `file_mountpoints` text COLLATE utf8_unicode_ci,
+  `file_permissions` text COLLATE utf8_unicode_ci,
+  `workspace_perms` smallint(6) NOT NULL DEFAULT '1',
+  `lockToDomain` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `disableIPlock` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `deleted` smallint(5) unsigned NOT NULL DEFAULT '0',
+  `TSconfig` text COLLATE utf8_unicode_ci,
+  `lastlogin` int(10) unsigned NOT NULL DEFAULT '0',
+  `createdByAction` int(11) NOT NULL DEFAULT '0',
+  `usergroup_cached_list` text COLLATE utf8_unicode_ci,
+  `workspace_id` int(11) NOT NULL DEFAULT '0',
+  `workspace_preview` smallint(6) NOT NULL DEFAULT '1',
+  `category_perms` text COLLATE utf8_unicode_ci,
+  `tx_news_categorymounts` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  PRIMARY KEY (`uid`),
+  KEY `parent` (`pid`),
+  KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `be_users`
+--
+
+LOCK TABLES `be_users` WRITE;
+/*!40000 ALTER TABLE `be_users` DISABLE KEYS */;
+INSERT INTO `be_users` VALUES (1,0,1489056864,'admin','',0,'$P$CQvEQg7vuJJfrATv8TPQRcV6klmdhB/',1,'',0,0,0,'','',NULL,0,1489056864,0,'',NULL,'','a:16:{s:14:\"interfaceSetup\";s:7:\"backend\";s:10:\"moduleData\";a:7:{s:12:\"system_dbint\";a:3:{s:8:\"function\";s:8:\"refindex\";s:6:\"search\";s:3:\"raw\";s:22:\"search_query_makeQuery\";s:3:\"all\";}s:10:\"web_layout\";a:2:{s:8:\"function\";s:1:\"1\";s:8:\"language\";s:1:\"0\";}s:6:\"web_ts\";a:5:{s:8:\"function\";s:85:\"TYPO3\\CMS\\Tstemplate\\Controller\\TypoScriptTemplateInformationModuleFunctionController\";s:15:\"ts_browser_type\";s:5:\"const\";s:16:\"ts_browser_const\";s:1:\"0\";s:19:\"ts_browser_fixedLgd\";s:1:\"1\";s:23:\"ts_browser_showComments\";s:1:\"1\";}s:10:\"FormEngine\";a:2:{i:0;a:4:{s:32:\"9b209de23811ef89bec385c059f31cd5\";a:4:{i:0;s:6:\"t3kit8\";i:1;a:6:{s:4:\"edit\";a:1:{s:12:\"sys_template\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:82:\"&edit[sys_template][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:12:\"sys_template\";s:3:\"uid\";i:1;s:3:\"pid\";i:1;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"c35634cd8ae4894e643ebb892e589515\";a:4:{i:0;s:4:\"Home\";i:1;a:6:{s:4:\"edit\";a:1:{s:5:\"pages\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:75:\"&edit[pages][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:5:\"pages\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"f002d20dcd253902dd49b4b70e7f878d\";a:4:{i:0;s:14:\"sdfdsfdsdsgsdg\";i:1;a:6:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";a:1:{s:10:\"tt_content\";a:4:{s:6:\"colPos\";s:1:\"0\";s:16:\"sys_language_uid\";s:1:\"0\";s:5:\"CType\";s:6:\"header\";s:23:\"tx_gridelements_columns\";s:1:\"0\";}}s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:222:\"&edit[tt_content][1]=edit&defVals[tt_content][colPos]=0&defVals[tt_content][sys_language_uid]=0&defVals[tt_content][CType]=header&defVals[tt_content][tx_gridelements_columns]=0&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:1;s:3:\"pid\";i:1;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}s:32:\"41e1503a912c8d1b703842bb19e74f1b\";a:4:{i:0;s:14:\"sdfdsfdsdsgsdg\";i:1;a:6:{s:4:\"edit\";a:1:{s:10:\"tt_content\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:80:\"&edit[tt_content][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:10:\"tt_content\";s:3:\"uid\";i:1;s:3:\"pid\";i:1;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}}i:1;s:32:\"41e1503a912c8d1b703842bb19e74f1b\";}s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";a:0:{}s:8:\"web_list\";a:0:{}s:16:\"opendocs::recent\";a:1:{s:32:\"c35634cd8ae4894e643ebb892e589515\";a:4:{i:0;s:4:\"Home\";i:1;a:6:{s:4:\"edit\";a:1:{s:5:\"pages\";a:1:{i:1;s:4:\"edit\";}}s:7:\"defVals\";N;s:12:\"overrideVals\";N;s:11:\"columnsOnly\";N;s:6:\"noView\";N;s:9:\"workspace\";N;}i:2;s:75:\"&edit[pages][1]=edit&defVals=&overrideVals=&columnsOnly=&noView=&workspace=\";i:3;a:5:{s:5:\"table\";s:5:\"pages\";s:3:\"uid\";i:1;s:3:\"pid\";i:0;s:3:\"cmd\";s:4:\"edit\";s:12:\"deleteAccess\";b:1;}}}}s:19:\"thumbnailsByDefault\";i:1;s:14:\"emailMeAtLogin\";i:0;s:11:\"startModule\";s:22:\"help_AboutAboutmodules\";s:8:\"titleLen\";i:50;s:8:\"edit_RTE\";s:1:\"1\";s:20:\"edit_docModuleUpload\";s:1:\"1\";s:15:\"resizeTextareas\";i:1;s:25:\"resizeTextareas_MaxHeight\";i:500;s:24:\"resizeTextareas_Flexible\";i:0;s:4:\"lang\";s:0:\"\";s:19:\"firstLoginTimeStamp\";i:1489056893;s:15:\"moduleSessionID\";a:7:{s:12:\"system_dbint\";s:32:\"4d82cd290ed1530a16d01e4cb65c7b17\";s:10:\"web_layout\";s:32:\"4d7d82e300df13dcad7e8e96944beee2\";s:6:\"web_ts\";s:32:\"2a745dbb17e82719432d2a770e13f187\";s:10:\"FormEngine\";s:32:\"d8132be51a7078348a2548062777482b\";s:57:\"TYPO3\\CMS\\Backend\\Utility\\BackendUtility::getUpdateSignal\";s:32:\"d8132be51a7078348a2548062777482b\";s:8:\"web_list\";s:32:\"2a745dbb17e82719432d2a770e13f187\";s:16:\"opendocs::recent\";s:32:\"2a745dbb17e82719432d2a770e13f187\";}s:17:\"BackendComponents\";a:1:{s:6:\"States\";a:1:{s:8:\"Pagetree\";a:1:{s:9:\"stateHash\";a:4:{i:0;s:1:\"1\";i:1;s:1:\"1\";s:4:\"root\";s:1:\"1\";s:16:\"lastSelectedNode\";s:2:\"p1\";}}}}s:10:\"modulemenu\";s:13:\"{\"file\":true}\";}',NULL,NULL,1,'',0,0,NULL,1491390407,0,NULL,0,1,NULL,'');
+/*!40000 ALTER TABLE `be_users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-04-05 11:45:23
