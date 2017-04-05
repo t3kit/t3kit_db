@@ -1,10 +1,10 @@
 #!/bin/bash
 DB_DB="t3kit"
-OUT_FILE=${1:-"t3kit_temp.sql"}
+OUT_FILE=${1:-"t3kit8.sql"}
 
 CLEAR_TABLES=(
     "be_sessions"
-    # "be_users"
+    "be_users"
     "cache_md5params"
     "cache_treelist"
     "cf_cache_hash"
@@ -54,5 +54,5 @@ mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"
 
 echo "Output in ${OUT_FILE}"
 
-# echo "Merge be_users.sql dump, must include admin user with password admin1234 and editor user with password aditor1234"
-# cat /t3kit_db/be_users.sql >> "/t3kit_db/${OUT_FILE}"
+echo "Merge be_users.sql dump, must include admin user with password admin1234"
+cat /t3kit_db/be_users.sql >> "/t3kit_db/${OUT_FILE}"
