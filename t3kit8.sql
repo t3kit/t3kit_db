@@ -1076,10 +1076,7 @@ CREATE TABLE `pages` (
   `tx_realurl_pathoverride` int(11) NOT NULL DEFAULT '0',
   `tx_realurl_exclude` int(11) NOT NULL DEFAULT '0',
   `tx_realurl_nocache` int(11) NOT NULL DEFAULT '0',
-  `tx_seo_titletag` tinytext COLLATE utf8_unicode_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_unicode_ci,
-  `tx_seo_robots` tinytext COLLATE utf8_unicode_ci,
-  `tx_t3kitextensiontools_fixed_post_var_conf` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
+  `tx_themet3kit_fixed_post_var_conf` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `parent` (`pid`,`deleted`,`sorting`),
@@ -1096,7 +1093,7 @@ CREATE TABLE `pages` (
 
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
-INSERT INTO `pages` VALUES (1,0,0,0,0,'',0,0,0,0,0,0,1489566843,256,0,1,0,31,27,0,0,1489509716,1,0,'Home',1,NULL,1,0,'',0,0,1,0,0,0,'','',0,'',0,0,NULL,0,'',0,NULL,0,1489567236,NULL,'',0,'','','',0,0,0,0,'',0,0,'pagets__StartPage','',NULL,0,0,'','',0,0,0,NULL,NULL,'0','0');
+INSERT INTO `pages` VALUES (1,0,0,0,0,'',0,0,0,0,0,0,1489566843,256,0,1,0,31,27,0,0,1489509716,1,0,'Home',1,NULL,1,0,'',0,0,1,0,0,0,'','',0,'',0,0,NULL,0,'',0,NULL,0,1489567236,NULL,'',0,'','','',0,0,0,0,'',0,0,'pagets__StartPage','',NULL,0,0,'','',0,0,0,'0');
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1145,9 +1142,6 @@ CREATE TABLE `pages_language_overlay` (
   `shortcut_mode` int(10) unsigned NOT NULL DEFAULT '0',
   `tx_impexp_origuid` int(11) NOT NULL DEFAULT '0',
   `tx_realurl_pathsegment` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `tx_seo_titletag` tinytext COLLATE utf8_unicode_ci,
-  `tx_seo_canonicaltag` tinytext COLLATE utf8_unicode_ci,
-  `tx_seo_robots` tinytext COLLATE utf8_unicode_ci,
   `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
@@ -2201,7 +2195,7 @@ CREATE TABLE `sys_registry` (
 
 LOCK TABLES `sys_registry` WRITE;
 /*!40000 ALTER TABLE `sys_registry` DISABLE KEYS */;
-INSERT INTO `sys_registry` VALUES (1,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\DeprecatedRteProperties','i:0;'),(2,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\RteAcronymButtonRenamedToAbbreviation','i:0;'),(3,'installUpdate','TYPO3\\CMS\\Install\\Updates\\AccessRightParametersUpdate','i:0;'),(4,'installUpdate','TYPO3\\CMS\\Install\\Updates\\LanguageIsoCodeUpdate','i:0;'),(5,'installUpdate','TYPO3\\CMS\\Install\\Updates\\PageShortcutParentUpdate','i:0;'),(6,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateShortcutUrlsAgainUpdate','i:0;'),(7,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ProcessedFileChecksumUpdate','i:0;'),(8,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FilesReplacePermissionUpdate','i:0;'),(9,'installUpdate','TYPO3\\CMS\\Install\\Updates\\TableFlexFormToTtContentFieldsUpdate','i:0;'),(10,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FileListIsStartModuleUpdate','i:0;'),(11,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ContentTypesToTextMediaUpdate','i:0;'),(12,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WorkspacesNotificationSettingsUpdate','i:0;'),(13,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateMediaToAssetsForTextMediaCe','i:1;'),(14,'installUpdate','TYPO3\\CMS\\Install\\Updates\\Compatibility6ExtractionUpdate','i:0;'),(15,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MediaceExtractionUpdate','i:0;'),(16,'installUpdate','TYPO3\\CMS\\Install\\Updates\\OpenidExtractionUpdate','i:0;'),(17,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ExtensionManagerTables','i:0;'),(18,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WizardDoneToRegistry','i:0;'),(19,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BackendUserStartModuleUpdate','i:0;'),(20,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FrontendUserImageUpdateWizard','i:1;'),(21,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DbalAndAdodbExtractionUpdate','i:0;'),(22,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseRowsUpdateWizard','i:0;'),(23,'installUpdate','TYPO3\\CMS\\Install\\Updates\\CommandLineBackendUserRemovalUpdate','i:0;'),(24,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FillTranslationSourceField','i:0;'),(25,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SectionFrameToFrameClassUpdate','i:0;'),(26,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SplitMenusUpdate','i:0;'),(27,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BulletContentElementUpdate','i:0;'),(28,'installUpdate','TYPO3\\CMS\\Install\\Updates\\UploadContentElementUpdate','i:0;'),(29,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateCscStaticTemplateUpdate','i:0;'),(30,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateFscStaticTemplateUpdate','i:1;'),(32,'core','sys_refindex_lastUpdate','i:1489067308;'),(33,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseCharsetUpdate','i:1;'),(36,'installUpdateRows','rowUpdatersDone','a:2:{i:0;s:52:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\L10nModeUpdater\";i:1;s:53:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\ImageCropUpdater\";}'),(37,'extensionDataImport','typo3/sysext/scheduler/ext_tables_static+adt.sql','i:1;'),(38,'extensionDataImport','typo3/sysext/filemetadata/ext_tables_static+adt.sql','i:1;'),(39,'extensionDataImport','typo3conf/ext/gridelements/ext_tables_static+adt.sql','i:1;'),(40,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(41,'extensionDataImport','typo3conf/ext/go_maps_ext/ext_tables_static+adt.sql','i:1;'),(42,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(43,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(44,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(45,'core','formProtectionSessionToken:1','s:64:\"8acd55f1def9752ad7d1b542692c559ff81f450631a81d5742339bc97d792ce8\";'),(46,'extensionDataImport','typo3conf/ext/realurl/ext_tables_static+adt.sql','i:1;'),(47,'tx_realurl','updateLevel','i:3;'),(48,'extensionDataImport','typo3conf/ext/seo_basics/ext_tables_static+adt.sql','i:1;'),(49,'extensionDataImport','typo3conf/ext/solr/ext_tables_static+adt.sql','i:1;'),(50,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(51,'extensionDataImport','typo3conf/ext/pxa_cookie_bar/ext_tables_static+adt.sql','i:1;');
+INSERT INTO `sys_registry` VALUES (1,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\DeprecatedRteProperties','i:0;'),(2,'installUpdate','TYPO3\\CMS\\Rtehtmlarea\\Hook\\Install\\RteAcronymButtonRenamedToAbbreviation','i:0;'),(3,'installUpdate','TYPO3\\CMS\\Install\\Updates\\AccessRightParametersUpdate','i:0;'),(4,'installUpdate','TYPO3\\CMS\\Install\\Updates\\LanguageIsoCodeUpdate','i:0;'),(5,'installUpdate','TYPO3\\CMS\\Install\\Updates\\PageShortcutParentUpdate','i:0;'),(6,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateShortcutUrlsAgainUpdate','i:0;'),(7,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ProcessedFileChecksumUpdate','i:0;'),(8,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FilesReplacePermissionUpdate','i:0;'),(9,'installUpdate','TYPO3\\CMS\\Install\\Updates\\TableFlexFormToTtContentFieldsUpdate','i:0;'),(10,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FileListIsStartModuleUpdate','i:0;'),(11,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ContentTypesToTextMediaUpdate','i:0;'),(12,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WorkspacesNotificationSettingsUpdate','i:0;'),(13,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateMediaToAssetsForTextMediaCe','i:1;'),(14,'installUpdate','TYPO3\\CMS\\Install\\Updates\\Compatibility6ExtractionUpdate','i:0;'),(15,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MediaceExtractionUpdate','i:0;'),(16,'installUpdate','TYPO3\\CMS\\Install\\Updates\\OpenidExtractionUpdate','i:0;'),(17,'installUpdate','TYPO3\\CMS\\Install\\Updates\\ExtensionManagerTables','i:0;'),(18,'installUpdate','TYPO3\\CMS\\Install\\Updates\\WizardDoneToRegistry','i:0;'),(19,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BackendUserStartModuleUpdate','i:0;'),(20,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FrontendUserImageUpdateWizard','i:1;'),(21,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DbalAndAdodbExtractionUpdate','i:0;'),(22,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseRowsUpdateWizard','i:0;'),(23,'installUpdate','TYPO3\\CMS\\Install\\Updates\\CommandLineBackendUserRemovalUpdate','i:0;'),(24,'installUpdate','TYPO3\\CMS\\Install\\Updates\\FillTranslationSourceField','i:0;'),(25,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SectionFrameToFrameClassUpdate','i:0;'),(26,'installUpdate','TYPO3\\CMS\\Install\\Updates\\SplitMenusUpdate','i:0;'),(27,'installUpdate','TYPO3\\CMS\\Install\\Updates\\BulletContentElementUpdate','i:0;'),(28,'installUpdate','TYPO3\\CMS\\Install\\Updates\\UploadContentElementUpdate','i:0;'),(29,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateCscStaticTemplateUpdate','i:0;'),(30,'installUpdate','TYPO3\\CMS\\Install\\Updates\\MigrateFscStaticTemplateUpdate','i:1;'),(32,'core','sys_refindex_lastUpdate','i:1489067308;'),(33,'installUpdate','TYPO3\\CMS\\Install\\Updates\\DatabaseCharsetUpdate','i:1;'),(36,'installUpdateRows','rowUpdatersDone','a:2:{i:0;s:52:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\L10nModeUpdater\";i:1;s:53:\"TYPO3\\CMS\\Install\\Updates\\RowUpdater\\ImageCropUpdater\";}'),(37,'extensionDataImport','typo3/sysext/scheduler/ext_tables_static+adt.sql','i:1;'),(38,'extensionDataImport','typo3/sysext/filemetadata/ext_tables_static+adt.sql','i:1;'),(39,'extensionDataImport','typo3conf/ext/gridelements/ext_tables_static+adt.sql','i:1;'),(40,'extensionDataImport','typo3conf/ext/static_info_tables/ext_tables_static+adt.sql','i:1;'),(41,'extensionDataImport','typo3conf/ext/go_maps_ext/ext_tables_static+adt.sql','i:1;'),(42,'extensionDataImport','typo3conf/ext/dyncss/ext_tables_static+adt.sql','i:1;'),(43,'extensionDataImport','typo3conf/ext/dyncss_less/ext_tables_static+adt.sql','i:1;'),(44,'extensionDataImport','typo3conf/ext/news/ext_tables_static+adt.sql','i:1;'),(45,'core','formProtectionSessionToken:1','s:64:\"610783758d7911b44d7f72a17900169daa3b06c28ae3e6a1d244873dbd475fcc\";'),(46,'extensionDataImport','typo3conf/ext/realurl/ext_tables_static+adt.sql','i:1;'),(47,'tx_realurl','updateLevel','i:3;'),(48,'extensionDataImport','typo3conf/ext/seo_basics/ext_tables_static+adt.sql','i:1;'),(49,'extensionDataImport','typo3conf/ext/solr/ext_tables_static+adt.sql','i:1;'),(50,'extensionDataImport','typo3conf/ext/pxa_newsletter_subscription/ext_tables_static+adt.sql','i:1;'),(51,'extensionDataImport','typo3conf/ext/pxa_cookie_bar/ext_tables_static+adt.sql','i:1;');
 /*!40000 ALTER TABLE `sys_registry` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -3029,23 +3023,12 @@ CREATE TABLE `tx_pxacookiebar_domain_model_cookiewarning` (
   `hidden` smallint(5) unsigned NOT NULL DEFAULT '0',
   `starttime` int(10) unsigned NOT NULL DEFAULT '0',
   `endtime` int(10) unsigned NOT NULL DEFAULT '0',
-  `t3ver_oid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_id` int(11) NOT NULL DEFAULT '0',
-  `t3ver_wsid` int(11) NOT NULL DEFAULT '0',
-  `t3ver_label` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `t3ver_state` smallint(6) NOT NULL DEFAULT '0',
-  `t3ver_stage` int(11) NOT NULL DEFAULT '0',
-  `t3ver_count` int(11) NOT NULL DEFAULT '0',
-  `t3ver_tstamp` int(11) NOT NULL DEFAULT '0',
-  `t3ver_move_id` int(11) NOT NULL DEFAULT '0',
   `t3_origuid` int(11) NOT NULL DEFAULT '0',
   `sys_language_uid` int(11) NOT NULL DEFAULT '0',
   `l10n_parent` int(11) NOT NULL DEFAULT '0',
   `l10n_diffsource` mediumblob,
-  `l10n_state` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `parent` (`pid`),
-  KEY `t3ver_oid` (`t3ver_oid`,`t3ver_wsid`),
   KEY `language` (`l10n_parent`,`sys_language_uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -3198,7 +3181,7 @@ CREATE TABLE `tx_rsaauth_keys` (
   `key_value` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`uid`),
   KEY `crdate` (`crdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -3517,7 +3500,7 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-05 11:57:14
+-- Dump completed on 2017-04-20  7:56:55
 -- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: db    Database: t3kit
