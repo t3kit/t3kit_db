@@ -49,6 +49,10 @@ do
 mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
 done
 
+echo "Updating data..."
+# Empty initialized solr servers
+mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "UPDATE sys_registry SET entry_value = '' WHERE entry_namespace = 'tx_solr' AND entry_key = 'servers';" "$DB_DB"
+
 echo "Dumping db..."
 mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"$OUT_FILE"
 
