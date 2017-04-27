@@ -1,4 +1,4 @@
 [client]
 user = root
 password = 1234
-host = db
+host = t3kit_db
