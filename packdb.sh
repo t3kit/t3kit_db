@@ -40,8 +40,12 @@ CLEAR_TABLES=(
     "tx_realurl_uniqalias_cache_map"
     "tx_solr_cache"
     "tx_solr_cache_tags"
+    "tx_solr_indexqueue_item"
+    "tx_solr_last_searches"
+    "tx_realurl_pathdata"
+    "tx_realurl_uniqalias"
+    "tx_realurl_urldata"
 )
-
 
 echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
@@ -52,6 +56,8 @@ done
 echo "Updating data..."
 # Empty initialized solr servers
 mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "UPDATE sys_registry SET entry_value = '' WHERE entry_namespace = 'tx_solr' AND entry_key = 'servers';" "$DB_DB"
+# Empty constants and setup for sys_template 1
+mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "UPDATE sys_template SET constants = '', config = '' WHERE uid = 1;" "$DB_DB"
 
 echo "Dumping db..."
 mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"$OUT_FILE"
