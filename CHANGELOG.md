@@ -1,4 +1,25 @@
 
+#### v2.0.0 `May 3, 2017`
+- **[TASK]** updated pages and content ([3049fb5](https://github.com/t3kit/t3kit_db/commit/3049fb5))
+- **[FIX]** empty constants and config on sys_template:1, empty solr indexqueue, empty realurl tables ([28b6583](https://github.com/t3kit/t3kit_db/commit/28b6583))
+- **[TASK]** Change name to use the new prefix of database container t3kit_ ([9d864f4](https://github.com/t3kit/t3kit_db/commit/9d864f4))
+- **[TASK]** remove indexed solr servers in packdb ([2845e8f](https://github.com/t3kit/t3kit_db/commit/2845e8f))
+- **[TASK]** update pages and content ([2a5d11d](https://github.com/t3kit/t3kit_db/commit/2a5d11d))
+- **[TASK]** update Appearance, Space Before and Space After records in start page ([592dc3c](https://github.com/t3kit/t3kit_db/commit/592dc3c))
+- **[TASK]** import missed parts from t3kit7 db ([6167efa](https://github.com/t3kit/t3kit_db/commit/6167efa))
+- **[TASK]** add template and domain record ([812142a](https://github.com/t3kit/t3kit_db/commit/812142a))
+- **[TASK]** remove seo_basic and t3kit-extension-tools ([af76adb](https://github.com/t3kit/t3kit_db/commit/af76adb))
+- **[TASK]** update scripts with new db (TYPO3 v8.7) ([8460e00](https://github.com/t3kit/t3kit_db/commit/8460e00))
+- **[TASK]** add separate table be_users (be_users.sql) for t3kit ([f687b65](https://github.com/t3kit/t3kit_db/commit/f687b65))
+- **[TASK]** update t3kit db for TYPO3 8.7 LTS ([9bdaab5](https://github.com/t3kit/t3kit_db/commit/9bdaab5))
+- **[TASK]** update packdb.sh (clear solr cache tables) and pack_beusers.sh ([bc50181](https://github.com/t3kit/t3kit_db/commit/bc50181))
+- **[TASK]** update t3kit db - TYPO3 8 ([be8c3de](https://github.com/t3kit/t3kit_db/commit/be8c3de))
+- **[TASK]** modify t3kit setup/restore/pack scripts ([fe0eaea](https://github.com/t3kit/t3kit_db/commit/fe0eaea))
+- **[TASK]** add composer.json conf. ([b2012d0](https://github.com/t3kit/t3kit_db/commit/b2012d0))
+- **[TASK]** update setupdb and restoredb scripts ([bf55902](https://github.com/t3kit/t3kit_db/commit/bf55902))
+
+***
+
 #### v0.6.0 `February 20, 2017`
 - **[FEATURE]** add new page with HeroImage elem. examples ([d79d000](https://github.com/t3kit/t3kit_db/commit/d79d000))
 - **[TASK]** update db - t3kit_extension_tools, fixed post vars ([98ed005](https://github.com/t3kit/t3kit_db/commit/98ed005))
