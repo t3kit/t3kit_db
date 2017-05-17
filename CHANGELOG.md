@@ -1,4 +1,17 @@
 
+#### v2.1.0 `May 17, 2017`
+- **[TASK]** db compare, add cs_seo and remove seo_basics, add static include for frontend_editing and cs_seo (#12) ([6d7c843](https://github.com/t3kit/t3kit_db.git/commit/6d7c843))
+- **[TASK]** add new page example with updated content elements(Hero Image, image text and link) ([a61c505](https://github.com/t3kit/t3kit_db.git/commit/a61c505))
+- **[TASK]** update text content examples ([4af6da3](https://github.com/t3kit/t3kit_db.git/commit/4af6da3))
+- **[TASK]** update header content examples ([a688fe5](https://github.com/t3kit/t3kit_db.git/commit/a688fe5))
+- **[TASK]** update table content examples ([ded4484](https://github.com/t3kit/t3kit_db.git/commit/ded4484))
+- **[TASK]** update footer content structure ([9356fb7](https://github.com/t3kit/t3kit_db.git/commit/9356fb7))
+- **[TASK]** add new wrappers main-color and large-text ([2d7007b](https://github.com/t3kit/t3kit_db.git/commit/2d7007b))
+- **[DOC]** update README file, add info about t3kit_db scripts ([66c4899](https://github.com/t3kit/t3kit_db.git/commit/66c4899))
+- **[TASK]** remove unneeded/outdated db ([a45997a](https://github.com/t3kit/t3kit_db.git/commit/a45997a))
+
+***
+
 #### v2.0.0 `May 3, 2017`
 - **[TASK]** updated pages and content ([3049fb5](https://github.com/t3kit/t3kit_db/commit/3049fb5))
 - **[FIX]** empty constants and config on sys_template:1, empty solr indexqueue, empty realurl tables ([28b6583](https://github.com/t3kit/t3kit_db/commit/28b6583))
