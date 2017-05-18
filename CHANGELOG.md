@@ -1,4 +1,9 @@
 
+#### v2.2.0 `May 18, 2017`
+- **[TASK]** add new page example ([1629994](https://github.com/t3kit/t3kit_db.git/commit/1629994))
+
+***
+
 #### v2.1.0 `May 17, 2017`
 - **[TASK]** db compare, add cs_seo and remove seo_basics, add static include for frontend_editing and cs_seo (#12) ([6d7c843](https://github.com/t3kit/t3kit_db.git/commit/6d7c843))
 - **[TASK]** add new page example with updated content elements(Hero Image, image text and link) ([a61c505](https://github.com/t3kit/t3kit_db.git/commit/a61c505))
