@@ -1,4 +1,14 @@
 
+#### v2.3.0 `June 9, 2017`
+- **[TASK]** update reference index for t3kit db ([aec6b2e](https://github.com/t3kit/t3kit_db.git/commit/aec6b2e))
+- **[TASK]** add dashboard tables, updates for news version 6 (#14) ([eda224b](https://github.com/t3kit/t3kit_db.git/commit/eda224b))
+- **[TASK]** example page 3, change images ([db6926d](https://github.com/t3kit/t3kit_db.git/commit/db6926d))
+- **[TASK]** change images in example page 3 ([87cb711](https://github.com/t3kit/t3kit_db.git/commit/87cb711))
+- **[TASK]** add new page example ([281d331](https://github.com/t3kit/t3kit_db.git/commit/281d331))
+- **[BUGFIX]** Add default value to field in table ([addf296](https://github.com/t3kit/t3kit_db.git/commit/addf296))
+
+***
+
 #### v2.2.0 `May 18, 2017`
 - **[TASK]** add new page example ([1629994](https://github.com/t3kit/t3kit_db.git/commit/1629994))
 
