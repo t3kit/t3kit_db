@@ -45,6 +45,7 @@ CLEAR_TABLES=(
     "tx_realurl_pathdata"
     "tx_realurl_uniqalias"
     "tx_realurl_urldata"
+    "tx_csseo_domain_model_evaluation"
 )
 
 echo "Clearing tables...";
