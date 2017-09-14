@@ -1,4 +1,12 @@
 
+#### v2.4.0 `September 14, 2017`
+- **[DOC]** update README, move t3kit 7 info to the bottom ([c7c0efa](https://github.com/t3kit/t3kit_db.git/commit/c7c0efa))
+- **[TASK]** update database ([f308449](https://github.com/t3kit/t3kit_db.git/commit/f308449))
+- **[TASK]** include tx_csseo_domain_model_evaluation in 'clear tables' list ([6db7429](https://github.com/t3kit/t3kit_db.git/commit/6db7429))
+- **[TASK]** update backend user groups access right (#15) ([1f9f6d3](https://github.com/t3kit/t3kit_db.git/commit/1f9f6d3))
+
+***
+
 #### v2.3.0 `June 9, 2017`
 - **[TASK]** update reference index for t3kit db ([aec6b2e](https://github.com/t3kit/t3kit_db.git/commit/aec6b2e))
 - **[TASK]** add dashboard tables, updates for news version 6 (#14) ([eda224b](https://github.com/t3kit/t3kit_db.git/commit/eda224b))
