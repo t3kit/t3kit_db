@@ -1,4 +1,9 @@
 
+#### v2.5.0 `November 3, 2017`
+- **[TASK]** update db with database analyzer ([2f1ed3f](https://github.com/t3kit/t3kit_db.git/commit/2f1ed3f))
+
+***
+
 #### v2.4.0 `September 14, 2017`
 - **[DOC]** update README, move t3kit 7 info to the bottom ([c7c0efa](https://github.com/t3kit/t3kit_db.git/commit/c7c0efa))
 - **[TASK]** update database ([f308449](https://github.com/t3kit/t3kit_db.git/commit/f308449))
