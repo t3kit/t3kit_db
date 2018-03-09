@@ -1,5 +1,4 @@
 #!/bin/bash
 
-DATABASE="t3kit"
-
-mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DATABASE" be_users > /t3kit_db/be_users.sql
+mysqldump -uroot -p $DB_ROOT_PASSWORD -h $DB_CONTAINER_NAME "$DB_NAME" be_users > /var/www/html/vendor/t3kit/db/be_users.sql
+echo "Done"

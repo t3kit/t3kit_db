@@ -1,5 +1,4 @@
 #!/bin/bash
-DB_DB="t3kit"
 OUT_FILE=${1:-"t3kit8.sql"}
 
 CLEAR_TABLES=(
@@ -51,19 +50,20 @@ CLEAR_TABLES=(
 echo "Clearing tables...";
 for TABLE in "${CLEAR_TABLES[@]}"
 do
-mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "TRUNCATE TABLE ${TABLE}" "$DB_DB"
+mysql -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME -e "TRUNCATE TABLE ${TABLE}" "$DB_NAME"
 done
 
 echo "Updating data..."
 # Empty initialized solr servers
-mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "UPDATE sys_registry SET entry_value = '' WHERE entry_namespace = 'tx_solr' AND entry_key = 'servers';" "$DB_DB"
+mysql -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME -e "UPDATE sys_registry SET entry_value = '' WHERE entry_namespace = 'tx_solr' AND entry_key = 'servers';" "$DB_NAME"
 # Empty constants and setup for sys_template 1
-mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "UPDATE sys_template SET constants = '', config = '' WHERE uid = 1;" "$DB_DB"
+mysql -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME -e "UPDATE sys_template SET constants = '', config = '' WHERE uid = 1;" "$DB_NAME"
 
 echo "Dumping db..."
-mysqldump --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf "$DB_DB" > /t3kit_db/"$OUT_FILE"
+mysqldump -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME "$DB_NAME" > /var/www/html/vendor/t3kit/db/"$OUT_FILE"
 
 echo "Output in ${OUT_FILE}"
 
 echo "Merge be_users.sql dump, must include admin user with password admin1234"
-cat /t3kit_db/be_users.sql >> "/t3kit_db/${OUT_FILE}"
+cat /var/www/html/vendor/t3kit/db/be_users.sql >> "/var/www/html/vendor/t3kit/db/${OUT_FILE}"
+echo "Done"

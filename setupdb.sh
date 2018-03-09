@@ -1,8 +1,7 @@
 #!/bin/bash
 
-DATABASE="t3kit"
-
 # Create new database
-echo "Creating DB $DATABASE ..."
-mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf -e "ALTER DATABASE $DATABASE CHARACTER SET utf8 COLLATE utf8_general_ci;"
-mysql --defaults-extra-file=/t3kit_db/t3kit-mysql.cnf $DATABASE < /t3kit_db/t3kit8.sql
+echo "Creating DB $DB_NAME ..."
+mysql -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME -e "ALTER DATABASE $DB_NAME CHARACTER SET utf8 COLLATE utf8_general_ci;"
+mysql -uroot -p$DB_ROOT_PASSWORD -h$DB_CONTAINER_NAME $DB_NAME < /var/www/html/vendor/t3kit/db/t3kit8.sql
+echo "Done"
