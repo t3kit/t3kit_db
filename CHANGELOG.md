@@ -1,4 +1,13 @@
 
+#### v2.6.0 `March 16, 2018`
+- **[TASK]** remove special classes for footer, fix #17 ([b23ed80](https://github.com/t3kit/t3kit_db.git/commit/b23ed80))
+- **[TASK]** update db with updated t3kit dependencies ([f94c34d](https://github.com/t3kit/t3kit_db.git/commit/f94c34d))
+
+:heavy_exclamation_mark:**Breaking Changes:**
+- **[!!!]** **[TASK]** use docker .env in mysql scripts instead of .cnf file ([57552fa](https://github.com/t3kit/t3kit_db.git/commit/57552fa))
+
+***
+
 #### v2.5.0 `November 3, 2017`
 - **[TASK]** update db with database analyzer ([2f1ed3f](https://github.com/t3kit/t3kit_db.git/commit/2f1ed3f))
 
