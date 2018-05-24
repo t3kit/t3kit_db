@@ -1,4 +1,11 @@
 
+#### v2.7.0 `May 24, 2018`
+- **[TASK]** update DB, update TYPO3 and pxacookiebar ([72860f9](https://github.com/t3kit/t3kit_db/commit/72860f9))
+- **[BUGFIX]** update solr 'Index Queue Worker' task ([0a4027c](https://github.com/t3kit/t3kit_db/commit/0a4027c))
+- **[TASK]** update DB, enable sys_action ext ([f814087](https://github.com/t3kit/t3kit_db/commit/f814087))
+
+***
+
 #### v2.6.0 `March 16, 2018`
 - **[TASK]** remove special classes for footer, fix #17 ([b23ed80](https://github.com/t3kit/t3kit_db.git/commit/b23ed80))
 - **[TASK]** update db with updated t3kit dependencies ([f94c34d](https://github.com/t3kit/t3kit_db.git/commit/f94c34d))
