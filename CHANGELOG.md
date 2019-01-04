@@ -1,4 +1,17 @@
 
+#### v2.8.0 `January 4, 2019`
+
+- **[TASK]** upgrade wizard, introduce URL parts ("slugs") to all sys_categories ([43b6ad9](https://github.com/t3kit/t3kit_db/commit/43b6ad9))
+- **[TASK]** add cs_seo ([e490272](https://github.com/t3kit/t3kit_db/commit/e490272))
+- **[TASK]** remove realurl ([83412cc](https://github.com/t3kit/t3kit_db/commit/83412cc))
+- **[TASK]** update DB with recent changes in news, gomapsext and urlforwarding ext-s. ([d58aa59](https://github.com/t3kit/t3kit_db/commit/d58aa59))
+- **[TASK]** update db with new News extension ([83c60bc](https://github.com/t3kit/t3kit_db/commit/83c60bc))
+- **[TASK]** update db with go_maps_ext ([d7b9a63](https://github.com/t3kit/t3kit_db/commit/d7b9a63))
+- **[TASK]** update t3kit db with new gridelements and themes ext-s ([b218cb7](https://github.com/t3kit/t3kit_db/commit/b218cb7))
+- **[TASK]** update t3kit8.sql with upgrade wizard changes ([aa3eaa6](https://github.com/t3kit/t3kit_db/commit/aa3eaa6))
+
+***
+
 #### v2.7.0 `May 24, 2018`
 - **[TASK]** update DB, update TYPO3 and pxacookiebar ([72860f9](https://github.com/t3kit/t3kit_db/commit/72860f9))
 - **[BUGFIX]** update solr 'Index Queue Worker' task ([0a4027c](https://github.com/t3kit/t3kit_db/commit/0a4027c))
