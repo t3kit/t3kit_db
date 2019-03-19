@@ -1,4 +1,15 @@
 
+#### v2.9.0 `March 19, 2019`
+
+- **[TASK]** include static templ. Gridelements w/DataProcessing ([cbf8a98](https://github.com/t3kit/t3kit_db/commit/cbf8a98))
+- **[TASK]** update news content to use new route configuration ([78e30b0](https://github.com/t3kit/t3kit_db/commit/78e30b0))
+- **[TASK]** no_index=1 for 404 and search pages fix#19 ([79e19e4](https://github.com/t3kit/t3kit_db/commit/79e19e4))
+- **[BUGFIX]** fix pack_beusers.sh script ([c854fc8](https://github.com/t3kit/t3kit_db/commit/c854fc8))
+- **[TASK]** update be_users DB table ([05797c5](https://github.com/t3kit/t3kit_db/commit/05797c5))
+- **[TASK]** add Solr Base Configuration template ([8a0c874](https://github.com/t3kit/t3kit_db/commit/8a0c874))
+
+***
+
 #### v2.8.0 `January 4, 2019`
 
 - **[TASK]** upgrade wizard, introduce URL parts ("slugs") to all sys_categories ([43b6ad9](https://github.com/t3kit/t3kit_db/commit/43b6ad9))
