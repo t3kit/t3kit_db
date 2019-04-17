@@ -1,4 +1,12 @@
 
+#### v2.10.0 `April 17, 2019`
+
+- **[TASK]** drop table tx_rsaauth_keys ([437e90c](https://github.com/t3kit/t3kit_db/commit/437e90c))
+- **[TASK]** include XML Sitemap (seo) static config for sitemap generation ([17d290c](https://github.com/t3kit/t3kit_db/commit/17d290c))
+- **[TASK]** add new scheduler task for Solr ext. ([a9464fb](https://github.com/t3kit/t3kit_db/commit/a9464fb))
+
+***
+
 #### v2.9.0 `March 19, 2019`
 
 - **[TASK]** include static templ. Gridelements w/DataProcessing ([cbf8a98](https://github.com/t3kit/t3kit_db/commit/cbf8a98))
