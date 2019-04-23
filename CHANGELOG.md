@@ -1,4 +1,10 @@
 
+#### v2.10.1 `April 23, 2019`
+
+- **[BUGFIX]** enable Transl.Orig for Pages for BE user-group Language layers ([14ead36](https://github.com/t3kit/t3kit_db/commit/14ead36))
+
+***
+
 #### v2.10.0 `April 17, 2019`
 
 - **[TASK]** drop table tx_rsaauth_keys ([437e90c](https://github.com/t3kit/t3kit_db/commit/437e90c))
