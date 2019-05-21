@@ -1,4 +1,10 @@
 
+#### v2.10.2 `May 21, 2019`
+
+- **[BUGFIX]** fix grid wrapper for login form ([71f15d0](https://github.com/t3kit/t3kit_db/commit/71f15d0))
+
+***
+
 #### v2.10.1 `April 23, 2019`
 
 - **[BUGFIX]** enable Transl.Orig for Pages for BE user-group Language layers ([14ead36](https://github.com/t3kit/t3kit_db/commit/14ead36))
